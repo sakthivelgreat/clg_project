@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <div id="wrapper2">
+                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h3>Visualization Tools:</h3>
+                <a href="mesure test/linechart.html">LINE CHART</a>
+                <a href="">SIMPLE BAR DIAGRAM</a>
+                <a href="">SUBDIVIDED BAR DIAGRAM</a>
+                <a href="">PIE - DIAGRAM</a>
+                <a href="">HISTOGRAM</a>
+                <a href=""> BOX PLOT</a>
+                <h3>measures of central tendency</h3>
+                <a href="mean.html">mean</a>
+                <a href="median.html">median</a>
+                <a href="mode.html">mode</a>
+                <a href="geometric_mean.html">geometric mean</a>
+                <a href="harmonic_mean.html">harmonic mean</a>
+                <h3>measures of dispersion</h3>
+                <a href="range.html">range</a>
+                <a href="mean_deviation.html">mean deviation</a>
+                <a href="quartile_deviation.html">quartile deviation</a>
+                <a href="standard deviation.html">standard deviation</a>
+                <a href="co_of_variation.html">coefficient of variation</a> 
+                <a href="skewness_and_kurtusis.html">skewness and kurtusis</a>
+                <h3>DISTRIBUTION  THEORY</h3>
+                <a href="binomial _distribution.html">BINOMIAL DISTRIBUTION</a>
+                <a href="poission_distribution.html">PIOSSION DISTRIBUTION</a>
+                <a href="normal _distribution.html">NORMAL DISTRIBUTION</a>
+                <a href="exponential_distribution.html">EXPONENTIAL DISTRIBUTION</a>
+                <h3>Correlation Analysis:</h3>
+                <a href="correlation.html">Correlation </a>
+                <h3>Regression Analysis:</h3>
+                <a href="regression .html">Regression</a>
+                <h3>Simple Random Sampling</h3>
+                <a href="SimpleRandomSampling.html">SRSWOR</a>
+                <a href="SimpleRandomSampling2.html">SRSWR</a>
+                <h3>Inferential Statistics:</h3>
+                <a href="">Confidence Interval for Mean</a>
+                <a href="">Confidence Interval for proportion</a>
+                <h3>Hypothesis Testing:</h3>
+                <a href="">Z-test</a>
+                <a href="">t-test</a>
+                <a href="">Chi-Square Test</a>
+                <a href="">ANOVA</a>
+                <h3>Experimental De1sign:</h3>
+                <a href="">CRD</a
+                <a href="">RBD</a>
+                <a href="">LSD</a>
+                <h3>SQL(Statistical Quality Control)</h3>
+                <a href="">X-bar chart</a>
+                <a href="">R chart</a>
+                <a href="">S chart</a>
+                <h4> Attributes</h4>
+                <a href="">p chart</a>
+                <a href="">np</a>
+
+            </div>
+
+            
+
+        </nav>
+    </div>
+    <div class="mainbox2">
+        <h1>CORRELATION :-</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>CORRELATION COEFFICIENT <br> (karl pearsons correlation coefficient) :-</h3>
+                <label for="input-x">enter x variable data:<input type="text" id="input-x" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="input-y">enter y variable data:<input type="text" id="input-y" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                
+                <button  id="median" type="button"  onclick="corr()">CORRELATION</button>
+                <div id="result">
+    
+                </div>
+            </div>    
+            <div><img src="clg_photes/median int.png" alt=""  style="width:250px; height: 250px;" ></div>
+        </div>    
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>RANK CORRELATION COEFFICIENT (spearman rank correlation):-</h3>
+                <label for="input-x">enter x variable data:<input type="text" id="input1-x" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="input-y">enter y variable data:<input type="text" id="input1-y" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                
+                <button  id="rank_corr" type="button"  onclick="rank_corr()">CORRELATION</button>
+                <div id="result1">
+    
+                </div>
+               
+            </div>
+            <div><img src="clg_photes/median dis.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+        <br>
+    
+    </div>     
+   </div>
+   
+    <style>
+        #block1{
+            display: flex;
+        }
+        #block2{
+            display: flex;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        img{
+                position: relative;
+                top: 50px;
+                left: 50px;
+                border-radius: 9px;
+
+        }
+        button{
+            position: relative;
+            left: 80px;
+        }
+        a:focus{
+            background-color: #04AA6D !important;
+        }
+     
+    </style>
+    <script> 
+        function corr(){
+            const x_data =document.getElementById("input-x").value;
+            const y_data =document.getElementById("input-y").value;
+            const x_values= x_data .split(",").map(Number);
+            const y_values= y_data.split(",").map(Number);
+            if (x_values.length !== y_values.length) {
+                alert("Error: The arrays 'x' and 'f' must have the same length.");
+                return;
+            }
+            const N = x_values.length;
+            const x = sum(x_values);
+            const y = sum(y_values);
+            const xy =sumxy(x_values,y_values);
+            const x2 = sumxsqu(x_values);
+            const y2 = sumxsqu(y_values);
+            const corr = ((N * xy) - (x * y)) / ((Math.sqrt((N * x2) - (x ** 2))) * Math.sqrt((N * y2) - (y ** 2)));        
+            let result = document.getElementById("result");
+            result.innerHTML = "N="+N +
+            "<br> x_total="+x+
+            "<br> y_total="+y+
+            "<br> xy_total="+xy+
+            "<br> x2_total="+x2+
+            "<br> y2_total="+y2+
+            "<br>Your result is the mean value: " + corr.toFixed(4);
+
+            // correlation function  all method  define it .
+            function sum(array){
+                return array.reduce((acc,val)=> acc+val,0);
+            }
+            function sumxy(arrey1,array2){
+                return arrey1.reduce((acc,val,index)=> acc +(val*array2[index]),0);
+            }
+            function sumxsqu(array){
+                return array.reduce((acc,val)=> acc +(val**2),0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 );                                        
+            }
+        
+        };
+        function rank_corr() {
+            let x_values = document.getElementById("input1-x").value.split(",").map(Number);
+            let y_values = document.getElementById("input1-y").value.split(",").map(Number);
+
+            if (x_values.length !== y_values.length) {
+                alert("Sorry! x_values and y_values do not have equal length. Please check.");
+                return;
+            }
+
+            let rank_x = getRanks(x_values);
+            let rank_y = getRanks(y_values);
+
+            let n = x_values.length;
+            let D = 0;
+
+            for (let i = 0; i < n; i++) {
+                D += Math.pow(rank_x[i] - rank_y[i], 2);
+            }
+
+            let rank_corr = 1 - ((6 * D) / (n * (Math.pow(n, 2) - 1)));
+            let P_N ="";
+            let rankk ="";
+            if (rank_corr < 0) {
+            P_N = "negative";
+            } else {
+                P_N = "positive";
+            }
+            if (Math.abs(rank_corr) < 0.5) {
+                rankk = "low";
+            } else {
+                rankk = "high";
+            }
+            document.getElementById("result1").innerText = "Rank Correlation Coefficient: " + rank_corr.toFixed(2)+"   "+ rankk+"   "+P_N;
+            // the rank correlation  define  function in array rank range 
+            function getRanks(arr) {
+            let sortedArr = arr.slice().sort((a, b) => a - b);
+            return arr.map(num => sortedArr.indexOf(num) + 1);
+        }
+        
+        }
+
+        
+    </script>    
+    
+</body>
+</html>

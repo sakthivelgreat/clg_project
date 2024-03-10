@@ -1,0 +1,80 @@
+/* #092635 --- #1B4242 ---#5C8374 ---#9EC8B9*/
+body {
+    display: flex;
+    background-color: #6c9485;
+    height: 100vh;
+    margin: 0;
+}
+
+#wrapper div, #wrfapper h2{
+    display: flex;
+    flex-direction: column;
+}
+
+h3{
+    font-size: 21px;
+    color:rgb(47, 13, 80);
+}
+#wrapper {
+    position: relative;
+    width: 250px;
+    background-color: #346b6b;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y:auto;
+    color: white;
+}
+#result{
+    color: white;
+    font-weight: 800;
+}
+#result1{
+    color: white;
+}
+#result2{
+    color: white;
+    font-weight: 800;
+}
+#result3{
+    color: white;
+    font-weight: 800;
+}
+a{
+    color: black;
+    font-weight:bold;
+    text-decoration: none;
+    text-align: justify;
+    height:30px;
+    width: 100%;
+}
+a:hover{
+    color: rgb(5, 4, 4);
+    background-color:#285e5e;
+   
+}
+.mainbox2{
+    position: relative;
+    background-color: #6c9485;
+    height: auto;
+    width: 1000px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+input{
+    font-size: 23px;
+}
+label{
+    font-size: 22px;
+}
+button{
+    margin-top: 20px;
+    border-radius: 4px;
+    height: 44px;
+    font-weight: 600;
+    padding: 0 30px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: #ffeba7;
+    color: #102770;
+}

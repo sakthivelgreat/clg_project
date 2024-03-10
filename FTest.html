@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-test Calculator</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div class="mainbox2">
+        <h1>F-test Calculator</h1>
+        <div id="block1">
+            <div id="problem4">
+                <label for="x_values">Enter values for sample x (comma-separated):</label>
+                <input type="text" id="x_values" placeholder="e.g., 16,17,25,26,32,34,38,40,42">
+                <label for="y_values">Enter values for sample y (comma-separated):</label>
+                <input type="text" id="y_values" placeholder="e.g., 600,590,590,630,610,630">
+                <button onclick="performFTest()">Calculate F-test</button>
+                <div id="problem4_result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function performFTest() {
+            const xValues = document.getElementById("x_values").value.split(",").map(Number);
+            const yValues = document.getElementById("y_values").value.split(",").map(Number);
+            const result = varTest(xValues, yValues);
+            document.getElementById("problem4_result").innerHTML = `
+                <p>Result of F-test:</p>
+                <p>Statistic: ${result.statistic.toFixed(5)}</p>
+                <p>Degrees of Freedom: ${result.parameter[0]}, ${result.parameter[1]}</p>
+                <p>p-value: ${result.pValue.toFixed(5)}</p>
+                <p>Confidence Interval for the ratio of population variances: [${result.confidenceInterval[0].toFixed(5)}, ${result.confidenceInterval[1].toFixed(5)}]</p>
+                <p>Estimate of the ratio of sample variances: ${result.estimate.toFixed(5)}</p>
+                <p>Null Hypothesis: The ratio of population variances is ${result.nullValue}</p>
+                <p>Alternative Hypothesis: ${result.alternative}</p>
+                <p>Method: ${result.method}</p>
+                <p>Data: Sample x and Sample y</p>
+            `;
+        }
+
+        function varTest(xValues, yValues) {
+            const xVariance = calculateVariance(xValues);
+            const yVariance = calculateVariance(yValues);
+            const ratio = xVariance / yVariance;
+            const n1 = xValues.length;
+            const n2 = yValues.length;
+            const dof1 = n1 - 1;
+            const dof2 = n2 - 1;
+            const statistic = xVariance / yVariance;
+            const pValue = pf(statistic, dof1, dof2);
+            const criticalValue1 = qf(0.025, dof1, dof2);
+            const criticalValue2 = qf(0.975, dof1, dof2);
+            const confidenceInterval = [1 / criticalValue1 * ratio, criticalValue2 * ratio];
+            
+            return {
+                statistic: statistic,
+                parameter: [dof1, dof2],
+                pValue: pValue,
+                confidenceInterval: confidenceInterval,
+                estimate: ratio,
+                nullValue: ratio,
+                alternative: "The variances are not equal",
+                method: "F test to compare two variances",
+                dataName: "Sample x and Sample y"
+            };
+        }
+
+        function calculateVariance(values) {
+            const mean = values.reduce((acc, val) => acc + val, 0) / values.length;
+            const variance = values.reduce((acc, val) => acc + Math.pow(val - mean, 2), 0) / (values.length - 1);
+            return variance;
+        }
+
+        // Functions for F-distribution
+        function pf(q, df1, df2) {
+            return betainc(df1 * q / (df1 * q + df2), df1 / 2, df2 / 2);
+        }
+
+        function qf(p, df1, df2) {
+            const x = betaincinv(p, df1 / 2, df2 / 2);
+            return df2 * (1 - x) / (x * df1);
+        }
+
+        // Incomplete beta function (regularized)
+        function betainc(x, a, b) {
+            const bt = (x === 0 || x === 1) ? 0 : Math.exp(gammln(a + b) - gammln(a) - gammln(b) + a * Math.log(x) + b * Math.log(1 - x));
+            if (x < (a + 1) / (a + b + 2)) return bt * betacf(a, b, x) / a;
+            else return 1 - bt * betacf(b, a, 1 - x) / b;
+        }
+
+        // Incomplete beta function inverse (binary search)
+        function betaincinv(p, a, b) {
+            let EPS = 1e-8;
+            let a1 = 0;
+            let b1 = 1;
+            let x = a / (a + b);
+            while (b1 - a1 > EPS) {
+                const t = betainc(x, a, b);
+                if (t < p) a1 = x;
+                else b1 = x;
+                x = (a1 + b1) / 2;
+            }
+            return x;
+        }
+
+        // Logarithm of gamma function
+        function gammln(xx) {
+            const cof = [76.18009172947146, -86.50532032941677, 24.01409824083091, -1.231739572450155, 0.1208650973866179e-2, -0.5395239384953e-5];
+            let y, x, tmp, ser;
+            y = xx;
+            tmp = xx + 5.5;
+            tmp -= (xx + 0.5) * Math.log(tmp);
+            ser = 1.000000000190015;
+            for (let j = 0; j <= 5; j++) ser += cof[j] / ++y;
+            return -tmp + Math.log(2.5066282746310005 * ser / xx);
+        }
+
+        // Continued fraction for incomplete beta function
+        function betacf(a, b, x) {
+            const MAXIT = 100;
+            const EPS = 3.0e-7;
+            const FPMIN = 1.0e-30;
+            let m, m2, aa, c, d, del, h, qab, qam, qap;
+            qab = a + b;
+            qap = a + 1;
+            qam = a - 1;
+            c = 1;
+            d = 1 - qab * x / qap;
+            if (Math.abs(d) < FPMIN) d = FPMIN;
+            d = 1 / d;
+            h = d;
+            for (m = 1; m <= MAXIT; m++) {
+                m2 = 2 * m;
+                aa = m * (b - m) * x / ((qam + m2) * (a + m2));
+                d = 1 + aa * d;
+                if (Math.abs(d) < FPMIN) d = FPMIN;
+                c = 1 + aa / c;
+                if (Math.abs(c) < FPMIN) c = FPMIN;
+                d = 1 / d;
+                h *= d * c;
+                aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2));
+                d = 1 + aa * d;
+                if (Math.abs(d) < FPMIN) d = FPMIN;
+                c = 1 + aa / c;
+                if (Math.abs(c) < FPMIN) c = FPMIN;
+                d = 1 / d;
+                del = d * c;
+                h *= del;
+                if (Math.abs(del - 1) < EPS) break;
+            }
+            return h;
+        }
+    </script>
+
+    <style>
+        .mainbox2 {
+            margin: 20px;
+            font-size: medium;
+        }
+
+        #block1 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #problem4 {
+            padding: 20px;
+            background-color: #72a793;
+            border-radius: 8px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            width: 60%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 60%;
+            height: 100px;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</body>
+</html>

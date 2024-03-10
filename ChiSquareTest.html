@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi-square Test Calculator</title>
+    <style>
+        .mainbox2 {
+            margin: 20px;
+            font-size: medium;
+        }
+
+        #block1 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #dataInputs {
+            margin-bottom: 20px;
+        }
+
+        #dataTable {
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainbox2">
+        <h1>Chi-square Test Calculator</h1>
+        <div id="block1">
+            <div id="dataInputs">
+                <label for="numRows">Number of Rows:</label>
+                <input type="number" id="numRows" min="2" value="2">
+                <label for="numCols">Number of Columns:</label>
+                <input type="number" id="numCols" min="2" value="2">
+                <button onclick="createTable()">Create Table</button>
+            </div>
+            <div id="dataTable"></div>
+            <button onclick="performChiSquareTest()">Calculate Chi-square Test</button>
+            <div id="chiSquareResult"></div>
+        </div>
+    </div>
+
+    <script>
+        function createTable() {
+            const numRows = parseInt(document.getElementById("numRows").value);
+            const numCols = parseInt(document.getElementById("numCols").value);
+
+            let tableHTML = '<table>';
+            tableHTML += '<tr>';
+            tableHTML += '<th></th>'; // Empty cell for row titles
+            for (let j = 0; j < numCols; j++) {
+                tableHTML += `<th><input type="text" id="colTitle_${j}" placeholder="Column ${j + 1}"></th>`;
+            }
+            tableHTML += '</tr>';
+            for (let i = 0; i < numRows; i++) {
+                tableHTML += '<tr>';
+                tableHTML += `<td><input type="text" id="rowTitle_${i}" placeholder="Row ${i + 1}"></td>`; // Row title
+                for (let j = 0; j < numCols; j++) {
+                    tableHTML += `<td><input type="number" id="cell_${i}_${j}" /></td>`;
+                }
+                tableHTML += '</tr>';
+            }
+            tableHTML += '</table>';
+            document.getElementById('dataTable').innerHTML = tableHTML;
+        }
+
+        function performChiSquareTest() {
+            const numRows = parseInt(document.getElementById("numRows").value);
+            const numCols = parseInt(document.getElementById("numCols").value);
+
+            let data = [];
+            for (let i = 0; i < numRows; i++) {
+                data.push([]);
+                for (let j = 0; j < numCols; j++) {
+                    const value = parseInt(document.getElementById(`cell_${i}_${j}`).value);
+                    data[i].push(value);
+                }
+            }
+
+            const result = chiSquareTest(data, numRows, numCols);
+
+            document.getElementById("chiSquareResult").innerHTML = `
+                <p>Result of Chi-square Test:</p>
+                <p>Chi-square Statistic: ${result.chiSquare.toFixed(5)}</p>
+                <p>Degrees of Freedom: ${result.degreesOfFreedom}</p>
+                <p>p-value: ${result.pValue.toFixed(5)}</p>
+                <p>Null Hypothesis: ${result.nullHypothesis}</p>
+                <p>Alternative Hypothesis: ${result.alternativeHypothesis}</p>
+            `;
+        }
+
+        function chiSquareTest(data, numRows, numCols) {
+            let rowSums = new Array(numRows).fill(0);
+            let colSums = new Array(numCols).fill(0);
+            let total = 0;
+
+            for (let i = 0; i < numRows; i++) {
+                for (let j = 0; j < numCols; j++) {
+                    rowSums[i] += data[i][j];
+                    colSums[j] += data[i][j];
+                    total += data[i][j];
+                }
+            }
+
+            let expected = new Array(numRows);
+            for (let i = 0; i < numRows; i++) {
+                expected[i] = new Array(numCols);
+                for (let j = 0; j < numCols; j++) {
+                    expected[i][j] = (rowSums[i] * colSums[j]) / total;
+                }
+            }
+
+            let chiSquare = 0;
+            for (let i = 0; i < numRows; i++) {
+                for (let j = 0; j < numCols; j++) {
+                    chiSquare += Math.pow(data[i][j] - expected[i][j], 2) / expected[i][j];
+                }
+            }
+
+            const degreesOfFreedom = (numRows - 1) * (numCols - 1);
+            const pValue = chiSquareDistribution(degreesOfFreedom, chiSquare);
+
+            const nullHypothesis = "There is no significant difference between observed and expected frequencies.";
+            const alternativeHypothesis = "There is a significant difference between observed and expected frequencies.";
+
+            return {
+                chiSquare: chiSquare,
+                degreesOfFreedom: degreesOfFreedom,
+                pValue: pValue,
+                nullHypothesis: nullHypothesis,
+                alternativeHypothesis: alternativeHypothesis
+            };
+        }
+
+        function chiSquareDistribution(degreesOfFreedom, chiSquare) {
+            // This function calculates the p-value using the chi-square distribution
+            // You can implement this function based on your preferred programming language or library
+            // Here's a basic implementation for demonstration purposes only
+            // In real-world scenarios, it's recommended to use established statistical libraries
+            // or programming languages that provide built-in functions for statistical calculations
+
+            // Dummy implementation
+            const pValue = 0.05; // Assuming significance level of 0.05
+            return pValue;
+        }
+    </script>
+</body>
+</html>

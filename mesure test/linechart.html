@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <div id="wrapper2">
+                <h3>measures of central tendency</h3>
+                <a href="mean.html">mean</a>
+                <a href="median.html">median</a>
+                <a href="mode.html">mode</a>
+                <a href="geometric_mean.html">geometric mean</a>
+                <a href="harmonic_mean.html">harmonic mean</a>
+                <h3>measures of dispersion</h3>
+                <a href="range.html">range</a>
+                <a href="">coefficient of range</a>
+                <a href="mean_deviation.html">mean deviation</a>
+                <a href="">coefficient of mean deviation</a>
+                <a href="quartile_deviation.html">quartile deviation</a>
+                <a href="">coefficient of  quartile deviation</a>
+                <a href="standard deviation.html">standard deviation</a>
+                <a href="co_of_variation.html">coefficient of variation</a> 
+                <a href="skewness_and_kurtusis.html">skewness and kurtusis</a>
+                <h3>graphic method</h3>
+                <a href="mesure test/linechart.html">LINE CHART</a>
+
+            </div>
+
+            
+
+        </nav>
+    </div>
+    <div class="mainbox2">
+        <h1>MEAN:-</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>inditurval  data :-</h3>
+                <label for="input">enter you data<input type="text" id="input" name="input" placeholder='ex: "23,24,23,24,25,24,23"'>
+                </label>
+                <br>
+                <button  id="mean" type="button"  onclick="mean()"> MEAN</button>
+                <div id="result">
+    
+                </div>
+            </div>    
+            <div><img src="clg_photes/Screenshot from 2023-12-24 09-16-04.png" alt=""  style="width:250px; height: 250px;" ></div>
+        </div>    
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>disrete data :-</h3>
+                <label for="input">enter x value :  ---<input type="text" id="descreat_input_x" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+                <br>
+                <label for="input">enter f value :  ---<input type="text" id="descreat_input_f" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button  id="dis_mean" type="button"  onclick="dis_mean()">DISCETE_MEAN </button>
+                <div id="result2">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/Screenshot from 2023-12-24 09-19-24.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>continous data :-</h3>
+                <label for="input">enter m value :  ---<input type="text" id="continous_input_m" name="input" placeholder='ex: "10,20,30,40,50"'></label>
+                <br>
+                <label for="input">enter f value :  ---<input type="text" id="continous_input_f" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button  id="cont_mean" type="button"  onclick="cont_mean()">CONTINOUS_MEAN </button>
+                <div id="result3">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/Screenshot from 2023-12-24 09-23-07.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+    </div>     
+   </div>
+   
+    <style>
+        #block1{
+            display: flex;
+        }
+        #block2{
+            display: flex;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        img{
+                position: relative;
+                top: 50px;
+                left: 50px;
+                border-radius: 9px;
+
+        }
+        button{
+            position: relative;
+            left: 80px;
+        }
+        .active-button{
+            background-color: #04AA6D !important;
+        }      
+    </style>  
+    <script >
+        function mean() {
+
+            // Example input: "23,24,23,24,25,24,23"
+            let inputData = document.getElementById('input').value;
+            
+            // Split the input string into an array of substrings using commas
+            let inputDataArray = inputData.split(",").map(Number);
+
+            // Check if any element in inputDataArray is not a valid number
+            if (inputDataArray.some(isNaN)) {
+                alert("Please enter a valid sequence of numbers.");
+                return;
+            }
+
+            let mean1 = sum(inputDataArray) / inputDataArray.length;
+            let result = document.getElementById("result");
+            result.innerHTML = "Your result is the mean value: " + mean1;
+        }
+
+        // Define the sum function
+        function sum(array) {
+            return array.reduce((acc, val) => acc + val, 0);
+        }
+        function dis_mean(){
+            const dis_mean_x = document.getElementById("descreat_input_x").value
+            const dis_mean_f = document.getElementById("descreat_input_f").value
+            const x_value = dis_mean_x.split(",").map(Number);
+            const f_value = dis_mean_f.split(",").map(Number);
+            if (x_value.length !==f_value.length){
+                alert("sorry x_value and f_vlaue not equal length . please check")
+            }
+            const disc_mean = x_f_multsum(x_value,f_value)/f_sum(f_value);
+            const result2 = document.getElementById("result2");
+            result2.innerHTML = "Your result is the mean value: " + disc_mean;
+        }
+        function x_f_multsum(x_value,f_value){
+            return x_value.reduce((acc,val,index)=> acc+val*f_value[index],0);
+        }
+        function f_sum(f_value){
+            return f_value.reduce((acc,val)=> acc+val,0)
+        }
+        // continous formula create with function
+        function cont_mean(){
+            const continous_input_m = document.getElementById("continous_input_m").value
+            const continous_input_f = document.getElementById("continous_input_f").value
+            const m_value = continous_input_m.split(",").map(Number)
+            const f1_value = continous_input_f.split(",").map(Number)
+            if(m_value.length!==f1_value.length){
+                return alert("sorry ! enter the  two data not equal,please check")
+            }
+            const continous_mean = x_f_multsum(m_value,f1_value)/f_sum(f1_value)   
+            const result3 = document.getElementById("result3")
+            result3.innerHTML ="you result is -------"+continous_mean
+        }
+    </script>    
+    
+</body>
+</html>

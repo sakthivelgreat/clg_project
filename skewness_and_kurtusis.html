@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <div id="wrapper2">
+                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h3>Visualization Tools:</h3>
+                <a href="mesure test/linechart.html">LINE CHART</a>
+                <a href="">SIMPLE BAR DIAGRAM</a>
+                <a href="">SUBDIVIDED BAR DIAGRAM</a>
+                <a href="">PIE - DIAGRAM</a>
+                <a href="">HISTOGRAM</a>
+                <a href=""> BOX PLOT</a>
+                <h3>measures of central tendency</h3>
+                <a href="mean.html">mean</a>
+                <a href="median.html">median</a>
+                <a href="mode.html">mode</a>
+                <a href="geometric_mean.html">geometric mean</a>
+                <a href="harmonic_mean.html">harmonic mean</a>
+                <h3>measures of dispersion</h3>
+                <a href="range.html">range</a>
+                <a href="mean_deviation.html">mean deviation</a>
+                <a href="quartile_deviation.html">quartile deviation</a>
+                <a href="standard deviation.html">standard deviation</a>
+                <a href="co_of_variation.html">coefficient of variation</a> 
+                <a href="skewness_and_kurtusis.html">skewness and kurtusis</a>
+                <h3>DISTRIBUTION  THEORY</h3>
+                <a href="binomial _distribution.html">BINOMIAL DISTRIBUTION</a>
+                <a href="poission_distribution.html">PIOSSION DISTRIBUTION</a>
+                <a href="normal _distribution.html">NORMAL DISTRIBUTION</a>
+                <a href="exponential_distribution.html">EXPONENTIAL DISTRIBUTION</a>
+                <h3>Correlation Analysis:</h3>
+                <a href="correlation.html">Correlation </a>
+                <h3>Regression Analysis:</h3>
+                <a href="regression .html">Regression</a>
+                <h3>Simple Random Sampling</h3>
+                <a href="SimpleRandomSampling.html">SRSWOR</a>
+                <a href="SimpleRandomSampling2.html">SRSWR</a>
+                <h3>Inferential Statistics:</h3>
+                <a href="">Confidence Interval for Mean</a>
+                <a href="">Confidence Interval for proportion</a>
+                <h3>Hypothesis Testing:</h3>
+                <a href="">Z-test</a>
+                <a href="">t-test</a>
+                <a href="">Chi-Square Test</a>
+                <a href="">ANOVA</a>
+                <h3>Experimental De1sign:</h3>
+                <a href="">CRD</a
+                <a href="">RBD</a>
+                <a href="">LSD</a>
+                <h3>SQL(Statistical Quality Control)</h3>
+                <a href="">X-bar chart</a>
+                <a href="">R chart</a>
+                <a href="">S chart</a>
+                <h4> Attributes</h4>
+                <a href="">p chart</a>
+                <a href="">np</a>
+
+            </div>
+
+            
+
+        </nav>
+    </div>
+    <div class="mainbox2">
+        <h1>SKEWNESS AND KURTOSIS:-</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>inditurval data :-</h3>
+                <label for="input">enter your data<input type="text" id="input" name="input" placeholder='ex: "23,24,23,24,25,24,23"'>
+                </label>
+                <br>
+                <button id="skewness_and_kurtosis" type="button" onclick="skewness_and_kurtosis()">SKEWNESS AND KURTOSIS</button>
+        
+                <div id="result">
+                </div>
+            </div>
+            <div><img src="clg_photes/Screenshot from 2023-12-13 20-28-18.png" alt="" style="width:250px; height: 250px;"></div>
+        </div>
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>discrete data :-</h3>
+                <label for="input">enter x value : ---<input type="text" id="discreat_input_x" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+                <br>
+                <label for="input">enter f value : ---<input type="text" id="discreat_input_f" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button id="dis_skewness_and_kurtosis" type="button" onclick="dis_skewness_and_kurtosis()">DISCRETE_SKEWNESS AND KURTOSIS</button>
+                <div id="result2">
+        
+                </div>
+            </div>
+            <div><img src="clg_photos/Screenshot from 2023-12-13 20-28-18.png" alt="" style="width:250px; height: 250px;"></div>
+        </div>
+        
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>continous data :-</h3>
+                <label for="input">enter m value :  ---<input type="text" id="continous_input_m" name="input" placeholder='ex: "10,20,30,40,50"'></label>
+                <br>
+                <label for="input">enter f value :  ---<input type="text" id="continous_input_f" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button  id="cont_skewness_and_kurtasis" type="button"  onclick="cont_skewness_and_kurtasis()">CONTINOUS_SKEWNESS_AND_KURTATSIS </button>
+                <div id="result3">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/Screenshot from 2023-12-13 20-28-18.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+    </div>     
+   </div>
+   
+    <style>
+        #block1{
+            display: flex;
+        }
+        #block2{
+            display: flex;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        img{
+                position: relative;
+                top: 50px;
+                left: 50px;
+                border-radius: 9px;
+
+        }
+        button{
+            position: relative;
+            left: 80px;
+        }
+        .active-button{
+            background-color: #04AA6D !important;
+        }      
+    </style>  
+    <script>
+        function skewness_and_kurtosis() {
+            let inputData = document.getElementById('input').value;
+            let x = inputData.split(",").map(Number);
+            let inputDataArray = x;
+
+            if (x.some(isNaN)) {
+                alert("Please enter a valid sequence of numbers.");
+                return;
+            }
+
+            let n = x.length;
+            let xbar = sum(x) / n;
+            let mu1_1 = sumOfx_xbar1(x, xbar) / n;
+            let mu1_2 = sumOfx_xbar2(x, xbar) / n;
+            let mu1_3 = sumOfx_xbar3(x, xbar) / n;
+            let mu1_4 = sumOfx_xbar4(x, xbar) / n;
+
+            let mu1 = mu1_1;
+            let mu2 = mu1_2 - Math.pow(mu1_1, 2);
+            let mu3 = mu1_3 - 3 * mu1_2 * mu1_1 + 2 * Math.pow(mu1_1, 3);
+            let mu4 = mu1_4 - 4 * mu1_3 * mu1_1 + 6 * mu1_2 * Math.pow(mu1_1, 2) - 3 * Math.pow(mu1_1, 4);
+            let skewness = Math.pow(mu3,2) / Math.pow(mu2,3);
+            let kurtosis = mu4 / Math.pow(mu2, 2);
+            inputDataArray.sort((a, b) => a - b);
+            const Q1 = calculateQuartile(inputDataArray, 1);
+            const Q3 = calculateQuartile(inputDataArray, 3);
+
+            let sumOfSquares = inputDataArray.reduce((acc, val) => acc + Math.pow(val, 2), 0);
+            let sumOfX = sum(inputDataArray);
+            let SD = Math.sqrt((sumOfSquares / n) - Math.pow(sumOfX / n, 2));
+
+            const temp = x.reduce((acc, value) => {
+                acc[value] = (acc[value] || 0) + 1;
+                return acc;
+            }, {});
+            const mode = Object.keys(temp).reduce((a, b) => temp[a] > temp[b] ? a : b);
+
+            let bowleys_coOfSkewness = (Q3 + Q1 - (2 * mode)) / (Q3 - Q1);
+            let K_P_OfSkewness = 3 * (xbar - mode) / SD;
+
+            function calculateQuartile(data, quartileNumber) {
+            let position = (quartileNumber / 4) * (data.length + 1);
+            let lowerIndex = Math.floor(position);
+            let upperIndex = Math.ceil(position);
+
+            if (lowerIndex === upperIndex) {
+                return data[lowerIndex - 1];
+            } else {
+                return (data[lowerIndex - 1] + data[upperIndex - 1]) / 2;
+            }
+            }
+
+            let result = document.getElementById("result");
+            result.innerHTML = "Raw moments value: " +
+                "<br>μ'1:" + mu1_1 +
+                "<br>μ'2:" + mu1_2 +
+                "<br>μ'3:" + mu1_3 +
+                "<br>μ'4:" + mu1_4 +
+                "<br>Central moments value: " +
+                "<br>μ1:" + mu1 + "  (or) mean" +
+                "<br>μ2:" + mu2 + "  (or) variance" +
+                "<br>μ3:" + mu3 +
+                "<br>μ4:" + mu4 +
+                "<br>Skewness value: " + skewness +
+                "<br>Kurtosis value: " + kurtosis +
+                "<br> Q1 =  " + Q1 +
+                "<br> Q3 =  " + Q3 +
+                "<br> Bowley's co_efficient of skewness  :" + bowleys_coOfSkewness +
+                "<br> stantard deviation  :" + SD.toFixed(4) +
+                "<br> mmode  :" + mode +
+                "<br> Karl pearson's co_efficient of skewness  :" + K_P_OfSkewness;
+        }
+
+        // Define the sum function
+        function sum(array) {
+            return array.reduce((acc, val) => acc + val, 0);
+        }
+
+        function sumOfx_xbar1(array, xbar) {
+            return array.reduce((acc, val) => acc + Math.pow((val - xbar), 1), 0);
+        }
+
+        function sumOfx_xbar2(array, xbar) {
+            return array.reduce((acc, val) => acc + Math.pow((val - xbar), 2), 0);
+        }
+
+        function sumOfx_xbar3(array, xbar) {
+            return array.reduce((acc, val) => acc + Math.pow((val - xbar), 3), 0);
+        }
+
+        function sumOfx_xbar4(array, xbar) {
+            return array.reduce((acc, val) => acc + Math.pow((val - xbar), 4), 0);
+        }
+
+        
+        
+        
+        // define the discreate data skewness and kurtasis
+        function dis_skewness_and_kurtosis() {
+            let xInput = document.getElementById('discreat_input_x').value;
+            let fInput = document.getElementById('discreat_input_f').value;
+
+            let x = xInput.split(",").map(Number);
+            let f = fInput.split(",").map(Number);
+            const x_values = x;
+            const f_values = f;
+
+            if (x.some(isNaN) || f.some(isNaN) || x.length !== f.length) {
+                alert("Please enter valid x and f values of the same length.");
+                return;
+            }
+
+            let n = sum(f);
+            let x_values_sorted = x_values.slice().sort((a, b) => a - b);
+            let xbar = sum(x_values) / n; // Define xbar here before using it in calculations
+
+            let mu1_1 = x_values.reduce((acc, val) => acc + Math.pow((val - xbar), 1), 0) / n;
+            let mu1_2 = x_values.reduce((acc, val) => acc + Math.pow((val - xbar), 2), 0) / n;
+            let mu1_3 = x_values.reduce((acc, val) => acc + Math.pow((val - xbar), 3), 0) / n;
+            let mu1_4 = x_values.reduce((acc, val) => acc + Math.pow((val - xbar), 4), 0) / n;
+            let mu1 = mu1_1;
+            let mu2 = mu1_2 - Math.pow(mu1_1, 2);
+            let mu3 = mu1_3 - 3 * mu1_2 * mu1_1 + 2 * Math.pow(mu1_1, 3);
+            let mu4 = mu1_4 - 4 * mu1_3 * mu1_1 + 6 * mu1_2 * Math.pow(mu1_1, 2) - 3 * Math.pow(mu1_1, 4);
+            let mean = dis_weightedMean(x, f);
+            let variance = dis_weightedVariance(x, f, mean);
+            let skewness = weightedSkewness(x, f, mean, variance);
+            let kurtosis = weightedKurtosis(x, f, mean, variance);
+            const cumulativeFrequencies = calculateCumulativeFrequencies(f_values);
+            const totalFrequency = cumulativeFrequencies[cumulativeFrequencies.length - 1];
+
+            // Calculate the quartiles (Q1 and Q3)
+            const Q1 = calculateQuartile(x_values, cumulativeFrequencies, totalFrequency, 1);
+            const Q3 = calculateQuartile(x_values, cumulativeFrequencies, totalFrequency, 3);
+
+            const disc_m = calculateDiscreteMedian(x_values, f_values);
+            const bowleys_coOfSkewness = (Q3 + Q1 - (2 * disc_m)) / Q3;
+            const sum_f = sum(f_values);
+            const sum_fx = x_f_multsum(x_values, f_values);
+            const sum_fx2 = xsqrt_f_multsum(x_values, f_values);
+            xbar = sum(x_values) / sum(f_values); // Update xbar after calculating disc_m
+            const SD = Math.sqrt((sum_fx2 / sum_f) - Math.pow(sum_fx / sum_f, 2));
+            let modeIndex = f.indexOf(Math.max(...f));
+            let mode = x[modeIndex];
+            let K_P_OfSkewness = (xbar - mode) / SD;
+            result2.innerHTML = "Raw moments value: " +
+                "<br>μ'1:" + mu1_1 +
+                "<br>μ'2:" + mu1_2 +
+                "<br>μ'3:" + mu1_3 +
+                "<br>μ'4:" + mu1_4 +
+                "<br>Central moments value: " +
+                "<br>μ1:" + mu1 + "  (or) mean" +
+                "<br>μ2:" + mu2 + "  (or) variance" +
+                "<br>μ3:" + mu3 +
+                "<br>μ4:" + mu4 +
+                "<br>Skewness value: " + skewness +
+                "<br>Kurtosis value: " + kurtosis +
+                "<br> Q1 = " + Q1 +
+                "<br> Q3 = " + Q3 +
+                "<br> Bowley's co_efficient of skewness  :" + bowleys_coOfSkewness +
+                "<br> stantard deviation  :" + SD +
+                "<br> mmode  :" + mode +
+                "<br> Karl pearson's co_efficient of skewness  :" + K_P_OfSkewness +
+                "<br>Weighted Skewness: " + skewness.toFixed(2);
+        }
+
+        function dis_weightedMean(x, f) {
+            let sumProduct = x.reduce((acc, val, index) => acc + val * f[index], 0);
+            let sumF = sum(f);
+            return sumProduct / sumF;
+        }
+
+        function dis_weightedVariance(x, f, mean) {
+            let sumWeightedSquares = x.reduce((acc, val, index) => acc + f[index] * Math.pow(val - mean, 2), 0);
+            let sumF = sum(f);
+            return sumWeightedSquares / sumF;
+        }
+
+        function weightedSkewness(x, f, mean, variance) {
+            let sumWeightedCubed = x.reduce((acc, val, index) => acc + f[index] * Math.pow(val - mean, 3), 0);
+            let sumF = sum(f);
+            return sumWeightedCubed / (Math.pow(variance, 1.5) * sumF);
+        }
+
+        function weightedKurtosis(x, f, mean, variance) {
+            let sumWeightedFourth = x.reduce((acc, val, index) => acc + f[index] * Math.pow(val - mean, 4), 0);
+            let sumF = sum(f);
+            return sumWeightedFourth / (Math.pow(variance, 2) * sumF) - 3;
+        }
+
+        function calculateCumulativeFrequencies(frequencies) {
+            return frequencies.reduce((acc, val, index) => {
+                const cumulativeFrequency = val + (index > 0 ? acc[index - 1] : 0);
+                acc.push(cumulativeFrequency);
+                return acc;
+            }, []);
+        }
+
+        function x_f_multsum(x_values, f_values) {
+            return x_values.reduce((acc, val, index) => acc + val * f_values[index], 0);
+        }
+
+        function xsqrt_f_multsum(x_values, f_values) {
+            return x_values.reduce((acc, val, index) => acc + Math.pow(val, 2) * f_values[index], 0);
+        }
+
+        // Function to calculate quartiles
+        function calculateQuartile(x_values, cumulativeFrequencies, totalFrequency, quartileNumber) {
+            const position = (quartileNumber / 4) * totalFrequency;
+
+            for (let i = 0; i < cumulativeFrequencies.length; i++) {
+                if (cumulativeFrequencies[i] >= position) {
+                    return x_values[i];
+                }
+            }
+
+            return x_values[x_values.length - 1];
+        }
+
+        // Function to calculate discrete median
+        function calculateDiscreteMedian(x_values, f_values) {
+            // Combine x_values and f_values into an array of objects
+            const data = x_values.map((x, index) => {
+                const f = f_values[index];
+
+                // Check if x and f are defined
+                if (x !== undefined && f !== undefined) {
+                    return { x, f };
+                } else {
+                    // Handle the case where either x or f is undefined
+                    console.error(`Invalid x or f value at index ${index}`);
+                    return null; // or handle it accordingly
+                }
+            });
+
+            // Sort the data based on x_values
+            data.sort((a, b) => a.x - b.x);
+
+            const totalFrequency = data.reduce((sum, item) => sum + item.f, 0);
+            const midPoint = totalFrequency / 2;
+
+            let cumulativeFrequency = 0;
+            let median;
+
+            for (const item of data) {
+                cumulativeFrequency += item.f;
+
+                if (cumulativeFrequency >= midPoint) {
+                    // If the total frequency is odd, return the middle value
+                    // Otherwise, calculate the average of the two middle values
+                    median = totalFrequency % 2 === 1 ? item.x : (item.x + data[data.indexOf(item) - 1].x) / 2;
+                    break;
+                }
+            }
+
+            return median;
+        } 
+        function cont_skewness_and_kurtasis() {
+        let mInput = document.getElementById('continous_input_m').value;
+        let fInput = document.getElementById('continous_input_f').value;
+
+        let m = mInput.split(",").map(Number);
+        let f = fInput.split(",").map(Number);
+        const m_values = m;
+        const f_values = f;
+
+        if (m.some(isNaN) || f.some(isNaN) || m.length !== f.length) {
+            alert("Please enter valid m and f values of the same length.");
+            return;
+        }
+
+        let n = sum(f);
+        let m_values_sorted = m_values.slice().sort((a, b) => a - b);
+        let mbar = sum(m_values) / n; // Define mbar here before using it in calculations
+
+        let mu1_1 = m_values.reduce((acc, val) => acc + Math.pow((val - mbar), 1), 0) / n;
+        let mu1_2 = m_values.reduce((acc, val) => acc + Math.pow((val - mbar), 2), 0) / n;
+        let mu1_3 = m_values.reduce((acc, val) => acc + Math.pow((val - mbar), 3), 0) / n;
+        let mu1_4 = m_values.reduce((acc, val) => acc + Math.pow((val - mbar), 4), 0) / n;
+        let mu1 = mu1_1;
+        let mu2 = mu1_2 - Math.pow(mu1_1, 2);
+        let mu3 = mu1_3 - 3 * mu1_2 * mu1_1 + 2 * Math.pow(mu1_1, 3);
+        let mu4 = mu1_4 - 4 * mu1_3 * mu1_1 + 6 * mu1_2 * Math.pow(mu1_1, 2) - 3 * Math.pow(mu1_1, 4);
+        let mean = cont_weightedMean(m, f);
+        let variance = cont_weightedVariance(m, f, mean);
+        let skewness = weightedSkewness(m, f, mean, variance);
+        let kurtosis = weightedKurtosis(m, f, mean, variance);
+        const cumulativeFrequencies = calculateCumulativeFrequencies(f_values);
+        const totalFrequency = cumulativeFrequencies[cumulativeFrequencies.length - 1];
+
+        // Calculate the quartiles (Q1 and Q3)
+        const Q1 = calculateQuartile(m_values, cumulativeFrequencies, totalFrequency, 1);
+        const Q3 = calculateQuartile(m_values, cumulativeFrequencies, totalFrequency, 3);
+
+        const cont_m = calculateContinuousMedian(m_values, f_values);
+        const bowleys_coOfSkewness = (Q3 + Q1 - (2 * cont_m)) / Q3;
+        const sum_f = sum(f_values);
+        const sum_fm = m_f_multsum(m_values, f_values);
+        const sum_fm2 = msqrt_f_multsum(m_values, f_values);
+        mbar = sum(m_values) / sum(f_values); // Update mbar after calculating cont_m
+        const SD = Math.sqrt((sum_fm2 / sum_f) - Math.pow(sum_fm / sum_f, 2));
+        let modeIndex = f.indexOf(Math.max(...f));
+        let mode = m[modeIndex];
+        let K_P_OfSkewness = (mbar - mode) / SD;
+        result3.innerHTML = "Raw moments value: " +
+            "<br>μ'1:" + mu1_1 +
+            "<br>μ'2:" + mu1_2 +
+            "<br>μ'3:" + mu1_3 +
+            "<br>μ'4:" + mu1_4 +
+            "<br>Central moments value: " +
+            "<br>μ1:" + mu1 + "  (or) mean" +
+            "<br>μ2:" + mu2 + "  (or) variance" +
+            "<br>μ3:" + mu3 +
+            "<br>μ4:" + mu4 +
+            "<br>Skewness value: " + skewness +
+            "<br>Kurtosis value: " + kurtosis +
+            "<br> Q1 = " + Q1 +
+            "<br> Q3 = " + Q3 +
+            "<br> Bowley's co_efficient of skewness  :" + bowleys_coOfSkewness +
+            "<br> stantard deviation  :" + SD +
+            "<br> mmode  :" + mode +
+            "<br> Karl pearson's co_efficient of skewness  :" + K_P_OfSkewness +
+            "<br>Weighted Skewness: " + skewness.toFixed(2);
+    }
+
+    function cont_weightedMean(m, f) {
+        let sumProduct = m.reduce((acc, val, index) => acc + val * f[index], 0);
+        let sumF = sum(f);
+        return sumProduct / sumF;
+    }
+
+    function cont_weightedVariance(m, f, mean) {
+        let sumWeightedSquares = m.reduce((acc, val, index) => acc + f[index] * Math.pow(val - mean, 2), 0);
+        let sumF = sum(f);
+        return sumWeightedSquares / sumF;
+    }
+
+    function msqrt_f_multsum(m_values, f_values) {
+        return m_values.reduce((acc, val, index) => acc + Math.pow(val, 2) * f_values[index], 0);
+    }
+
+    function m_f_multsum(m_values, f_values) {
+        return m_values.reduce((acc, val, index) => acc + val * f_values[index], 0);
+    }
+
+    function calculateContinuousMedian(m_values, f_values) {
+        let totalFrequency = sum(f_values);
+        let cumulativeFrequency = 0;
+
+        for (let i = 0; i < m_values.length; i++) {
+            cumulativeFrequency += f_values[i];
+            if (cumulativeFrequency >= totalFrequency / 2) {
+                return m_values[i];
+            }
+        }
+        return null; // Handle the case where median is not found
+    }
+        // continous formula create with function
+       
+    </script>    
+    
+</body>
+</html>

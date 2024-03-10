@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t-test Calculator</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div class="mainbox2">
+        <h1>t-test Calculator</h1>
+        <div id="block1">
+            <div id="problem1">
+                <label for="problem1_data">Problem 1: Enter data for Group 1 (comma-separated):</label>
+                <input type="text" id="problem1_data" placeholder="e.g., 70,120,110,101,88,83,95,98,107,100">
+                <label for="problem1_mu">Enter the hypothesized mean (μ):</label>
+                <input type="number" id="problem1_mu" placeholder="e.g., 100">
+                <button onclick="performTTest('problem1_data', 'problem1_mu', 'problem1_result')">Calculate t-test</button>
+                <div id="problem1_result"></div>
+            </div>
+            <div id="problem2">
+                <label for="problem2_data1">Problem 2: Enter data for Group 1 (comma-separated):</label>
+                <input type="text" id="problem2_data1" placeholder="e.g., 25,32,30,34,24,14,32,24,30,31,35,25">
+                <label for="problem2_data2">Enter data for Group 2 (comma-separated):</label>
+                <input type="text" id="problem2_data2" placeholder="e.g., 44,34,22,10,47,31,40,30,32,35,18,21,35,29,22">
+                <button onclick="performTTestTwoGroups('problem2_data1', 'problem2_data2', 'problem2_result')">Calculate t-test</button>
+                <div id="problem2_result"></div>
+            </div>
+            <div id="problem3">
+                <label for="problem3_data1">Problem 3: Enter paired data for Group 1 (comma-separated):</label>
+                <input type="text" id="problem3_data1" placeholder="e.g., 49,53,51,52,47,50,52,53">
+                <label for="problem3_data2">Enter paired data for Group 2 (comma-separated):</label>
+                <input type="text" id="problem3_data2" placeholder="e.g., 52,55,52,53,50,54,54,53">
+                <button onclick="performTTestPaired('problem3_data1', 'problem3_data2', 'problem3_result')">Calculate t-test</button>
+                <div id="problem3_result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function performTTest(dataId, muId, resultId) {
+            const data = document.getElementById("problem1_data").value.split(",").map(Number);
+            const mu = parseFloat(document.getElementById("problem1_mu").value);
+            const result = tTest(data, mu);
+            document.getElementById("problem1_result").innerHTML = `
+                <p>One Sample t-test</p>
+                <p>data: ${data.join(', ')}</p>
+                <p>t = ${result.tValue.toFixed(5)}, df = ${data.length - 1}</p>
+                <p>alternative hypothesis: true mean is not equal to ${mu}</p>
+                <p>95 percent confidence interval:</p>
+                <p>${result.confidenceInterval[0].toFixed(5)} ${result.confidenceInterval[1].toFixed(5)}</p>
+                
+            `;
+        }
+
+        function performTTestTwoGroups(dataId1, dataId2, resultId) {
+            const data1 = document.getElementById("problem2_data1").value.split(",").map(Number);
+            const data2 = document.getElementById("problem2_data2").value.split(",").map(Number);
+            const result = tTestTwoGroups(data1, data2);
+            document.getElementById("problem2_result").innerHTML = `
+                <p>Two Sample t-test</p>
+                <p>data1: ${data1.join(', ')}</p>
+                <p>data2: ${data2.join(', ')}</p>
+                <p>t = ${result.tValue.toFixed(5)}, df = ${result.df}</p>
+                <p>alternative hypothesis: true difference in means is not equal to 0</p>
+                <p>95 percent confidence interval:</p>
+                <p>${result.confidenceInterval[0].toFixed(5)} ${result.confidenceInterval[1].toFixed(5)}</p>
+                
+            `;
+        }
+
+        function performTTestPaired(dataId1, dataId2, resultId) {
+            const data1 = document.getElementById("problem3_data1").value.split(",").map(Number);
+            const data2 = document.getElementById("problem3_data2").value.split(",").map(Number);
+            const result = tTestPaired(data1, data2);
+            document.getElementById("problem3_result").innerHTML = `
+                <p>Paired t-test</p>
+                <p>data1: ${data1.join(', ')}</p>
+                <p>data2: ${data2.join(', ')}</p>
+                <p>t = ${result.tValue.toFixed(5)}, df = ${data1.length - 1}</p>
+                <p>alternative hypothesis: true difference in means is not equal to 0</p>
+                <p>95 percent confidence interval:</p>
+                <p>${result.confidenceInterval[0].toFixed(5)} ${result.confidenceInterval[1].toFixed(5)}</p>
+            `;
+        }
+
+        function tTest(data, mu) {
+            const mean = data.reduce((acc, val) => acc + val, 0) / data.length;
+            const stdDev = Math.sqrt(data.map(val => Math.pow(val - mean, 2)).reduce((acc, val) => acc + val, 0) / (data.length - 1));
+            const tValue = (mean - mu) / (stdDev / Math.sqrt(data.length));
+            const pValue = 2 * (1 - (studenttCdf(Math.abs(tValue), data.length - 1)));
+            const marginError = studenttInv(1 - 0.025, data.length - 1) * (stdDev / Math.sqrt(data.length));
+            const confidenceInterval = [mean - marginError, mean + marginError];
+            return { tValue, pValue, mean, confidenceInterval };
+        }
+
+        function tTestTwoGroups(data1, data2) {
+            const mean1 = data1.reduce((acc, val) => acc + val, 0) / data1.length;
+            const mean2 = data2.reduce((acc, val) => acc + val, 0) / data2.length;
+            const stdDev1 = Math.sqrt(data1.map(val => Math.pow(val - mean1, 2)).reduce((acc, val) => acc + val, 0) / (data1.length - 1));
+            const stdDev2 = Math.sqrt(data2.map(val => Math.pow(val - mean2, 2)).reduce((acc, val) => acc + val, 0) / (data2.length - 1));
+            const pooledStdDev = Math.sqrt(((data1.length - 1) * Math.pow(stdDev1, 2) + (data2.length - 1) * Math.pow(stdDev2, 2)) / (data1.length + data2.length - 2));
+            const tValue = (mean1 - mean2) / (pooledStdDev * Math.sqrt(1 / data1.length + 1 / data2.length));
+            const df = data1.length + data2.length - 2;
+            const pValue = 2 * (1 - (studenttCdf(Math.abs(tValue), df)));
+            const marginError = studenttInv(1 - 0.025, df) * pooledStdDev * Math.sqrt(1 / data1.length + 1 / data2.length);
+            const confidenceInterval = [mean1 - mean2 - marginError, mean1 - mean2 + marginError];
+            return { tValue, df, pValue, mean1, mean2, confidenceInterval };
+        }
+
+        function tTestPaired(data1, data2) {
+            const differences = data1.map((val, index) => val - data2[index]);
+            const mean = differences.reduce((acc, val) => acc + val, 0) / differences.length;
+            const stdDev = Math.sqrt(differences.map(val => Math.pow(val - mean, 2)).reduce((acc, val) => acc + val, 0) / (differences.length - 1));
+            const tValue = mean / (stdDev / Math.sqrt(differences.length));
+            const pValue = 2 * (1 - (studenttCdf(Math.abs(tValue), differences.length - 1)));
+            const marginError = studenttInv(1 - 0.025, differences.length - 1) * (stdDev / Math.sqrt(differences.length));
+            const confidenceInterval = [mean - marginError, mean + marginError];
+            return { tValue, pValue, confidenceInterval };
+        }
+
+        // Functions for Student's t-distribution
+        function studenttCdf(t, df) {
+            const x = t / Math.sqrt(df + t * t);
+            let prob = 0.5 * ibeta(df / 2, 0.5, df / (df + x * x));
+            if (t > 0) prob = 1 - prob;
+            return prob;
+        }
+
+        function studenttInv(p, df) {
+            if (p < 0.5) return -studenttInv(1 - p, df);
+            const x = 2 * ibetaInv(0.5, df / 2, 0.5);
+            const t = Math.sqrt(df * (1 - x) / x);
+            return t;
+        }
+
+        // Incomplete beta function (regularized)
+        function ibeta(a, b, x) {
+            const bt = (x === 0 || x === 1) ? 0 : Math.exp(gammln(a + b) - gammln(a) - gammln(b) + a * Math.log(x) + b * Math.log(1 - x));
+            if (x < (a + 1) / (a + b + 2)) return bt * betacf(a, b, x) / a;
+            else return 1 - bt * betacf(b, a, 1 - x) / b;
+        }
+
+        // Incomplete beta function inverse (binary search)
+        function ibetaInv(p, a, b) {
+            let EPS = 1e-8;
+            let a1 = 0;
+            let b1 = 1;
+            let x = a / (a + b);
+            while (b1 - a1 > EPS) {
+                const t = ibeta(a, b, x);
+                if (t < p) a1 = x;
+                else b1 = x;
+                x = (a1 + b1) / 2;
+            }
+            return x;
+        }
+
+        // Logarithm of gamma function
+        function gammln(xx) {
+            const cof = [76.18009172947146, -86.50532032941677, 24.01409824083091, -1.231739572450155, 0.1208650973866179e-2, -0.5395239384953e-5];
+            let y, x, tmp, ser;
+            y = xx;
+            tmp = xx + 5.5;
+            tmp -= (xx + 0.5) * Math.log(tmp);
+            ser = 1.000000000190015;
+            for (let j = 0; j <= 5; j++) ser += cof[j] / ++y;
+            return -tmp + Math.log(2.5066282746310005 * ser / xx);
+        }
+
+        // Continued fraction for incomplete beta function
+        function betacf(a, b, x) {
+            const MAXIT = 100;
+            const EPS = 3.0e-7;
+            const FPMIN = 1.0e-30;
+            let m, m2, aa, c, d, del, h, qab, qam, qap;
+            qab = a + b;
+            qap = a + 1;
+            qam = a - 1;
+            c = 1;
+            d = 1 - qab * x / qap;
+            if (Math.abs(d) < FPMIN) d = FPMIN;
+            d = 1 / d;
+            h = d;
+            for (m = 1; m <= MAXIT; m++) {
+                m2 = 2 * m;
+                aa = m * (b - m) * x / ((qam + m2) * (a + m2));
+                d = 1 + aa * d;
+                if (Math.abs(d) < FPMIN) d = FPMIN;
+                c = 1 + aa / c;
+                if (Math.abs(c) < FPMIN) c = FPMIN;
+                d = 1 / d;
+                h *= d * c;
+                aa = -(a + m) * (qab + m) * x / ((a + m2) * (qap + m2));
+                d = 1 + aa * d;
+                if (Math.abs(d) < FPMIN) d = FPMIN;
+                c = 1 + aa / c;
+                if (Math.abs(c) < FPMIN) c = FPMIN;
+                d = 1 / d;
+                del = d * c;
+                h *= del;
+                if (Math.abs(del - 1) < EPS) break;
+            }
+            return h;
+        }
+    </script>
+
+    <style>
+        .mainbox2 {
+            margin: 20px;
+            font-size: medium;
+        }
+
+        #block1 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #problem1, #problem2, #problem3 {
+            padding: 20px;
+            background-color: #72a793;
+            border-radius: 8px;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            width: 60%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 60%;
+            height: 100px;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</body>
+</html>

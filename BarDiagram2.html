@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Plot</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Plotly.js library -->
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div class="mainbox2">
+        <h1>Subdivided Bar Plot:</h1>
+        <div id="block2">
+            <div id="inditurval2">
+                <label for="x_value1">Enter x values (comma-separated) <input type="text" id="x_value1" name="input" placeholder='ex: "2010,2015,2020"'></label>
+                <br>
+                <label for="y_value1">Enter y values (comma-separated) <input type="text" id="y_value1" name="input" placeholder='ex: "2160,2600,2700,540,700,810,360,200,360,360,300,360,180,200,270"'></label>
+                <br>
+                <label for="sub_values">Enter sub-values for each data point (comma-separated) <input type="text" id="sub_values" name="input" placeholder='ex: "Raw matrial,Labour,Direct expenses,factory expenses,office expenses"'></label>
+                <br>
+                <label for="colors1">Enter colors (comma-separated) <input type="text" id="colors1" placeholder='ex: "red,yellow,blue,orange,green"'></label>
+                <br>
+                <div id="basic2">
+                    <label for="xname1">x axis name: <input type="text" id="xname1" placeholder='ex: Year'></label>
+                    <br>
+                    
+                    <br>
+                    <label for="title1">Title: <input type="text" id="title1" value="Particulars of cost per scooter"></label>
+                </div>
+                <button id="subdivided_bar_plot_button" type="button" onclick="SubdividedBarPlot()">Subdivided Bar Plot</button>
+                <br>
+                <br>
+                <div id="chart2"></div> 
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        #block1, #block2 {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        #inditurval, #inditurval2 {
+            padding: 20px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            margin-right: 20px;
+        }
+        #basic, #basic2 {
+            font-size: medium;
+        }
+        button {
+            margin-top: 10px;
+        } 
+    </style>
+o
+    <script>
+        
+        function SubdividedBarPlot() {
+            let xValues = document.getElementById("x_value1").value.split(",");
+            let yValues = document.getElementById("y_value1").value.split(",").map(Number);
+            let subValues = document.getElementById("sub_values").value.split(",");
+            let xName1 = document.getElementById("xname1").value;
+            let yName1 = document.getElementById("yname1").value;
+            let title1 = document.getElementById("title1").value;
+            let colors1 = document.getElementById("colors1").value.split(",");
+
+            let data = [];
+            for (let i = 0; i < subValues.length; i++) {
+                let trace = {
+                    x: xValues,
+                    y: yValues.slice(i * xValues.length, (i + 1) * xValues.length),
+                    type: 'bar',
+                    name: subValues[i],
+                    marker: {
+                        color: colors1[i]
+                    }
+                };
+                data.push(trace);
+            }
+
+            let layout = {
+                barmode: 'stack',
+                xaxis: {
+                    title: xName1
+                },
+                yaxis: {
+                    title: yName1
+                },
+                title: title1
+            };
+
+            Plotly.newPlot('chart2', data, layout);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <div id="wrapper2">
+                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h3>Visualization Tools:</h3>
+                <a href="mesure test/linechart.html">LINE CHART</a>
+                <a href="">SIMPLE BAR DIAGRAM</a>
+                <a href="">SUBDIVIDED BAR DIAGRAM</a>
+                <a href="">PIE - DIAGRAM</a>
+                <a href="">HISTOGRAM</a>
+                <a href=""> BOX PLOT</a>
+                <h3>measures of central tendency</h3>
+                <a href="mean.html">mean</a>
+                <a href="median.html">median</a>
+                <a href="mode.html">mode</a>
+                <a href="geometric_mean.html">geometric mean</a>
+                <a href="harmonic_mean.html">harmonic mean</a>
+                <h3>measures of dispersion</h3>
+                <a href="range.html">range</a>
+                <a href="mean_deviation.html">mean deviation</a>
+                <a href="quartile_deviation.html">quartile deviation</a>
+                <a href="standard deviation.html">standard deviation</a>
+                <a href="co_of_variation.html">coefficient of variation</a> 
+                <a href="skewness_and_kurtusis.html">skewness and kurtusis</a>
+                <h3>DISTRIBUTION  THEORY</h3>
+                <a href="binomial _distribution.html">BINOMIAL DISTRIBUTION</a>
+                <a href="poission_distribution.html">PIOSSION DISTRIBUTION</a>
+                <a href="normal _distribution.html">NORMAL DISTRIBUTION</a>
+                <a href="exponential_distribution.html">EXPONENTIAL DISTRIBUTION</a>
+                <h3>Correlation Analysis:</h3>
+                <a href="correlation.html">Correlation </a>
+                <h3>Regression Analysis:</h3>
+                <a href="regression .html">Regression</a>
+                <h3>Simple Random Sampling</h3>
+                <a href="SimpleRandomSampling.html">SRSWOR</a>
+                <a href="SimpleRandomSampling2.html">SRSWR</a>
+                <h3>Inferential Statistics:</h3>
+                <a href="">Confidence Interval for Mean</a>
+                <a href="">Confidence Interval for proportion</a>
+                <h3>Hypothesis Testing:</h3>
+                <a href="">Z-test</a>
+                <a href="">t-test</a>
+                <a href="">Chi-Square Test</a>
+                <a href="">ANOVA</a>
+                <h3>Experimental De1sign:</h3>
+                <a href="">CRD</a
+                <a href="">RBD</a>
+                <a href="">LSD</a>
+                <h3>SQL(Statistical Quality Control)</h3>
+                <a href="">X-bar chart</a>
+                <a href="">R chart</a>
+                <a href="">S chart</a>
+                <h4> Attributes</h4>
+                <a href="">p chart</a>
+                <a href="">np</a>
+
+
+            </div>
+
+            
+
+        </nav>
+    </div>
+    <div class="mainbox2">
+        <h1>MORTALITY RATES:-</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>Crude Death Rate:-</h3>
+                <h4> General :</h4>
+                <label for="input">Annual Deaths :<input type="text" id="Dx"  placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <br>
+                <br>
+                <label for="input">Annual Mean Population :<input type="text" id="Px"  placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <button  id="mean" type="button"  onclick="CDR()"> CBR</button>
+                <div id="result">
+    
+                </div>
+                <br>
+                <br>
+                <h4></h4>Crude Death Rate For  Males:</h4>
+                <label for="input">Males Deaths :<input type="text" id="mD" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <br>
+                <br>
+                <label for="input">Male Population :<input type="text" id="mP" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <button  id="mean" type="button"  onclick="CDRForMales()"> CBR For Male</button>
+                <div id="resultA">
+    
+                </div>
+                <br>
+                <br>
+                <br>
+                <h4>  Crude Death Rate For Females:</h4>
+                <label for="input">Female Deaths :<input type="text" id="fD" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <br>
+                <br>
+                <label for="input"> Female Population :<input type="text" id="fP" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <button  id="mean" type="button"  onclick="CDRForFemale()"> CBR For Females</button>
+                <div id="resultB">
+    
+                </div>
+            </div>    
+            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
+        </div>    
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>General fertility Rate :-</h3>
+                <label for="input">Enter Data "Live Birth":<input type="text" id="Bt1" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+                <br>
+                <label for="input">Enter Data "Female Population":<input type="text" id="fPx" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button  id="dis_mean" type="button"  onclick="GFR()">GFR</button>
+                <div id="result2">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/mean dis.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3> Age Specific Fertility Rate:-</h3>
+                <label for="input">Enter Data "Live Birth":<input type="text" id="nBx" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+                <br>
+                <label for="input">Enter Data "Female Population":<input type="text" id="nfPx" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button  id="cont_mean" type="button"  onclick="ASFR()">ASFR</button>
+                <div id="result3">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3> Total  Fertility Rate:-</h3>
+                <label for="input">Enter Data "Live Birth":<input type="text" id="nBx1" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+                <br>
+                <label for="input">Enter Data "Female Population":<input type="text" id="nfPx1" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <label for="input">Enter Data "Age Interval Range":<input type="text" id="CIrange" maxlength="6"  style="width: 40px;"></label>
+                <br>
+                <button  id="cont_mean" type="button"  onclick="TFR()">TFR</button>
+                <div id="result4">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>Death  Rate Of Area, Country , Zone:-</h3>
+                <label for="input">Enter Data " Death Rate":<input type="text" id="mx" maxlength="6"  style="width: 40px;"></label>
+                <br>
+                <label for="input">Enter Data "Population Size":<input type="text" id="px" maxlength="6"  style="width: 40px;"></label>
+                <br>
+                <button  id="cont_mean" type="button"  onclick="CDRinArea()">Crude Death Rate of Area</button>
+                <div id="result5">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>Standardized Death  Rates Of Area, Country , Zone:-</h3>
+                <label for="input">Enter Data " Death Rate":<input type="text" id="nf" maxlength="6"  style="width: 40px;"></label>
+                <br>
+                <label for="input">Enter Data " Standard Population Size":<input type="text" id="tP" maxlength="6"  style="width: 40px;"></label>
+                <br>
+                <button  id="cont_mean" type="button"  onclick="SDRinArea()"></button>
+                <div id="result6">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+        
+    </div>     
+   </div>
+   
+    <style>
+        #block1{
+            display: flex;
+        }
+        #block2{
+            display: flex;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        img{
+                position: relative;
+                top: 50px;
+                left: 50px;
+                border-radius: 9px;
+
+        }
+        button{
+            position: relative;
+            left: 80px;
+        }
+        .active-button{
+            background-color: #04AA6D !important;
+        }      
+    </style>  
+    <script >
+        function CDR(){
+            let Dx = document.getElementById("Dx").value.split(",").map(Number);
+            let Px = document.getElementById("Px").value.split(",").map(Number);
+            let m = (Dx/px)*1000 ;
+            document.getElementById("result").innerHTML = "crude  Death Rate   is  value : "+m
+            
+        };
+        function CDRForMales(){
+            let mD = document.getElementById("mD").value.split(",").map(Number);
+            let mP = document.getElementById("mP").value.split(",").map(Number);
+            let CDRm = (mD/mP)*1000;
+            document.getElementById("resultA").innerHTML = "crude  Death Rate for males  is  value" + CDRm
+        };
+        function CDRForFemale(){ 
+            let fD = document.getElementById("fD").value.split(",").map(Number);
+            let fP = document.getElementById("fP").value.split(",").map(Number);
+            let CDRf = (fD/fP)*1000;
+            document.getElementById("resultB").innerHTML = "crude  Death Rate for females  is  value" + CDRf
+        };
+        function CDRinArea(){
+            let mx = document.getElementById("mx").value.split(",").map(Number);
+            let px = document.getElementById("px").value.split(",").map(Number);
+            let CDRA = sumOfMultiArray(mx,px)/sum(px)
+            document.getElementById("result5").innerHTML = "Crude Death Rate of Area value :" +CDRA.toFixed(2)
+        };
+        function SDRinArea(){
+            let mx = document.getElementById("nf").value.split(",").map(Number);
+            let px = document.getElementById("tP").value.split(",").map(Number);
+            let CDRA = sumOfMultiArray(mx,px)/sum(px)
+            document.getElementById("result5").innerHTML = "Standardised Death Rate of Area value :" +CDRA.toFixed(2)
+        };
+        
+        function sumOf1Div2(array1,array2){
+            return  array1.reduce((acc,val,index) => acc+(val/array2[index]),0);
+        };
+        function sumOfMultiArray(array1,array2){
+            return array1.reduce((acc,val,index) => acc+(val*array2[index]));
+        };
+        function sum(array){
+            return array.reduce((acc,val)=> acc+val,0);
+        };
+        
+    </script>    
+    
+</body>
+</html>

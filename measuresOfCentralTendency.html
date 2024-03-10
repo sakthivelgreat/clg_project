@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div id="wrapper">
+        <label for=""></label>
+        
+        <nav>
+            <div id="wrapper2">
+                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h3>Visualization Tools:</h3>
+                <a href="mesure test/linechart.html">LINE CHART</a>
+                <a href="">SIMPLE BAR DIAGRAM</a>
+                <a href="">SUBDIVIDED BAR DIAGRAM</a>
+                <a href="">PIE - DIAGRAM</a>
+                <a href="">HISTOGRAM</a>
+                <a href=""> BOX PLOT</a>
+                <h3>measures of central tendency</h3>
+                <a href="mean.html">mean</a>
+                <a href="median.html">median</a>
+                <a href="mode.html">mode</a>
+                <a href="geometric_mean.html">geometric mean</a>
+                <a href="harmonic_mean.html">harmonic mean</a>
+                <h3>measures of dispersion</h3>
+                <a href="range.html">range</a>
+                <a href="mean_deviation.html">mean deviation</a>
+                <a href="quartile_deviation.html">quartile deviation</a>
+                <a href="standard deviation.html">standard deviation</a>
+                <a href="co_of_variation.html">coefficient of variation</a> 
+                <a href="skewness_and_kurtusis.html">skewness and kurtusis</a>
+                <h3>DISTRIBUTION  THEORY</h3>
+                <a href="binomial _distribution.html">BINOMIAL DISTRIBUTION</a>
+                <a href="poission_distribution.html">PIOSSION DISTRIBUTION</a>
+                <a href="normal _distribution.html">NORMAL DISTRIBUTION</a>
+                <a href="exponential_distribution.html">EXPONENTIAL DISTRIBUTION</a>
+                <h3>Correlation Analysis:</h3>
+                <a href="correlation.html">Correlation </a>
+                <h3>Regression Analysis:</h3>
+                <a href="regression .html">Regression</a>
+                <h3>Simple Random Sampling</h3>
+                <a href="SimpleRandomSampling.html">SRSWOR</a>
+                <a href="SimpleRandomSampling2.html">SRSWR</a>
+                <h3>Inferential Statistics:</h3>
+                <a href="">Confidence Interval for Mean</a>
+                <a href="">Confidence Interval for proportion</a>
+                <h3>Hypothesis Testing:</h3>
+                <a href="">Z-test</a>
+                <a href="">t-test</a>
+                <a href="">Chi-Square Test</a>
+                <a href="">ANOVA</a>
+                <h3>Experimental De1sign:</h3>
+                <a href="">CRD</a
+                <a href="">RBD</a>
+                <a href="">LSD</a>
+                <h3>SQL(Statistical Quality Control)</h3>
+                <a href="">X-bar chart</a>
+                <a href="">R chart</a>
+                <a href="">S chart</a>
+                <h4> Attributes</h4>
+                <a href="">p chart</a>
+                <a href="">np</a>
+                <a href="measuresOfCentralTendency.html"> MEASURES  OF CENTRAL DENSITY</a>
+
+
+            </div>
+
+            
+
+        </nav>
+    </div>
+    <div class="mainbox2">
+        <h1>Measures Of Central De</h1>
+        <h2>(Mean,Median,Mode,Geometric Mean,Harmonic Mean)</h2>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>inditurval data :-</h3>
+                <label for="input">enter your data<input type="text" id="input" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <button id="mean" type="button" onclick="MeasureOfCentralTendency()">Measure Of<br>Central Density</button>
+                <div id="result"></div>
+            </div>
+            
+            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
+        </div>    
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>discrete data :-</h3>
+                <label for="input">enter x value :  ---<input type="text" id="descreat_input_x" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+                <br>
+                <label for="input">enter f value :  ---<input type="text" id="descreat_input_f" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button id="dis_mean" type="button" onclick="dis_MeasureOfCentralTendency()">Measure Of<br>Central Tendency</button>
+                <div id="result2"></div>
+            </div>
+            <div><img src="clg_photes/mean dis.png" alt="" style="width:250px; height: 250px;"></div>
+            
+        </div>
+        <br>
+        <br>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>continous data :-</h3>
+                <label for="input">enter m value :  ---<input type="text" id="continous_input_m" name="input" placeholder='ex: "10,20,30,40,50"'></label>
+                <br>
+                <label for="input">enter f value :  ---<input type="text" id="continous_input_f" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button  id="cont_mean" type="button"  onclick="cont_MeasureOfCentralTendency()">Measure Of<br>CentralTendency</button>
+                <div id="result3">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+    </div>     
+   </div>
+   
+    <style>
+        #block1{
+            display: flex;
+        }
+        #block2{
+            display: flex;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        img{
+                position: relative;
+                top: 50px;
+                left: 50px;
+                border-radius: 9px;
+
+        }
+        button{
+            position: relative;
+            left: 80px;
+        }
+        .active-button{
+            background-color: #04AA6D !important;
+        }      
+    </style>  
+    <script >
+        function MeasureOfCentralTendency() {
+            let inputData = document.getElementById('input').value.split(",").map(Number);
+            if (inputData.some(isNaN)) {
+                alert("Please enter a valid sequence of numbers.");
+                return;
+            }
+
+            const mean = inputData.reduce((acc, val) => acc + val, 0) / inputData.length;
+            const median = medianofcalculat(inputData);
+            const temp = inputData.reduce((acc, value) => {
+                acc[value] = (acc[value] || 0) + 1;
+                return acc;
+            }, {});
+
+            const mode = Object.keys(temp).reduce((a, b) => temp[a] > temp[b] ? a : b);
+            let g = inputData.reduce((acc, value) => acc + Math.log(value), 0) / inputData.length;
+            let GM = Math.exp(g);
+            let HM = inputData.length / sumofonebyx(inputData);
+
+            document.getElementById("result").innerHTML = `
+                <br> <h2>Measure Of Central Tendency :-</h2>
+                <br> Mean value is: ${mean.toFixed(2)}
+                <br> Median value is : ${median.toFixed(2)}
+                <br> Mode value is : ${mode}
+                <br> Geometric Mean value is : ${GM.toFixed(2)}
+                <br> Harmonic Mean value is  : ${HM.toFixed(2)}
+            `;
+        }
+
+        // function define
+        //---1
+        function medianofcalculat(inputData) {
+            const medianvalue = inputData.slice().sort((a, b) => a - b);
+            const n = medianvalue.length;
+            if (n % 2 !== 0) {
+                return medianvalue[Math.floor(n / 2)];
+            } else {
+                const medianvalue1 = medianvalue[n / 2 - 1];
+                const medianvalue2 = medianvalue[n / 2];
+                const median11 = (medianvalue1 + medianvalue2) / 2;
+                return median11;
+            }
+        }
+
+        //----2
+        function sumofonebyx(array) {
+            return array.reduce((acc, val) => acc + 1 / val, 0);
+        }
+        // discreate date measure of tendentcity  define  function 
+        function dis_MeasureOfCentralTendency() {
+            let xInput = document.getElementById("descreat_input_x").value.trim();
+            let fInput = document.getElementById("descreat_input_f").value.trim();
+            
+           
+
+            let x = xInput.split(",").map(Number);
+            let f = fInput.split(",").map(Number);
+            
+            // Check if lengths of x and f arrays are equal
+            if (x.length !== f.length) {
+                alert("Sorry, x_value and f_value are not equal in length. Please check.");
+                return; // Exit function early if lengths are not equal
+            }
+
+            const mean = x.reduce((acc, val, index) => acc + val * f[index], 0) / f.reduce((acc, val) => acc + val, 0);
+            let median = calculateDiscreteMedian(x, f);
+            
+            // Calculate Mode
+            let maxFrequency = Math.max(...f);
+            let modeIndex = f.indexOf(maxFrequency);
+            let mode = x[modeIndex];
+            
+            let power_term = f.reduce((acc, val, index) => acc + val * Math.log(x[index]), 0) / f.reduce((acc, val) => acc + val, 0);
+            let GM = Math.exp(power_term);
+            let HM = f.reduce((acc, val) => acc + val, 0) / f.reduce((acc, val, index) => acc + val / x[index], 0);
+            
+            // Display results
+            document.getElementById("result2").innerHTML = `
+                <br> <h2>Measure Of Central Tendency :-</h2>
+                <br> <h2>discrete case :-</h2>
+                <br> Mean value is: ${mean.toFixed(2)}
+                <br> Median value is : ${median.toFixed(2)}
+                <br> Mode value is : ${mode.toFixed(2)}
+                <br> Geometric Mean value is : ${GM.toFixed(2)}
+                <br> Harmonic Mean value is  : ${HM.toFixed(2)}
+            `;
+        }
+
+        // Helper function to calculate median for discrete data
+        function calculateDiscreteMedian(x_values, f_values) {
+            // Combine x_values and f_values into an array of objects
+            const data = x_values.map((x, index) => {
+                const f = f_values[index];
+
+                // Check if x and f are defined
+                if (x !== undefined && f !== undefined) {
+                    return { x, f };
+                } else {
+                    // Handle the case where either x or f is undefined
+                    console.error(`Invalid x or f value at index ${index}`);
+                    return null; // or handle it accordingly
+                }
+            });
+
+            // Sort the data based on x_values
+            data.sort((a, b) => a.x - b.x);
+
+            const totalFrequency = data.reduce((sum, item) => sum + item.f, 0);
+            const midPoint = totalFrequency / 2;
+
+            let cumulativeFrequency = 0;
+            let median;
+
+            for (const item of data) {
+                cumulativeFrequency += item.f;
+
+                if (cumulativeFrequency >= midPoint) {
+                    // If the total frequency is odd, return the middle value
+                    // Otherwise, calculate the average of the two middle values
+                    median = totalFrequency % 2 === 1 ? item.x : (item.x + data[data.indexOf(item) - 1].x) / 2;
+                    break;
+                }
+            }
+
+            return median;
+        }
+
+
+
+        function cont_MeasureOfCentralTendency() {
+            let m = document.getElementById("continous_input_m").value.split(",").map(Number);
+            let f = document.getElementById("continous_input_f").value.split(",").map(Number);
+            
+            if (m.length !== f.length) {
+                alert("Sorry, x_value and f_value do not have equal lengths. Please check.");
+                return; // Exit function early if lengths are not equal
+            }; 
+            
+            const mean = m.reduce((acc, val, index) => acc + val * f[index], 0) / f.reduce((acc, val) => acc + val, 0);
+            const G = f.reduce((acc, val, index) => acc + val * Math.log(m[index]), 0) / f.reduce((acc, val) => acc + val, 0);
+            const GM = Math.exp(G);
+            const HM = f.reduce((acc, val) => acc + val, 0) / f.reduce((acc, val, index) => acc + val / m[index], 0);
+            
+            // Calculate median
+            let sortedM = m.slice().sort((a, b) => a - b);
+            let middleIndex = Math.floor(sortedM.length / 2);
+            let median;
+            if (sortedM.length % 2 === 0) {
+                median = (sortedM[middleIndex - 1] + sortedM[middleIndex]) / 2;
+            } else {
+                median = sortedM[middleIndex];
+            }
+
+            // Calculate mode
+            let modeCount = 0;
+            let mode;
+            for (let i = 0; i < m.length; i++) {
+                if (f[i] > modeCount) {
+                    modeCount = f[i];
+                    mode = m[i];
+                }
+            }
+
+            document.getElementById("result3").innerHTML = `
+                <br> <h2>Measure Of Central Tendency :-</h2>
+                <br> <h2>continuous case Data :-</h2>
+                <br> Mean value is: ${mean.toFixed(2)}
+                <br> Median value is : ${median.toFixed(2)}
+                <br> Mode value is : ${mode}
+                <br> Geometric Mean value is : ${GM.toFixed(2)}
+                <br> Harmonic Mean value is  : ${HM.toFixed(2)}
+            `;
+        };
+
+
+
+        
+    </script>    
+    
+</body>
+</html>

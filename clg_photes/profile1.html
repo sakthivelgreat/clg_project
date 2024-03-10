@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiles</title>
+    <style>
+        /* Common styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3038; /* Light background */
+            color: #43a8a8; /* Dark text */
+            margin: 0;
+            padding: 0;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .profile-topnav {
+            height: 50px;
+            background-color: #575757; /* Dark blue background for nav bar */
+            border-bottom: 1px solid #1B4242; /* Dark border bottom */
+            display: flex;
+            align-items: center;
+        }
+        .profile-topnav .name {
+            margin-right: auto; /* Pushes the name to the left */
+            color: rgb(161, 161, 187);
+            font-family: 'Lora', serif;
+        }
+        .name h3:hover {
+            text-shadow: 6px 6px 6px;
+        }
+        .name h3 {
+            text-transform: capitalize;
+            font-family: 'Lora', serif;
+            font-size: 25px;
+            font-weight: 900;
+            margin-left: 1rem;
+            color: rgb(173, 173, 173);
+        }
+        .profile-topnav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .profile-topnav ul li {
+            margin-left: 20px;
+        }
+        .profile-topnav ul li a {
+            text-decoration: none;
+            color: #e2c9c9; /* White text */
+            font-size: 18px; /* Smaller font size for links */
+            font-style: italic;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+        }
+        .profile-topnav ul li a:hover {
+            color: #b46666; /* Lighter color on hover */
+        }
+        .profile-container {
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: 'Lora', serif;
+        }
+        .profile-container1 {
+            top: 50px;
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            right: 50px;
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+        .maindiv2 {
+            text-align: center;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .clg {
+            position: absolute;
+            display: none; /* Hide by default */
+        }
+        .clg a {
+            text-decoration: none;
+            color: skyblue;
+            font-family: 'Lora', serif;
+            padding-left: 20px;
+        }
+        .profile-img {
+            border-radius: 50%;
+            border: solid 4px skyblue;
+            width: 300px; /* Adjusted size for profile images */
+            height: 300px; /* Adjusted size for profile images */
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+        }
+        .medium-profile-img {
+            border-radius: 50%;
+            width: 150px; /* Adjusted size for medium profile images */
+            height: 150px; /* Adjusted size for medium profile images */
+            margin-bottom: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+        }
+        .profile-info {
+            font-size: 18px;
+            line-height: 0.5;
+        }
+        span h2 {
+            color: skyblue;
+        }
+        a {}
+        
+        /* Media query for desktop and laptop */
+        @media only screen and (min-width: 768px) {
+            .clg {
+                display: block; /* Show on desktop and laptop */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-topnav">
+        <div class="name"><h3>SAKTHIVEL KANDHASAMI</h3></div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Creator Profile</a></li>
+            <li><a href="#">Go to Calculation</a></li>
+            <li><a href="#">Contact Me</a></li>
+            <li><a href="#">Roles and Regulations</a></li>
+        </ul>
+    </div>
+    
+    <div class="profile-container1">
+        <div>
+            <img src="IMG-20230112-WA0020.jpg" alt="Your Photo" class="profile-img">
+            <div class="profile-info">
+                <span>
+                    <span>Created <br><br> by <br><br><h2>K.sakthivel</h2></span>
+                    <p>Occupation: Friend Developer</p>
+                    <p>Description: A brief description about yourself</p>
+                </span>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="clg">
+        <span><h2><a href="">my class met</a></h2></span>
+        <span><h2><a href="">my sisters</a></h2></span>
+        <span><h2><a href="">statistics teachers</a></h2></span>
+        <span><h2><a href="">my clg statistics history</a></h2></span>
+    </div>
+    <div class="maindiv2">
+        <div class="profile-container">
+            <img src="IMG-20230112-WA0020.jpg" alt="Teacher's Photo" class="medium-profile-img">
+            <div class="profile-info">
+                <span><h2>Student's Name girl no2</h2></span>
+                <p>Grade: Student's Grade</p>
+                <p>Description: A brief description about the student</p>
+            </div>
+        </div>
+        <br>
+        <div class="profile-container">
+            <img src="IMG-20230112-WA0020.jpg" alt="Student's Photo" class="medium-profile-img">
+            <div class="profile-info">
+                <span><h2>Student's Name girl no2</h2></span>
+                <p>Grade: Student's Grade</p>
+                <p>Description: A brief description about the student</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

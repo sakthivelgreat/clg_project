@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+
+<body>
+    <!-- Your existing HTML code -->
+
+    <div class="mainbox2">
+        <h1>Stratified Random Sampling:</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <h2>Method: 0</h2>
+                <label for="Nh0">N<sub>h</sub>:-<input type="text" id="inputNh0" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <button onclick="addDataInput()">Add Data Input</button>
+                <div id="dataInputs"></div>
+                <br>
+                <h2>Method: 1</h2>
+                <br>
+                <label for="inputNh1">N<sub>h</sub>:-<input type="text" id="inputNh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="inputYbarh1">Y̅<sub>n</sub>:-<input type="text" id="inputYbarh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="inputSh1">S<sub>h</sub>:-<input type="text" id="inputSh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="inputn1">n :<input type="text" id="inputn1" maxlength="6" style="width: 40px;"></label>
+                <br>
+                <br>
+                <h2>Method: 2</h2>
+                <br>
+                <label for="inputNh2">N<sub>h</sub>:-<input type="text" id="inputNh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="inputSh2">S<sub>h</sub>:-<input type="text" id="inputSh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="inputCh">C<sub>h</sub>:-<input type="text" id="inputCh" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="inputc01">C<sub>0</sub> :<input type="text" id="inputc01" maxlength="6" style="width: 40px;"></label>
+                <br>
+                <label for="inputc2">C :<input type="text" id="inputc2" maxlength="6" style="width: 40px;"></label>
+                <br>
+                <br>
+                <input type="radio" id="set0" name="methodSet" checked>
+                <label for="set0">Nh,Y̅ni</label>
+                <input type="radio" id="set1" name="methodSet" checked>
+                <label for="set1">Nh, Y̅h, Sh</label>
+                <input type="radio" id="set2" name="methodSet">
+                <label for="set2">Nh, Sh, Ch</label>
+                <br>
+                <button id="mean" type="button" onclick="StrRansample()">Stratified Random Sampling</button>
+                <div id="result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //  add input  data function 
+        let dataInputsCount = 0;
+
+        function addDataInput() {
+            dataInputsCount++;
+            const dataInputsDiv = document.getElementById('dataInputs');
+            const dataInputId = `dataInput${dataInputsCount}`;
+            dataInputsDiv.innerHTML += `
+                <div>
+                    <label for="${dataInputId}">Y<sub>n ${dataInputsCount}</sub>: </label>
+                    <input type="text" id="${dataInputId}" /><br>
+                </div>
+            `;
+        }
+
+        // Display a table with formatted numbers
+        function displayTable(results, header, MoreContent) {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML += `<h2>${header}</h2>`;
+
+            var table = '<table border="1">';
+            table += '<tr><th>Step</th>';
+            for (var key in results) {
+                if (results.hasOwnProperty(key)) {
+                    table += `<th>${key}</th>`;
+                }
+            }
+            table += '</tr>';
+
+            for (var i = 0; i < Object.values(results)[0].length; i++) {
+                table += `<tr><td>${i + 1}</td>`;
+                for (var key in results) {
+                    if (results.hasOwnProperty(key)) {
+                        var value = Array.isArray(results[key]) ? results[key][i].toFixed(4) : results[key];
+                        table += `<td>${value}</td>`;
+                    }
+                }
+                table += '</tr>';
+            }
+            table += '</table>';
+            resultDiv.innerHTML += table;
+            if (MoreContent)
+                resultDiv.innerHTML += `<p>${MoreContent}</p>`;
+        }
+
+        // Perform calculations based on user selection
+        function StrRansample() {
+            var resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = ""; // Clear previous results
+            // method  0 get  input  values
+
+            // method 1 Get input values
+            var NhInput1 = document.getElementById('inputNh1').value;
+            var YbarhInput1 = document.getElementById('inputYbarh1').value;
+            var ShInput1 = document.getElementById('inputSh1').value;
+            var inputn1 = document.getElementById("inputn1").value;
+        
+            // Convert input values to arrays
+            let Nh1 = NhInput1.split(',').map(Number);
+            let Ybarh1 = YbarhInput1.split(',').map(Number);
+            let Sh1 = ShInput1.split(',').map(Number);
+            let n1 = parseFloat(inputn1);
+            
+            
+            let ShSquared1 = Sh1.map(value => value ** 2);
+            let Wh1 = Nh1.map(value => value / Nh1.reduce((a, b) => a + b, 0));
+            let N1 = Nh1.reduce((a, b) => a + b, 0);
+            let WhTimesSh1 = Nh1.map((value, index) => (value / N1) * Sh1[index]);
+            let NhTimesSh1 = Nh1.map((value, index) => value * Sh1[index]);
+            let WhTimesShSquared1 = Nh1.map((value, index) => (value / N1) * Sh1[index] ** 2);
+            let f1 =n1/N1;
+            // variance of proportional allocation 
+            let nh1 = Nh1.map(value => (value / N1) * n1);
+            let VariPro1 = ((1 / n1) - (1 / N1)) * (WhTimesShSquared1.reduce((acc, val) => acc + val, 0));
+            // variiance of optimum allocation
+            let Opnh1 = NhTimesSh1.map(val => (val / NhTimesSh1.reduce((acc, val) => acc + val, 0)) * n1);
+            let vo11 = (1 / n1) * (WhTimesSh1.reduce((acc, val) => acc + val, 0) ** 2);
+            let vo21 = (1 / N1) * (WhTimesShSquared1.reduce((acc, val) => acc + val, 0));
+            let variOpti1 = vo11 - vo21;
+            // variance of  ybar  basic steps
+            let Nh1TimesYbarh1 =Nh1.map((val,index) => val*Ybarh1[index]);
+            let capYbar1=Nh1TimesYbarh1.reduce((acc,val)=>acc+val,0)/N1; 
+            let YbarhMunesYbar1Squ = Ybarh1.map((val,index) => (val-capYbar1)**2);
+            let WhMulYbarhMunesYbar1Squ = Wh1.map((val,index) => val*YbarhMunesYbar1Squ[index])
+            //variance
+            let varybarran =((1-f1)/n1) * WhMulYbarhMunesYbar1Squ.reduce((acc,val) => acc+val,0);
+
+            //----------------------method 2-----------
+            // method 2 Get input values
+            var NhInput2 = document.getElementById('inputNh2').value;
+            var ShInput2 = document.getElementById('inputSh2').value;            
+            var ChInput = document.getElementById('inputCh').value;
+            
+            var inputc01 = document.getElementById("inputc01").value;
+            var inputc2 = document.getElementById("inputc2").value;
+            // method 2  table content
+            let Nh2 = NhInput2.split(',').map(Number);
+            let Sh2 = ShInput2.split(',').map(Number);
+            let Ch = ChInput.split(',').map(Number);
+            let c01 = parseFloat(inputc01);
+            let c2 = parseFloat(inputc2);
+            let Nh2TimesSh2 = Nh2.map((val,index)=> val*Sh2[index]);
+            let Nh2TimesSh2MultiCh = Nh2TimesSh2.map((val,index) => val*Math.sqrt(Ch[index]));
+            let Nh2TimesSh2DivCh = Nh2TimesSh2.map((val,index) => val/Math.sqrt(Ch[index]));
+            let N2 = Nh2.reduce((acc,val)=>acc+val,0);
+            let Wh2 = Nh2.map(val=> val/N2);
+            let wh2Sh2Squ = Wh2.map((val,index)=> val*Math.pow(Sh2[index],2));
+
+            //methed 2  variance
+            let n12 = (c2 - c01) * ((Nh2TimesSh2DivCh.reduce((acc,val)=> acc+val,0))/(Nh2TimesSh2MultiCh.reduce((acc,val)=>acc+val,0)));
+            let variOpti2 = (1 / (c2 - c01)) * ((Nh2TimesSh2MultiCh.reduce((acc, val) => acc + val, 0) )/N2)**2;
+            let variProp2 =((1/n12)-(1/N2))*wh2Sh2Squ.reduce((acc,val)=>acc+val,0);
+            //  Perform calculations  based on user selection
+            if (document.getElementById('set1').checked) {
+                let results = {
+                    'N<sub>h</sub>': Nh1,
+                    'Y̅<sub>h</sub>': Ybarh1,
+                    'S<sub>h</sub>': Sh1,
+                    'S<sub>h</sub><sup>2</sup>': ShSquared1,
+                    'W<sub>h</sub>': Wh1,
+                    'W<sub>h</sub> * S<sub>h</sub>': WhTimesSh1,
+                    'N<sub>h</sub> * S<sub>h</sub>': NhTimesSh1,
+                    'W<sub>h</sub> * S<sub>h</sub><sup>2</sup>': WhTimesShSquared1
+                };
+                displayTable(results, "Additional Information");
+
+                let results1 = {
+                    'N<sub>h</sub>': Nh1,
+                    'n<sub>h</sub>': nh1
+                };
+                let results2 =
+                    "<h2>Variance  of proportional allocation :</h2>" +
+                    "<br>V(Y̅<sub>st</sub>)<sub>prop</sub> : " + VariPro1.toFixed(4);
+
+
+                displayTable(results1, "Proportional Allocation 2", results2);
+                let results3 = {
+                    'N<sub>h</sub>*S<sub>h</sub>': NhTimesSh1,
+                    'n<sub>h</sub>': Opnh1
+                };
+                let results4 =
+                    "<h2>Variance  of optimum allocation :</h2>" +
+                    "<br> V(Y̅<sub>st</sub>)<sub>opti</sub> : " + variOpti1.toFixed(4);
+                displayTable(results3, "optimum allocation", results4);
+               
+                let  result51 ={
+                    'N<sub>h</sub>': Nh1,
+                    'Y̅<sub>h</sub>': Ybarh1,
+                    'N<sub>h</sub><br>*Y̅<sub>h</sub>': Nh1TimesYbarh1,
+                    '(Y̅<sub>h</sub>-Y̅)<sup>2</sup>' :YbarhMunesYbar1Squ,
+                    'W<sub>h</sub>' : Wh1,
+                    'W<sub>h</sub>*<br>(Y̅<sub>h</sub>-Y̅)<sup>2</sup>':WhMulYbarhMunesYbar1Squ
+
+                };
+
+                let results52 =
+                    "<h2>Variance  of the  estimate of the  population  mean  in SRSWOR is :</h2>" +
+                    "<br> V(Y̅)<sub>ran</sub> : " +(VariPro1+varybarran).toFixed(4)
+                displayTable(result51,"Variance popu;ation mean in SRSWOR",results52)
+                
+                    
+            }
+
+            
+            if (document.getElementById("set2").checked) {
+                let result1 = {
+                    'N<sub>h</sub>': Nh2,
+                    'S<sub>h</sub>': Sh2,
+                    'C<sub>h</sub>': Ch,
+                    'N<sub>h</sub> * S<sub>h</sub>': Nh2TimesSh2,
+                    'N<sub>h</sub> * S<sub>h</sub> * √(C<sub>h</sub>)': Nh2TimesSh2MultiCh,
+                    '(N<sub>h</sub> * S<sub>h</sub>) / √(C<sub>h</sub>)':Nh2TimesSh2DivCh,
+                    'W<sub>h</sub>': Wh2,
+                    'Wh*Sh<sup>2</sup>' : wh2Sh2Squ
+                };
+                displayTable(result1, "Additional Information", "");
+
+                resultDiv.innerHTML += `<p>n : ${n12.toFixed(4)}` +
+                    `<br><h2>Variance  of proportional allocation :</h2>` +
+                    `<br>V(Y̅<sub>st</sub>)<sub>prop</sub> : ${variProp2.toFixed(4)}` +
+                    `<br><h2>Variance  of optima allocation :</h2>` +
+                    `<br> V(Y̅<sub>st</sub>)<sub>opti</sub> : ${variOpti2.toFixed(4)}</p>`;
+
+            }
+        }
+    </script>
+</body>
+
+</html>

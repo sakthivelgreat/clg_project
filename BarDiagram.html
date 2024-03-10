@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Plot</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Plotly.js library -->
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div class="mainbox2">
+        <h1>Bar Diagram (or) Bar Plot:-</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <label for="x_value">Enter x values (comma-separated) <input type="text" id="x_value" name="input" placeholder='ex: "USA,USSR,UK,JAPAN,GERMANY"'></label>
+                <br>
+                <label for="y_value">Enter y values (comma-separated) <input type="text" id="y_value" name="input" placeholder='ex: "1500,1200,800,600,500"'></label>
+                <br>
+                <div id="basic">
+                    <label for="xname">x axis name: <input type="text" id="xname" placeholder='ex: sources of borrowing'></label>
+                    <br>
+                    <label for="yname">y axis name: <input type="text" id="yname" placeholder='ex: Amount of loan (in crores)'></label>
+                    <br>
+                    <label for="color">Color:  <input type="color" id="color" value="#ff0000"></label>
+                    <br>
+                    <label for="title">Title: <input type="text" id="title" value="India's foreign debt as on 31.04.2021"></label>
+                </div>
+                <button id="bar_plot_button" type="button" onclick="BarPlot()">Bar Plot</button>
+                <br>
+                <br>
+                <div id="chart"></div> 
+            </div>
+            <div>
+                <img src="clg_photos/mean_individual.png" alt="" style="width:250px; height: 250px;">
+            </div>   
+        </div>   
+    </div>
+    
+    <style>
+        #block1 {
+            display: flex;
+        }
+        #block2 {
+            display: flex;
+        }
+        #inditurval {
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        #basic {
+            font-size: medium;
+        }
+        
+        img {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            border-radius: 9px;
+        }
+        button {
+            position: relative;
+            left: 80px;
+        }
+        .active-button {
+            background-color: #04AA6D !important;
+        }
+    </style>
+    <script>
+        function BarPlot() {
+            // method 1
+            let xValues = document.getElementById("x_value").value.split(",");
+            let yValues = document.getElementById("y_value").value.split(",").map(Number);
+            let xName = document.getElementById("xname").value;
+            let yName = document.getElementById("yname").value;
+            let color = document.getElementById("color").value;
+            let title = document.getElementById("title").value;
+            // plot
+            let trace = {
+                x: xValues,
+                y: yValues,
+                type: 'bar', 
+                marker: {
+                    color: color,
+                }
+            };
+
+            let layout = {
+                xaxis: {
+                    title: xName
+                },
+                yaxis: {
+                    title: yName
+                },
+                title: title
+            };
+
+            Plotly.newPlot('chart', [trace], layout);
+        }
+        
+    </script>
+</body>
+</html>

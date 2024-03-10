@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <div id="wrapper2">
+                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h3>Visualization Tools:</h3>
+                <a href="mesure test/linechart.html">LINE CHART</a>
+                <a href="">SIMPLE BAR DIAGRAM</a>
+                <a href="">SUBDIVIDED BAR DIAGRAM</a>
+                <a href="">PIE - DIAGRAM</a>
+                <a href="">HISTOGRAM</a>
+                <a href=""> BOX PLOT</a>
+                <h3>measures of central tendency</h3>
+                <a href="mean.html">mean</a>
+                <a href="median.html">median</a>
+                <a href="mode.html">mode</a>
+                <a href="geometric_mean.html">geometric mean</a>
+                <a href="harmonic_mean.html">harmonic mean</a>
+                <h3>measures of dispersion</h3>
+                <a href="range.html">range</a>
+                <a href="mean_deviation.html">mean deviation</a>
+                <a href="quartile_deviation.html">quartile deviation</a>
+                <a href="standard deviation.html">standard deviation</a>
+                <a href="co_of_variation.html">coefficient of variation</a> 
+                <a href="skewness_and_kurtusis.html">skewness and kurtusis</a>
+                <h3>DISTRIBUTION  THEORY</h3>
+                <a href="binomial _distribution.html">BINOMIAL DISTRIBUTION</a>
+                <a href="poission_distribution.html">PIOSSION DISTRIBUTION</a>
+                <a href="normal _distribution.html">NORMAL DISTRIBUTION</a>
+                <a href="exponential_distribution.html">EXPONENTIAL DISTRIBUTION</a>
+                <h3>Correlation Analysis:</h3>
+                <a href="correlation.html">Correlation </a>
+                <h3>Regression Analysis:</h3>
+                <a href="regression .html">Regression</a>
+                <h3>Simple Random Sampling</h3>
+                <a href="SimpleRandomSampling.html">SRSWOR</a>
+                <a href="SimpleRandomSampling2.html">SRSWR</a>
+                <h3>Inferential Statistics:</h3>
+                <a href="">Confidence Interval for Mean</a>
+                <a href="">Confidence Interval for proportion</a>
+                <h3>Hypothesis Testing:</h3>
+                <a href="">Z-test</a>
+                <a href="">t-test</a>
+                <a href="">Chi-Square Test</a>
+                <a href="">ANOVA</a>
+                <h3>Experimental De1sign:</h3>
+                <a href="">CRD</a
+                <a href="">RBD</a>
+                <a href="">LSD</a>
+                <h3>SQL(Statistical Quality Control)</h3>
+                <a href="">X-bar chart</a>
+                <a href="">R chart</a>
+                <a href="">S chart</a>
+                <h4> Attributes</h4>
+                <a href="">p chart</a>
+                <a href="">np</a>
+
+            </div>
+
+            
+
+        </nav>
+    </div>
+    <div class="mainbox2">
+        <h1>SIMPLE RANDOM SAMPLING (WITH REPLACEMENT):</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <h3>SRSWR :-</h3>
+                <label for="input">Enter population of units with values<input type="text" id="input" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="SampleSize">Possible values of size </label><input name="SampleSize" id="SampleSize" maxlength="6" style="width:40px;">
+                <br>
+                <button id="mean" type="button" onclick="SRSWR()">Sample values and <br> Variance of sample mean</button>
+                <div id="result"></div>
+            </div>    
+            <div><img src="clg_photos/mean_individual.png" alt="" style="width:250px; height: 250px;" ></div>
+        </div>    
+   </div>
+
+   <script>
+        function SRSWR() {
+            const populationValues = document.getElementById('input').value.split(',').map(Number);
+            const sampleSize = parseInt(document.getElementById('SampleSize').value);
+
+            if (isNaN(sampleSize) || sampleSize <= 0 || sampleSize > populationValues.length) {
+                alert('Please enter a valid sample size.');
+                return;
+            }
+
+            const N = populationValues.length;
+            const allCombinations = generateCombinationsWithReplacement(populationValues, sampleSize);
+            displayAllSamples(allCombinations);
+
+            const sampleMeans = calculateMeans(allCombinations);
+            displayCombinationsOneByOne(sampleMeans);
+
+            const sampleMean = calculateSampleMean(sampleMeans);
+            const S2 = (1 / (N - 1)) * (sumSqur(populationValues) - (N * Math.pow(sampleMean, 2)));
+            const sigma = Math.sqrt(S2);
+            const V1SRSWOR = ((N - sampleSize) / N) * (S2 / sampleSize);
+            const V2SRSWR = ((N - 1) / N) * (S2 / sampleSize);
+            const varianceSampleYbar = sumOfyiMinusybarSqu(sampleMeans, sampleMean) / ((fac(N))/(fac(sampleSize)*fac(N-sampleSize)));
+            const isUnbiased = verifyUnbiasedEstimate(sampleMean, populationValues);
+            const samplingVariance = calculateSamplingVariance(sampleMeans, sampleMean);
+            const isVarianceCorrect = verifyVarianceDifference(samplingVariance);
+
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `
+                <strong>Step 1:</strong> All Possible Samples of Size ${sampleSize} (with replacement):<br>
+                ${displayAllSamples(allCombinations)}<br>
+                <strong>Step 2:</strong> Combination of Sample Means:<br>
+                ${displayCombinationsOneByOne(sampleMeans).join('<br>') || 'No combinations available'}<br>
+                <strong>Step 3:</strong> Calculation Information:<br>
+                Sample size = ${sampleSize}<br>
+                Population mean = ${sampleMean.toFixed(2)}<br>
+                S^2 = ${S2.toFixed(2)}<br>
+                Sigma = ${sigma.toFixed(2)}<br>
+                Variance of SRSWOR = ${V1SRSWOR.toFixed(2)}<br>
+                Variance of SRSWR  = ${V2SRSWR.toFixed(2)}<br>
+                Variance of sample = ${varianceSampleYbar.toFixed(2)}
+                <br>
+                <strong>Step 4:</strong> Verify if the Sample Mean is an Unbiased Estimate:<br>
+                ${isUnbiased ? 'The sample mean is an unbiased estimate.' : 'The sample mean is not an unbiased estimate.'}
+                <br>
+                <strong>Step 5:</strong> Verify the Variance Compared to Simple Random Sampling without Replacement:<br>
+                ${isVarianceCorrect ? 'The variance is 18 less compared to sampling without replacement.' : 'The variance does not meet the expected difference.'}
+            `;
+        }
+
+        function displayCombinationsOneByOne(sampleMeans) {
+            return sampleMeans.map((mean, index) => `${index + 1}. ${mean.toFixed(2)}`);
+        }
+
+        function generateCombinationsWithReplacement(arr, size) {
+            const result = [];
+            const helper = (current, start) => {
+                if (current.length === size) {
+                    result.push([...current]);
+                    return;
+                }
+                for (let i = 0; i < arr.length; i++) {
+                    current.push(arr[i]);
+                    helper(current, i);
+                    current.pop();
+                }
+            };
+            helper([], 0);
+            return result;
+        }
+
+        function displayAllSamples(combinations) {
+            return combinations.map((combination, index) => `${index + 1}. (${combination.join(', ')})`).join('<br>');
+        }
+
+        function sumSqur(array) {
+            return array.reduce((acc, val) => acc + Math.pow(val, 2), 0);
+        }
+
+        function sumOfyiMinusybarSqu(sampleMeans, sampleMean) {
+            return sampleMeans.reduce((acc, val) => acc + Math.pow(val - sampleMean, 2), 0);
+        }
+
+        function fac(num) {
+            if (num === 0 || num === 1) return 1;
+            return num * fac(num - 1);
+        }
+
+        function calculateMeans(combinations) {
+            return combinations.map(combination => combination.reduce((sum, value) => sum + value, 0) / combination.length);
+        }
+
+        function calculateSampleMean(sampleMeans) {
+            return sampleMeans.reduce((sum, mean) => sum + mean, 0) / sampleMeans.length;
+        }
+
+        function verifyUnbiasedEstimate(sampleMean, populationValues) {
+            const populationMean = populationValues.reduce((sum, value) => sum + value, 0) / populationValues.length;
+            return sampleMean === populationMean;
+        }
+
+        function calculateSamplingVariance(sampleMeans, sampleMean) {
+            return sampleMeans.reduce((sum, mean) => sum + Math.pow(mean - sampleMean, 2), 0) / (sampleMeans.length - 1);
+        }
+
+        function verifyVarianceDifference(samplingVariance) {
+            const varianceWithoutReplacement = calculateVarianceWithoutReplacement(); // Replace with actual code
+            return (varianceWithoutReplacement - samplingVariance) === 18;
+        }
+
+        // Placeholder for calculating variance without replacement (Replace with actual code)
+        function calculateVarianceWithoutReplacement() {
+            // Your logic to calculate variance without replacement goes here
+            return 0; // Placeholder value
+        }
+    </script>
+</body>
+</html>

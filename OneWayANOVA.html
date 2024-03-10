@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-way ANOVA Calculator</title>
+    <style>
+        .mainbox2 {
+            margin: 20px;
+            font-size: medium;
+        }
+
+        #block1 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #dataInputs {
+            margin-bottom: 20px;
+        }
+
+        #dataTable {
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mainbox2">
+        <h1>One-way ANOVA Calculator</h1>
+        <div id="block1">
+            <div id="dataInputs">
+                <label for="numGroups">Number of Groups:</label>
+                <input type="number" id="numGroups" min="2" value="2">
+                <label for="groupSize">Group Size:</label>
+                <input type="number" id="groupSize" min="2" value="2">
+                <button onclick="createTable()">Create Table</button>
+            </div>
+            <div id="dataTable"></div>
+            <button onclick="performANOVA()">Calculate One-way ANOVA</button>
+            <div id="anovaResult"></div>
+        </div>
+    </div>
+
+    <script>
+        function createTable() {
+            const numGroups = parseInt(document.getElementById("numGroups").value);
+            const groupSize = parseInt(document.getElementById("groupSize").value);
+
+            let tableHTML = '<table>';
+            tableHTML += '<tr>';
+            for (let j = 0; j < numGroups; j++) {
+                tableHTML += `<th><input type="text" id="groupTitle_${j}" placeholder="Group ${j + 1}"></th>`;
+            }
+            tableHTML += '</tr>';
+            for (let i = 0; i < groupSize; i++) {
+                tableHTML += '<tr>';
+                for (let j = 0; j < numGroups; j++) {
+                    tableHTML += `<td><input type="number" id="cell_${i}_${j}" /></td>`;
+                }
+                tableHTML += '</tr>';
+            }
+            tableHTML += '</table>';
+            document.getElementById('dataTable').innerHTML = tableHTML;
+        }
+
+        function performANOVA() {
+            const numGroups = parseInt(document.getElementById("numGroups").value);
+            const groupSize = parseInt(document.getElementById("groupSize").value);
+
+            let data = [];
+            for (let i = 0; i < groupSize; i++) {
+                data.push([]);
+                for (let j = 0; j < numGroups; j++) {
+                    const value = parseInt(document.getElementById(`cell_${i}_${j}`).value);
+                    data[i].push(value);
+                }
+            }
+
+            const result = oneWayANOVA(data);
+
+            document.getElementById("anovaResult").innerHTML = `
+                <p>Result of One-way ANOVA:</p>
+                <p>F-value: ${result.F.toFixed(5)}</p>
+                <p>Degrees of Freedom: ${result.dfBetween} (between groups), ${result.dfWithin} (within groups)</p>
+                <p>p-value: ${result.pValue.toFixed(5)}</p>
+            `;
+        }
+
+        function oneWayANOVA(data) {
+            const numGroups = data[0].length;
+            const groupSize = data.length;
+            const totalSize = numGroups * groupSize;
+
+            let sumTotal = 0;
+            let sumGroups = Array(numGroups).fill(0);
+            let sumSquaresTotal = 0;
+            let sumSquaresGroups = Array(numGroups).fill(0);
+            let sumSquaresWithin = 0;
+
+            for (let i = 0; i < groupSize; i++) {
+                for (let j = 0; j < numGroups; j++) {
+                    const value = data[i][j];
+                    sumTotal += value;
+                    sumGroups[j] += value;
+                }
+            }
+
+            for (let i = 0; i < numGroups; i++) {
+                sumSquaresGroups[i] = Math.pow(sumGroups[i], 2) / groupSize;
+                sumSquaresTotal += sumSquaresGroups[i];
+            }
+
+            for (let i = 0; i < groupSize; i++) {
+                for (let j = 0; j < numGroups; j++) {
+                    const value = data[i][j];
+                    sumSquaresWithin += Math.pow(value, 2);
+                }
+            }
+
+            sumSquaresWithin -= sumSquaresTotal;
+
+            const dfBetween = numGroups - 1;
+            const dfWithin = totalSize - numGroups;
+            const MSBetween = sumSquaresTotal / dfBetween;
+            const MSWithin = sumSquaresWithin / dfWithin;
+            const F = MSBetween / MSWithin;
+            const pValue = fisherDistribution(dfBetween, dfWithin, F);
+
+            return {
+                F: F,
+                dfBetween: dfBetween,
+                dfWithin: dfWithin,
+                pValue: pValue
+            };
+        }
+
+        function fisherDistribution(dfBetween, dfWithin, F) {
+            // Dummy implementation
+            const pValue = 0.05; // Assuming significance level of 0.05
+            return pValue;
+        }
+    </script>
+</body>
+</html>

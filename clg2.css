@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    background-color: #6c9485;
+    height: 100vh;
+    margin: 0;
+}
+
+#wrapper {
+    position: relative;
+    width: 250px;
+    background-color: #346b6b;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    color: white;
+}
+
+#block1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+#inditurval {
+    padding: 20px;
+    background-color: #72a793;
+    border-radius: 8px;
+    width: 40%;
+    margin-right: 10px;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    border-radius: 9px;
+}
+
+button {
+    margin-top: 20px;
+    border-radius: 4px;
+    height: 44px;
+    font-weight: 600;
+    padding: 0 20px;
+    letter-spacing: 1px;
+    border: none;
+    background-color: #ffeba7;
+    color: #102770;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d4b270;
+}
+
+.mainbox2 {
+    position: relative;
+    background-color: #6c9485;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 70%;
+}
+
+input {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+label {
+    font-size: 16px;
+}
+
+h1, h3 {
+    color: #d4b270;
+}
+
+#result, #result1 {
+    color: #d4b270;
+    font-weight: 800;
+}
+
+a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+a:hover {
+    color: #d4b270;
+    background-color: #285e5e;
+}

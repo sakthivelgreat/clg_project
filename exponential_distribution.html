@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <div id="wrapper2">
+                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h3>Visualization Tools:</h3>
+                <a href="LineChart.html">LINE CHART</a>
+                <a href="SimpleRandomSampling.html">SIMPLE BAR DIAGRAM</a>
+                <a href="SimpleRandomSampling2.html">SUBDIVIDED BAR DIAGRAM</a>
+                <a href="digram.html">PIE - DIAGRAM</a>
+                <a href="histogram.html">HISTOGRAM</a>
+                <a href=""> BOX PLOT</a>
+                <h3>measures of central tendency</h3>
+                <a href="measuresOfCentralTendency.html">measures of central tendency</a>
+                <h3>measures of dispersion</h3>
+                <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <h3>DISTRIBUTION  THEORY</h3>
+                <a href="binomial _distribution.html">BINOMIAL DISTRIBUTION</a>
+                <a href="poission_distribution.html">PIOSSION DISTRIBUTION</a>
+                <a href="normal _distribution.html">NORMAL DISTRIBUTION</a>
+                <a href="exponential_distribution.html">EXPONENTIAL DISTRIBUTION</a>
+                <h3>Correlation Analysis:</h3>
+                <a href="correlation.html">Correlation </a>
+                <h3>Regression Analysis:</h3>
+                <a href="regression .html">Regression</a>
+                <h3>Simple Random Sampling</h3>
+                <a href="SimpleRandomSampling.html">SRSWOR</a>
+                <a href="SimpleRandomSampling2.html">SRSWR</a>
+                <h3>Inferential Statistics:</h3>
+                <a href="">Confidence Interval for Mean</a>
+                <a href="">Confidence Interval for proportion</a>
+                <h3>Hypothesis Testing:</h3>
+                <a href="ttest1.html">t-test</a>
+                <a href="FTest.html">F-test</a>                
+                <a href="c">Chi-Square Test</a>
+                <a href="">ANOVA</a>
+                <h3>Experimental De1sign:</h3>
+                <a href="">CRD</a
+                <a href="">RBD</a>
+                <a href="">LSD</a>
+                <h3>SQL(Statistical Quality Control)</h3>
+                <a href="">X-bar chart</a>
+                <a href="">R chart</a>
+                <a href="">S chart</a>
+                <h4> Attributes</h4>
+                <a href="">p chart</a>
+                <a href="">np</a
+
+
+
+            </div>
+
+            
+
+        </nav>
+    </div>
+    <div class="mainbox2">
+        <h1>FITTING A EXPONENTIAL  DISTRIBUTION:-</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <label for="input">enter x values <input type="text" id="x_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <label for="input">enter f values <input type="text" id="f_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <br>
+                <button  id="exponential_button" type="button"  onclick="exponential()"> EXPONENTIAL DISTRIBUTION</button>
+                <div id="result">
+    
+                </div>
+            </div>    
+            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
+        </div>    
+        <br>
+
+    </div>     
+   </div>
+   
+    <style>
+        #block1{
+            display: flex;
+        }
+        #block2{
+            display: flex;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        img{
+                position: relative;
+                top: 50px;
+                left: 50px;
+                border-radius: 9px;
+
+        }
+        button{
+            position: relative;
+            left: 80px;
+        }
+        .active-button{
+            background-color: #04AA6D !important;
+        }
+        /* #092635 --- #1B4242 ---#5C8374 ---#9EC8B9*/
+        body {
+            display: flex;
+            background-color: #6c9485;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #wrapper div, #wrfapper h2{
+            display: flex;
+            flex-direction: column;
+        }
+
+        h3{
+            font-size: 21px;
+            color:rgb(47, 13, 80);
+        }
+        #wrapper {
+            position: relative;
+            width: 250px;
+            background-color: #346b6b;
+            border-radius: 10px;
+            padding: 10px;
+            overflow-x: auto;
+            overflow-y:auto;
+            color: white;
+        }
+        #result{
+            color: white;
+            font-weight: 800;
+        }
+        #result1{
+            color: white;
+        }
+        #result2{
+            color: white;
+            font-weight: 800;
+        }
+        #result3{
+            color: white;
+            font-weight: 800;
+        }
+        a{
+            color: black;
+            font-weight:bold;
+            text-decoration: none;
+            text-align: justify;
+            height:30px;
+            width: 100%;
+        }
+        a:hover{
+            color: rgb(5, 4, 4);
+            background-color:#285e5e;
+        
+        }
+        .mainbox2{
+            position: relative;
+            background-color: #6c9485;
+            height: auto;
+            width: 1000px;
+            overflow-x: auto;
+            overflow-y: auto;
+        }
+        input{
+            font-size: 23px;
+        }
+        label{
+            font-size: 22px;
+        }
+        button{
+            margin-top: 20px;
+            border-radius: 4px;
+            height: 44px;
+            font-weight: 600;
+            padding: 0 30px;
+            letter-spacing: 1px;
+            border: none;
+            background-color: #ffeba7;
+            color: #102770;
+        }      
+    </style>  
+    <script >
+        function mean() {
+
+            // Example input: "23,24,23,24,25,24,23"
+            let x_value= document.getElementById('x_value').value;
+            let f_vlaue= document.getElementById('f_value').value;
+            
+            // Split the input string into an array of substrings using commas
+            let x = x_value.split(",").map(Number);
+            let f = f_value.split(",").map(Number);
+
+            // Check if any element in inputDataArray is not a valid number
+            if (x.length===f_vlaue.length) {
+                alert("Please  x value  and f value not equal  check.");
+                return;
+            }
+            let xbar = x_f_multsum(x,f)/sum(f);
+            let n = x.length;
+            let p = xbar/n;
+            let q = 1-p;
+            
+
+            
+        
+            let result = document.getElementById("result");
+            result.innerHTML = "Your result is the mean value: " + mean1;
+            // define  all function  binomial  distribution
+            function sum(array) {
+            return array.reduce((acc, val) => acc + val, 0);
+            }
+            //------
+            function x_f_multsum(x_value,f_value){
+            return x_value.reduce((acc,val,index)=> acc+val*f_value[index],0);
+            }
+        }
+
+        // Define the sum function
+        function sum(array) {
+            return array.reduce((acc, val) => acc + val, 0);
+        }
+        function dis_mean(){
+            const dis_mean_x = document.getElementById("descreat_input_x").value
+            const dis_mean_f = document.getElementById("descreat_input_f").value
+            const x_value = dis_mean_x.split(",").map(Number);
+            const f_value = dis_mean_f.split(",").map(Number);
+            if (x_value.length !==f_value.length){
+                alert("sorry x_value and f_vlaue not equal length . please check")
+            }
+            const disc_mean = x_f_multsum(x_value,f_value)/f_sum(f_value);
+            const result2 = document.getElementById("result2");
+            result2.innerHTML = "Your result is the mean value: " + disc_mean;
+        }
+        function x_f_multsum(x_value,f_value){
+            return x_value.reduce((acc,val,index)=> acc+val*f_value[index],0);
+        }
+        function f_sum(f_value){
+            return f_value.reduce((acc,val)=> acc+val,0)
+        }
+        // continous formula create with function
+        
+    </script>    
+    
+</body>
+</html>

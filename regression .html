@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clg project</title>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            <div id="wrapper2">
+                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h3>Visualization Tools:</h3>
+                <a href="mesure test/linechart.html">LINE CHART</a>
+                <a href="">SIMPLE BAR DIAGRAM</a>
+                <a href="">SUBDIVIDED BAR DIAGRAM</a>
+                <a href="">PIE - DIAGRAM</a>
+                <a href="">HISTOGRAM</a>
+                <a href=""> BOX PLOT</a>
+                <h3>measures of central tendency</h3>
+                <a href="mean.html">mean</a>
+                <a href="median.html">median</a>
+                <a href="mode.html">mode</a>
+                <a href="geometric_mean.html">geometric mean</a>
+                <a href="harmonic_mean.html">harmonic mean</a>
+                <h3>measures of dispersion</h3>
+                <a href="range.html">range</a>
+                <a href="mean_deviation.html">mean deviation</a>
+                <a href="quartile_deviation.html">quartile deviation</a>
+                <a href="standard deviation.html">standard deviation</a>
+                <a href="co_of_variation.html">coefficient of variation</a> 
+                <a href="skewness_and_kurtusis.html">skewness and kurtusis</a>
+                <h3>DISTRIBUTION  THEORY</h3>
+                <a href="binomial _distribution.html">BINOMIAL DISTRIBUTION</a>
+                <a href="poission_distribution.html">PIOSSION DISTRIBUTION</a>
+                <a href="normal _distribution.html">NORMAL DISTRIBUTION</a>
+                <a href="exponential_distribution.html">EXPONENTIAL DISTRIBUTION</a>
+                <h3>Correlation Analysis:</h3>
+                <a href="correlation.html">Correlation </a>
+                <h3>Regression Analysis:</h3>
+                <a href="regression .html">Regression</a>
+                <h3>Simple Random Sampling</h3>
+                <a href="SimpleRandomSampling.html">SRSWOR</a>
+                <a href="SimpleRandomSampling2.html">SRSWR</a>
+                <h3>Inferential Statistics:</h3>
+                <a href="">Confidence Interval for Mean</a>
+                <a href="">Confidence Interval for proportion</a>
+                <h3>Hypothesis Testing:</h3>
+                <a href="">Z-test</a>
+                <a href="">t-test</a>
+                <a href="">Chi-Square Test</a>
+                <a href="">ANOVA</a>
+                <h3>Experimental De1sign:</h3>
+                <a href="">CRD</a
+                <a href="">RBD</a>
+                <a href="">LSD</a>
+                <h3>SQL(Statistical Quality Control)</h3>
+                <a href="">X-bar chart</a>
+                <a href="">R chart</a>
+                <a href="">S chart</a>
+                <h4> Attributes</h4>
+                <a href="">p chart</a>
+                <a href="">np</a>
+
+
+            </div>
+
+            
+
+        </nav>
+    </div>
+    <div class="mainbox2">
+        <h1>REGRESSION:-</h1>
+        <div id="block1">
+            <div id="inditurval">
+                <label for="input">enter x value :  ---<input type="text" id="reg_x" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+                <br>
+                <label for="input">enter y value :  ---<input type="text" id="reg_y" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <br>
+                <button  id="dis_mean" type="button"  onclick="reg()">REGRESSION</button>
+                <div id="result">
+    
+                </div>
+            </div>
+            <div><img src="clg_photes/mean dis.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>
+        
+    </div>     
+   </div>
+   
+    <style>
+        #block1{
+            display: flex;
+        }
+        #block2{
+            display: flex;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        img{
+                position: relative;
+                top: 50px;
+                left: 50px;
+                border-radius: 9px;
+
+        }
+        button{
+            position: relative;
+            left: 80px;
+        }
+        .active-button{
+            background-color: #04AA6D !important;
+        }      
+    </style>  
+    <script>
+        function reg() {
+
+            // Get user input values
+            var xValues = document.getElementById("reg_x").value.split(',').map(Number);
+            var yValues = document.getElementById("reg_y").value.split(',').map(Number);
+
+            // Function to calculate mean
+            function mean(arr) {
+                return arr.reduce((sum, value) => sum + value, 0) / arr.length;
+            }
+
+            // Function to calculate covariance
+            function covariance(arr1, arr2) {
+                var meanX = mean(arr1);
+                var meanY = mean(arr2);
+                var result = 0;
+
+                for (var i = 0; i < arr1.length; i++) {
+                    result += (arr1[i] - meanX) * (arr2[i] - meanY);
+                }
+
+                return result / arr1.length;
+            }
+
+            // Function to calculate variance
+            function variance(arr) {
+                var meanVal = mean(arr);
+                return arr.reduce((sum, value) => sum + Math.pow(value - meanVal, 2), 0) / arr.length;
+            }
+
+            // Calculate regression-related values
+            var covXY = covariance(xValues, yValues);
+            var varX = variance(xValues);
+            var varY = variance(yValues);
+            var bxy = covXY / varX;
+            var byx = covXY / varY;
+            var regEqXonY = `y = ${mean(yValues).toFixed(2)} + ${bxy.toFixed(2)} * (x - ${mean(xValues).toFixed(2)})`;
+            var regEqYonX = `x = ${mean(xValues).toFixed(2)} + ${byx.toFixed(2)} * (y - ${mean(yValues).toFixed(2)})`;
+            var correlationCoefficient = Math.sqrt(Math.abs(byx * bxy));
+
+            // Display results
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <p>Covariance (cov(X, Y)): ${covXY.toFixed(2)}</p>
+                <p>Variance (Var(X)): ${varX.toFixed(2)}</p>
+                <p>Variance (Var(Y)): ${varY.toFixed(2)}</p>
+                <p>bxy: ${bxy.toFixed(2)}</p>
+                <p>byx: ${byx.toFixed(2)}</p>
+                <p>Regression Equation (X on Y): ${regEqXonY}</p>
+                <p>Regression Equation (Y on X): ${regEqYonX}</p>
+                <p>Correlation Coefficient (r): ${correlationCoefficient.toFixed(2)}</p>
+            `;
+        }
+        
+    </script>    
+    
+</body>
+</html>

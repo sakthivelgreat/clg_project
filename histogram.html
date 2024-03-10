@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histograms</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="clg.css">
+</head>
+<body>
+    <div class="mainbox">
+        <div id="block1">
+            <h2>Generate Histogram</h2>
+            <br>
+            <div id="inditurval2">
+                <label for="midx_values">Enter midpoints (comma-separated):</label><br>
+                <input type="text" id="midx_values" placeholder="5,15,25,35,45,55,65,75,85"><br>
+                <label for="f_values">Enter frequencies (comma-separated):</label><br>
+                <input type="text" id="f_values" placeholder="4,6,17,14,16,14,8,16,5"><br>
+                <label for="xname">x axis name : <input type="text" id="xname" placeholder='ex: sakthi'></label><br>
+                <label for="yname">y axis name : <input type="text" id="yname" placeholder='ex: sakthi'></label><br>
+                <label for="color">Enter Color:-<br><input type="text" id="color" name="red"></label><br>
+                <label for="border_color">Enter Border Color:-<br><input type="color" id="border_color" value="#000000"></label><br>
+                <label for="title">Title:-<br><input type="text" id="title" placeholder='"sakthi is bigestmen"'></label><br>
+                <button onclick="generateHistogram()">Generate Histogram</button>
+                <button onclick="generateFrequencyPolygon()">Frequency Polygon</button>
+                <button onclick="generateFrequencyCurve()">Frequency Curve</button>
+            </div>
+            <div id="chart_result"></div>
+        </div>
+    </div>
+
+    <script>
+        function generateHistogram() {
+            let midpoints = document.getElementById("midx_values").value.split(",").map(Number);
+            let frequencies = document.getElementById("f_values").value.split(",").map(Number);
+            let xName = document.getElementById("xname").value;
+            let yName = document.getElementById("yname").value;
+            let color = document.getElementById("color").value;
+            let borderColor = document.getElementById("border_color").value;
+            let title = document.getElementById("title").value;
+
+            let values = [];
+            for (let i = 0; i < midpoints.length; i++) {
+                for (let j = 0; j < frequencies[i]; j++) {
+                    values.push(midpoints[i]);
+                }
+            }
+
+            let data = [{
+                x: values,
+                type: 'histogram',
+                marker: {
+                    color: color,
+                    line: {
+                        color: borderColor,
+                        width: 4
+                    }
+                },
+                autobinx: false,
+                xbins: {
+                    start: Math.min(...midpoints),
+                    end: Math.max(...midpoints),
+                    size: midpoints[1] - midpoints[0]
+                }
+            }];
+
+            let layout = {
+                title: title,
+                xaxis: {
+                    title: xName
+                },
+                yaxis: {
+                    title: yName
+                }
+            };
+
+            Plotly.newPlot('chart_result', data, layout);
+        }
+
+        function generateFrequencyPolygon() {
+            let midpoints = document.getElementById("midx_values").value.split(",").map(Number);
+            let frequencies = document.getElementById("f_values").value.split(",").map(Number);
+            let xName = document.getElementById("xname").value;
+            let yName = document.getElementById("yname").value;
+
+            let cumulativeFreq = [];
+            let sum = 0;
+            frequencies.forEach(freq => {
+                sum += freq;
+                cumulativeFreq.push(sum);
+            });
+
+            let data = [{
+                x: midpoints,
+                y: cumulativeFreq,
+                type: 'scatter',
+                mode: 'lines+markers',
+                marker: {
+                    color: 'blue'
+                },
+                line: {
+                    width: 2
+                }
+            }];
+
+            let layout = {
+                title: 'Frequency Polygon',
+                xaxis: {
+                    title: xName
+                },
+                yaxis: {
+                    title: 'Cumulative Frequency'
+                }
+            };
+
+            Plotly.newPlot('chart_result', data, layout);
+        }
+
+        function generateFrequencyCurve() {
+            let midpoints = document.getElementById("midx_values").value.split(",").map(Number);
+            let frequencies = document.getElementById("f_values").value.split(",").map(Number);
+            let xName = document.getElementById("xname").value;
+            let yName = document.getElementById("yname").value;
+
+            let cumulativeFreq = [];
+            let sum = 0;
+            frequencies.forEach(freq => {
+                sum += freq;
+                cumulativeFreq.push(sum);
+            });
+
+            let data = [{
+                x: midpoints,
+                y: cumulativeFreq,
+                type: 'scatter',
+                mode: 'lines',
+                marker: {
+                    color: 'red'
+                },
+                line: {
+                    width: 2
+                }
+            }];
+
+            let layout = {
+                title: 'Frequency Curve',
+                xaxis: {
+                    title: xName
+                },
+                yaxis: {
+                    title: 'Cumulative Frequency'
+                }
+            };
+
+            Plotly.newPlot('chart_result', data, layout);
+        }
+    </script>
+
+    <style>
+        .mainbox {
+            margin: 20px;
+        }
+        
+        #inditurval {
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        #basic {
+            font-size: medium;
+        }
+        
+        img {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            border-radius: 9px;
+        }
+        button {
+            position: relative;
+            left: 80px;
+            margin-top: 10px;
+        }
+        .active-button {
+            background-color: #04AA6D !important;
+        }
+    </style>
+</body>
+</html>
