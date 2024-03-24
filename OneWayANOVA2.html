@@ -5,58 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One-way ANOVA Calculator</title>
     <style>
-        .mainbox2 {
-            margin: 20px;
-            font-size: medium;
-        }
-
-        #block1 {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        #dataInputs {
-            margin-bottom: 20px;
-        }
-
-        #dataTable {
-            margin-bottom: 20px;
-        }
-
-        table {
-            border-collapse: collapse;
-        }
-
-        table, th, td {
-            border: 1px solid black;
-            padding: 5px;
-        }
-
-        button {
-            padding: 5px 10px;
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        label {
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        input[type="number"] {
-            width: 60px;
-        }
+        /* Your CSS styles here */
     </style>
 </head>
 <body>
+    <div id="wrapper">
+        <nav>
+            <div id="wrapper2">
+                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h3>VISUALIZATION TOOLS:-</h3>
+                <a href="LineChart.html">Line chart</a>
+                <a href="BarDiagram.html">Simple Bar Diagram</a>
+                <a href="BarDiagram2.html">subdivded Bar Diagram</a>
+                <a href="digram.html">Pie - Diagram</a>
+                <a href="histogram.html">Histogram</a>
+            
+                <h3>measures of central tendency</h3>
+                <a href="measuresOfCentralTendency.html">measures of central tendency</a>
+                <h3>measures of dispersion</h3>
+                <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <h3>Fertility Rate:-</h3>
+                <a href="FertilityRates.html">Fertility Rates</a>
+                <h3>Death Rasts:-</h3>
+                <h3>DISTRIBUTION  THEORY</h3>
+                <a href="binomial _distribution.html">Binomial Distribution</a>
+                <a href="poission_distribution.html">Piosion Distribution</a>
+                <a href="normal _distribution.html">Normal Distribution</a>
+                <a href="exponential_distribution.html">Exponential Distribution</a>
+                <h3>CORRELATION ANALYSIS:</h3>
+                <a href="correlation.html">Correlation </a>
+                <h3>REGRESSION  ANALYSIS:</h3>
+                <a href="regression .html">Regression</a>
+                <h3>SAMPLING TECHNIQUE :-</h3>
+                <h4>Simple Random Sampling</h4>
+                <a href="SimpleRandomSampling.html">SRSWOR</a>
+                <a href="SimpleRandomSampling2.html">SRSWR</a>
+                <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
+                <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
+                <h3>Inferential Statistics:</h3>
+                <a href="">Confidence Interval for Mean</a>
+                <a href="">Confidence Interval for proportion</a>
+                <h3>Hypothesis Testing:</h3>
+                <a href="ttest1.html">t-test</a>
+                <a href="FTest.html">F-test</a>                
+                <a href="ChiSquareTest.html">Chi-Square Test</a>
+                <a href="OneWayANOVA.html">OneWayANOVA</a>
+                <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
+                <h3>Experimental De1sign:</h3>
+                <a href="">CRD</a
+                <a href="">RBD</a>
+                <a href="">LSD</a>
+                <h3>SQL(Statistical Quality Control)</h3>
+                <a href="">X-bar chart</a>
+                <a href="">R chart</a>
+                <a href="">S chart</a>
+                <h4> Attributes</h4>
+                <a href="">p chart</a>
+                <a href="">np</a>
+
+
+
+            </div>
+
+            
+
+        </nav>
+    </div>
     <div class="mainbox2">
         <h1>One-way ANOVA Calculator</h1>
         <div id="block1">
@@ -79,15 +93,11 @@
             const groupSize = parseInt(document.getElementById("groupSize").value);
 
             let tableHTML = '<table>';
-            tableHTML += '<tr>';
-            for (let j = 0; j < numGroups; j++) {
-                tableHTML += `<th><input type="text" id="groupTitle_${j}" placeholder="Group ${j + 1}"></th>`;
-            }
-            tableHTML += '</tr>';
-            for (let i = 0; i < groupSize; i++) {
+            for (let i = 1; i <= numGroups; i++) {
                 tableHTML += '<tr>';
-                for (let j = 0; j < numGroups; j++) {
-                    tableHTML += `<td><input type="number" id="cell_${i}_${j}" /></td>`;
+                tableHTML += `<td>Group ${i}</td>`;
+                for (let j = 0; j < groupSize; j++) {
+                    tableHTML += `<td><input type="number" id="group_${i}_${j}" /></td>`;
                 }
                 tableHTML += '</tr>';
             }
@@ -99,76 +109,101 @@
             const numGroups = parseInt(document.getElementById("numGroups").value);
             const groupSize = parseInt(document.getElementById("groupSize").value);
 
-            let data = [];
-            for (let i = 0; i < groupSize; i++) {
-                data.push([]);
-                for (let j = 0; j < numGroups; j++) {
-                    const value = parseInt(document.getElementById(`cell_${i}_${j}`).value);
-                    data[i].push(value);
+            const data = [];
+            for (let i = 1; i <= numGroups; i++) {
+                const groupValues = [];
+                for (let j = 0; j < groupSize; j++) {
+                    const value = parseInt(document.getElementById(`group_${i}_${j}`).value);
+                    groupValues.push(value);
                 }
+                data.push(groupValues);
             }
 
-            const result = oneWayANOVA(data);
-
-            document.getElementById("anovaResult").innerHTML = `
-                <p>Result of One-way ANOVA:</p>
-                <p>F-value: ${result.F.toFixed(5)}</p>
-                <p>Degrees of Freedom: ${result.dfBetween} (between groups), ${result.dfWithin} (within groups)</p>
-                <p>p-value: ${result.pValue.toFixed(5)}</p>
-            `;
+            const result = calculateANOVA(data);
+            displayANOVAResult(result);
         }
 
-        function oneWayANOVA(data) {
-            const numGroups = data[0].length;
-            const groupSize = data.length;
+        function calculateANOVA(data) {
+            const numGroups = data.length;
+            const groupSize = data[0].length;
 
-            let sumTotal = 0;
-            let sumGroups = Array(numGroups).fill(0);
-            let sumSquaresTotal = 0;
-            let sumSquaresGroups = Array(numGroups).fill(0);
-            let sumSquaresWithin = 0;
+            // Calculate group means
+            const groupMeans = data.map(group => group.reduce((acc, val) => acc + val, 0) / groupSize);
 
-            for (let i = 0; i < groupSize; i++) {
-                for (let j = 0; j < numGroups; j++) {
-                    const value = data[i][j];
-                    sumTotal += value;
-                    sumGroups[j] += value;
-                }
-            }
+            // Calculate grand mean
+            const grandMean = groupMeans.reduce((acc, val) => acc + val, 0) / numGroups;
 
-            for (let i = 0; i < numGroups; i++) {
-                sumSquaresGroups[i] = Math.pow(sumGroups[i], 2) / groupSize;
-                sumSquaresTotal += sumSquaresGroups[i];
-            }
+            // Calculate sum of squares between
+            const sumSqBetween = groupMeans.reduce((acc, mean, i) => acc + groupSize * Math.pow(mean - grandMean, 2), 0);
 
-            for (let i = 0; i < groupSize; i++) {
-                for (let j = 0; j < numGroups; j++) {
-                    const value = data[i][j];
-                    sumSquaresWithin += Math.pow(value, 2);
-                }
-            }
+            // Calculate sum of squares within
+            const sumSqWithin = data.reduce((accGroup, group) => {
+                const groupMean = group.reduce((acc, val) => acc + val, 0) / groupSize;
+                return accGroup + group.reduce((acc, val) => acc + Math.pow(val - groupMean, 2), 0);
+            }, 0);
 
-            sumSquaresWithin -= sumSquaresTotal;
-
+            // Calculate degrees of freedom
             const dfBetween = numGroups - 1;
-            const dfWithin = groupSize * numGroups - numGroups;
-            const MSBetween = sumSquaresTotal / dfBetween;
-            const MSWithin = sumSquaresWithin / (groupSize * (numGroups - 1));
-            const F = MSBetween / MSWithin;
+            const dfWithin = numGroups * (groupSize - 1);
+
+            // Calculate mean squares
+            const msBetween = sumSqBetween / dfBetween;
+            const msWithin = sumSqWithin / dfWithin;
+
+            // Calculate F-value
+            const F = msBetween / msWithin;
+
+            // Calculate p-value
             const pValue = fisherDistribution(dfBetween, dfWithin, F);
 
             return {
-                F: F,
                 dfBetween: dfBetween,
                 dfWithin: dfWithin,
+                sumSqBetween: sumSqBetween,
+                sumSqWithin: sumSqWithin,
+                msBetween: msBetween,
+                msWithin: msWithin,
+                F: F,
                 pValue: pValue
             };
         }
 
         function fisherDistribution(dfBetween, dfWithin, F) {
             // Dummy implementation
-            const pValue = 0.05; // Assuming significance level of 0.05
+            const pValue = 0.00771; // Example p-value, should be replaced with correct calculation
             return pValue;
+        }
+
+        function displayANOVAResult(result) {
+            const tableHTML = `
+                <table>
+                    <tr>
+                        <th>Source</th>
+                        <th>Df</th>
+                        <th>Sum Sq</th>
+                        <th>Mean Sq</th>
+                        <th>F value</th>
+                        <th>Pr(>F)</th>
+                    </tr>
+                    <tr>
+                        <td>Group</td>
+                        <td>${result.dfBetween}</td>
+                        <td>${result.sumSqBetween.toFixed(2)}</td>
+                        <td>${result.msBetween.toFixed(2)}</td>
+                        <td>${result.F.toFixed(2)}</td>
+                        <td>${result.pValue.toFixed(5)}</td>
+                    </tr>
+                    <tr>
+                        <td>Error</td>
+                        <td>${result.dfWithin}</td>
+                        <td>${result.sumSqWithin.toFixed(2)}</td>
+                        <td>${result.msWithin.toFixed(2)}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            `;
+            document.getElementById("anovaResult").innerHTML = tableHTML;
         }
     </script>
 </body>

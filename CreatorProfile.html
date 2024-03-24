@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bio-Data</title>
+    <style>
+        body{
+            text-align: center;
+            font-size:x-large;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3038; /* Light background */
+            color: #43a8a8; /* Dark text */
+            margin: 0;
+            padding: 0;
+            justify-content: space-between;
+            flex-direction: row;
+        }
+        .profile-topnav {
+            height: 50px;
+            background-color: #575757; /* Dark blue background for nav bar */
+            border-bottom: 1px solid #1B4242; /* Dark border bottom */
+            display: flex;
+            align-items: center;
+        }
+        .profile-topnav .name {
+            margin-right: auto; /* Pushes the name to the left */
+            color: rgb(161, 161, 187);
+            font-family: 'Lora', serif;
+        }
+        .name h3:hover {
+            text-shadow: 6px 6px 6px;
+        }
+        .name h3 {
+            text-transform: capitalize;
+            font-family: 'Lora', serif;
+            font-size: 25px;
+            font-weight: 900;
+            margin-left: 1rem;
+            color: rgb(173, 173, 173);
+        }
+        .profile-topnav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .profile-topnav ul li {
+            margin-left: 20px;
+        }
+        .profile-topnav img{
+            display: none;
+        }
+        .profile-topnav ul li a {
+            text-decoration: none;
+            color: #e2c9c9; /* White text */
+            font-size: 18px; /* Smaller font size for links */
+            font-style: italic;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+        }
+        .profile-topnav ul li a:hover {
+            color: #b46666; /* Lighter color on hover */
+        }
+        /* Existing CSS */
+        /* Add your existing CSS styles here */
+
+        /* New CSS for Bio-Data */
+        .bio-data-container {
+            margin: 20px;
+            padding: 20px;
+            border: 2px solid #43a8a8; /* Dark text */
+            border-radius: 10px;
+            background-color: #2c3038; /* Light background */
+            color: #43a8a8; /* Dark text */
+        }
+
+        .bio-data-container h2 {
+            color: skyblue;
+            font-size: 22px;
+        }
+
+        .bio-data-container p {
+            margin-bottom: 10px;
+        }
+
+        .bio-data-container ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bio-data-container ul li {
+            margin-bottom: 5px;
+        }
+
+        .bio-data-container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .bio-data-container th, .bio-data-container td {
+            border: 1px solid #43a8a8;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .bio-data-container th {
+            background-color: #575757; /* Dark blue background for table header */
+            color: #e2c9c9; /* White text */
+        }
+
+        .bio-data-container tr:nth-child(even) {
+            background-color: #575757; /* Dark blue background for even rows */
+        }
+        .bio-data-container p span{
+            font-family: 'Lora', serif;
+            color:#e2c9c9;
+            font-style: italic;
+        }
+        .bio-data-container span p{
+            font-family: 'Lora', serif;
+            color:#e2c9c9;
+            font-style: italic;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-topnav">
+        <div class="name"><h3>SAKTHIVEL KANDHASAMI</h3></div>
+        <img src="logo.png" alt="Logo" class="logo" onclick="toggleMenu()">
+        <ul id="menu">
+            <li><a href="profile.html">Home</a></li>
+            <li><a href="CreatorProfile.html">Creator Profile</a></li>
+            <li><a href="LineChart.html">Go to Calculation</a></li>
+            <li><a href="#">Contact Me</a></li>
+            <li><a href="#">Roles and Regulations</a></li>
+        </ul>
+    </div>
+    <div class="bio-data-container">
+        <h1> CREATOR  BIO - DATA</h1>
+        <p>NAME: <span>K.Sakthivel</span></p>
+        <p>FATHER'S NAME: <span>M.kandhasami</span></p>
+        <p>ADDRESS: <span><br>D.no:37,<br> Nadar Street,<br> koolathukkumbai belur, <br>vazhapaddy(TK), Salem (DT) -636139</span></p>
+        <p>E-MAIL ID: <span>vel172683@gmail.com</span></p>
+        <p>MOBILE NUMBER: <span>6379179563</span></p>
+        <p>GENDER: <span>Male</span></p>
+        <p>DATE OF BIRTH: <span>20.03.2001</span></p>
+        <p>RELIGION: <span>Hindu</span></p>
+        <p>NATIONALITY: <span>Indian</span></p>
+        <p>MARITAL STATUS: <span>Single</span></p>
+        <h2>LANGUAGES KNOWN:</h2>
+        <ul>
+            <li>READ: Tamil, English</li>
+            <li>WRITE: Tamil, English</li>
+            <li>SPEAK: Tamil</li>
+        </ul>
+        <h2>COMPUTER LITERACY:</h2>
+        <h3>Data secence:</h3>
+        <span><p>ms office excel</p></span>
+        <span><p>mySQL</p></span>
+        <span><p>R and Rstudio</p></span>
+        <span><p>SPSS</p></span>
+        <span><p>python</p></span>
+        <h3>Web Develop:</h3>
+        <span><p>html</p></span>
+        <span><p>CSS</p></span>
+        <span><p>Java Script</p></span>
+        <span><p>React</p></span>
+        <span><p>Bootstrap</p></span>
+        <span><p>SQL</p></span>
+        <span><p>Git and GitHub</p></span>
+        <h2>ACADEMICS:</h2>
+        <table>
+            <tr>
+                <th>COURSE</th>
+                <th>BOARD/UNIVERSITY</th>
+                <th>YEAR OF PASSING</th>
+                <th>PERCENTAGE</th>
+              
+            </tr>
+            <tr>
+                <td>10/SSLC</td>
+                <td>GOVT HIGH SCHOOL NEERMULLIKUTTAI SALEM</td>
+                <td>2016</td>
+                <td>82.6 %</td>
+              
+            </tr>
+            <tr>
+                <td>+2/HSC</td>
+                <td>GOVT BOYS HR SEC SCHOOL BELUR</td>
+                <td>2017-2018</td>
+                <td>67.4%</td>
+            </tr>
+            <tr>
+                <td>UG</td>
+                <td>GOVERNMENT ARTS COLLEGE (AUTONOMOUS), SALEM</td>
+                <td>2018-2020 (3Years)</td>
+                <td>71.4%</td>
+            </tr>
+            <tr>
+                <td>PG</td>
+                <td>GOVERNMENT ARTS COLLEGE (AUTONOMOUS), SALEM</td>
+                <td>2022-2024 (2Years)-</td>
+                <td>coming soon</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

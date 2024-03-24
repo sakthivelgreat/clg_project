@@ -47,6 +47,9 @@
         .profile-topnav ul li {
             margin-left: 20px;
         }
+        .profile-topnav img{
+            display: none;
+        }
         .profile-topnav ul li a {
             text-decoration: none;
             color: #e2c9c9; /* White text */
@@ -60,20 +63,24 @@
         }
         .profile-container {
             text-align: center;
-            margin-bottom: 40px;
+            margin: 10px 25px;
             font-family: 'Lora', serif;
         }
         .profile-container1 {
-            top: 50px;
+            /* top: 50px; */
             display: flex;
             justify-content: flex-end;
-            position: relative;
-            right: 50px;
+            margin: 10px 25px;
+            /* position: relative; */
+            /* right: 50px; */
             text-align: center;
-            margin-bottom: 40px;
+            /* margin-bottom: 40px; */
             font-family: 'Lora', serif;
             font-style: italic;
         }
+        /* .btm-container{
+            margin: 10px 25px;
+        } */
         .maindiv2 {
             text-align: center;
             display: flex;
@@ -112,37 +119,29 @@
             color: skyblue;
         }
         /* Media query for mobile */
-        @media only screen and (max-width: 767px) {
-            /* Media query for mobile */
-            .profile-img {
-                width: 200px; /* Adjusted size for profile images on mobile */
-                height: 200px; /* Adjusted size for profile images on mobile */
+        @media screen and (max-width: 768px) {
+            #menu {
+
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: #347c7c; /* Dark blue background */
+                width: 100%;
+                padding: 10px 0;
+                text-align: center;
             }
-            .medium-profile-img {
-                width: 100px; /* Adjusted size for medium profile images on mobile */
-                height: 100px; /* Adjusted size for medium profile images on mobile */
-            }
-            .mediadiv{
+
+            #menu.open {
                 display: flex;
                 flex-direction: column;
             }
-            .profile-topnav {
-                flex-direction: column; /* Stack items vertically */
-                align-items: stretch; /* Stretch items */
-                height: auto; /* Auto height */
+
+            #menu li {
+                margin: 10px 0;
             }
-            .profile-topnav .name {
-                margin-right: 0; /* Reset margin */
-                margin-bottom: 10px; /* Added margin bottom */
-            }
-            .profile-topnav ul {
-                margin-left: 0; /* Reset margin */
-            }
-            .profile-topnav ul li {
-                margin: 5px 0; /* Added margin */
-            }
-            .maindiv2 {
-                margin-top: 20px; /* Added margin top */
+            .profile-topnav img{
+                display:list-item\;
             }
         }
     </style>
@@ -150,52 +149,65 @@
 <body>
     <div class="profile-topnav">
         <div class="name"><h3>SAKTHIVEL KANDHASAMI</h3></div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Creator Profile</a></li>
-            <li><a href="#">Go to Calculation</a></li>
+        <img src="logo.png" alt="Logo" class="logo" onclick="toggleMenu()">
+        <ul id="menu">
+            <li><a href="profile.html">Home</a></li>
+            <li><a href="CreatorProfile.html">Creator Profile</a></li>
+            <li><a href="LineChart.html">Go to Calculation</a></li>
             <li><a href="#">Contact Me</a></li>
             <li><a href="#">Roles and Regulations</a></li>
         </ul>
     </div>
-    
-    <div class="profile-container1">
-        <div>
-            <img src="IMG-20230112-WA0020.jpg" alt="Your Photo" class="profile-img">
-            <div class="profile-info">
-                <span>
-                    <span>Created <br><br> by <br><br><h2>K.sakthivel</h2></span>
-                    <p>Occupation: Friend Developer</p>
-                    <p>Description: A brief description about yourself</p>
-                </span>
-            </div>
-        </div>
-    </div>
-    <br>
-    <div class="clg">
-        <span><h2><a href="">my class met</a></h2></span>
-        <span><h2><a href="">my sisters</a></h2></span>
-        <span><h2><a href="">statistics teachers</a></h2></span>
-        <span><h2><a href="">my clg statistics history</a></h2></span>
-    </div>
-    <div class="maindiv2">
-        <div class="profile-container">
-            <img src="IMG-20230112-WA0020.jpg" alt="Teacher's Photo" class="medium-profile-img">
-            <div class="profile-info">
-                <span><h2>Student's Name girl no2</h2></span>
-                <p>Grade: Student's Grade</p>
-                <p>Description: A brief description about the student</p>
+    <div class="profile2">
+        <div class="profile-container1">
+            <div>
+                <img src="" alt="Your Photo" class="profile-img">
+                <div class="profile-info">
+                    <span>
+                        <span>Created <br><br> by <br><br><h2>K.sakthivel</h2></span>
+                        <p>Occupation: Friend Developer</p>
+                        <p>Description: A brief description about yourself</p>
+                    </span>
+                </div>
             </div>
         </div>
         <br>
-        <div class="profile-container">
-            <img src="IMG-20230112-WA0020.jpg" alt="Student's Photo" class="medium-profile-img">
-            <div class="profile-info">
-                <span><h2>Student's Name girl no2</h2></span>
-                <p>Grade: Student's Grade</p>
-                <p>Description: A brief description about the student</p>
+        <div class="btm-container">
+            <div class="clg">
+                <span><h2><a href="">my class met</a></h2></span>
+                <span><h2><a href="">my sisters</a></h2></span>
+                <span><h2><a href="">statistics teachers</a></h2></span>
+                <span><h2><a href="">my clg statistics history</a></h2></span>
+            </div>
+            <div class="maindiv2">
+                <div class="profile-container">
+                    <img src="" alt="Teacher's Photo" class="medium-profile-img">
+                    <div class="profile-info">
+                        <span><h2>Student's Name girl no2</h2></span>
+                        <p>Grade: Student's Grade</p>
+                        <p>Description: A brief description about the student</p>
+                    </div>
+                </div>
+                <br>
+                <div class="profile-container">
+                    <img src="" alt="Student's Photo" class="medium-profile-img">
+                    <div class="profile-info">
+                        <span><h2>Student's Name girl no2</h2></span>
+                        <p>Grade: Student's Grade</p>
+                        <p>Description: A brief description about the student</p>
+                    </div>
+                </div>
             </div>
         </div>
+     
+        
     </div>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("open");
+        }
+    </script>
+    
 </body>
 </html>
