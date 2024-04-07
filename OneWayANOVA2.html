@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One-way ANOVA Calculator</title>
+    <link rel="stylesheet" href="clg.css">
     <style>
         /* Your CSS styles here */
     </style>
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
                 <h1> DISCRIPTIVE STATISTICS</h1>
                 <h3>VISUALIZATION TOOLS:-</h3>
@@ -24,9 +30,11 @@
                 <a href="measuresOfCentralTendency.html">measures of central tendency</a>
                 <h3>measures of dispersion</h3>
                 <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <a href="skewness_and_kurtusis.html">Skewness and Kurtosis</a>
                 <h3>Fertility Rate:-</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
                 <h3>Death Rasts:-</h3>
+                <a href="DeathRate.html">Death Rates</a>
                 <h3>DISTRIBUTION  THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
                 <a href="poission_distribution.html">Piosion Distribution</a>
@@ -42,52 +50,127 @@
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
                 <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
                 <h3>Hypothesis Testing:</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
                 <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox2">
-        <h1>One-way ANOVA Calculator</h1>
+        <h1>Two-way ANOVA Calculator</h1>
         <div id="block1">
-            <div id="dataInputs">
+            <div id="inditurval">
                 <label for="numGroups">Number of Groups:</label>
                 <input type="number" id="numGroups" min="2" value="3">
                 <label for="groupSize">Group Size:</label>
                 <input type="number" id="groupSize" min="2" value="5">
                 <button onclick="createTable()">Create Table</button>
             </div>
-            <div id="dataTable"></div>
-            <button onclick="performANOVA()">Calculate One-way ANOVA</button>
+            <div class="Table">
+                <div id="dataTable"></div>
+            </div>
+            <button onclick="performANOVA()">Calculate two-way ANOVA</button>
             <div id="anovaResult"></div>
         </div>
     </div>
+    <style>
+        .mainbox2 {
+            margin: 20px;
+            font-size: medium;
+        }
+        #dataTable{
+            position: relative;
+            top: 50px;
+           
+        }
+        #anovaResult{
+            position: relative;
+            top: 50px;
+            color: white;
+        }
+        #block1 {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        #dataTable {
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        #inditurval button{
+            position: relative;
+            top: 10px;
+            width: 50%;
+        }
+        #block1 button{
+            width: 50%;
+        }
+        button {
+            position: relative;
+            top: 50px;
+            width: 100%;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+
+        label {
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 60px;
+        }
+    </style>
 
     <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
         function createTable() {
             const numGroups = parseInt(document.getElementById("numGroups").value);
             const groupSize = parseInt(document.getElementById("groupSize").value);

@@ -7,101 +7,80 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photos/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
-                <h1> DISCRIPTIVE STATISTICS</h1>
-                <h3>VISUALIZATION TOOLS:-</h3>
+                <h1>DESCRIPTIVE STATISTICS</h1>
+                <h3>VISUALIZATION TOOLS:</h3>
                 <a href="LineChart.html">Line chart</a>
                 <a href="BarDiagram.html">Simple Bar Diagram</a>
-                <a href="BarDiagram2.html">subdivded Bar Diagram</a>
-                <a href="digram.html">Pie - Diagram</a>
+                <a href="BarDiagram2.html">Subdivided Bar Diagram</a>
+                <a href="diagram.html">Pie - Diagram</a>
                 <a href="histogram.html">Histogram</a>
-            
-                <h3>measures of central tendency</h3>
-                <a href="measuresOfCentralTendency.html">measures of central tendency</a>
-                <h3>measures of dispersion</h3>
-                <a href="MeasuresOfDispersion.html">measures of central tendency</a>
-                <h3>Fertility Rate:-</h3>
+                <h3>MEASURES OF CENTRAL TENDENCY</h3>
+                <a href="measuresOfCentralTendency.html">Measures of Central Tendency</a>
+                <h3>MEASURES OF DISPERSION</h3>
+                <a href="MeasuresOfDispersion.html">Measures of Dispersion</a>
+                <a href="skewness_and_kurtosis.html">Skewness and Kurtosis</a>
+                <h3>FERTILITY RATE</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
-                <h3>Death Rasts:-</h3>
-                <h3>DISTRIBUTION  THEORY</h3>
+                <h3>DEATH RATES</h3>
+                <a href="DeathRate.html">Death Rates</a>
+                <h3>DISTRIBUTION THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
-                <a href="poission_distribution.html">Piosion Distribution</a>
+                <a href="poission_distribution.html">Poisson Distribution</a>
                 <a href="normal _distribution.html">Normal Distribution</a>
                 <a href="exponential_distribution.html">Exponential Distribution</a>
-                <h3>CORRELATION ANALYSIS:</h3>
-                <a href="correlation.html">Correlation </a>
-                <h3>REGRESSION  ANALYSIS:</h3>
-                <a href="regression .html">Regression</a>
-                <h3>SAMPLING TECHNIQUE :-</h3>
+                <h3>CORRELATION ANALYSIS</h3>
+                <a href="correlation.html">Correlation</a>
+                <h3>REGRESSION ANALYSIS</h3>
+                <a href="regression.html">Regression</a>
+                <h3>SAMPLING TECHNIQUE</h3>
                 <h4>Simple Random Sampling</h4>
                 <a href="SimpleRandomSampling.html">SRSWOR</a>
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
-                <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
-                <h3>Hypothesis Testing:</h3>
+                <a href="SystematicRandomSampling.html">Systematic Random Sampling</a>
+                <h3>HYPOTHESIS TESTING</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
-                <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
+                <a href="OneWayANOVA2.html">TwoWayANOVA</a>
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox2">
-        <h1>FITTING A BINOMIAL  DISTRIBUTION:-</h1>
+        <h1>FITTING A BINOMIAL DISTRIBUTION</h1>
         <div id="block1">
             <div id="inditurval">
-                <label for="input">enter x values <input type="text" id="x_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="input">enter f values <input type="text" id="f_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <button  id="binomial_button" type="button"  onclick="binomial()"> BINOMIAL DISTRIBUTION</button>
-                <div id="result">
-    
-                </div>  
-                <h3> chi-square test and goodness of fit</h3>
-                <label for="input">enter Oi values <input type="text" id="oi_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="input">enter ei values <input type="text" id="ei_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <button  id="chi-square" type="button"  onclick="chi_square()">CHI-SQUARE TEST</button>
-                <div id="result1">
-
-                </div>
+                <label for="x_value">Enter x values:</label>
+                <input type="text" id="x_value" name="x_value" value="0,1,2,3,4,5,6" placeholder='e.g., 0,1,2,3,4,5,6'><br>
+                <label for="f_value">Enter f values:</label>
+                <input type="text" id="f_value" name="f_value" value="23,24,23,24,25,24,23" placeholder='e.g : 23,24,23,24,25,24,23'><br>
+                <button id="binomial_button" type="button" onclick="binomial()">BINOMIAL DISTRIBUTION</button>
+                <div id="result"></div>
+                <h3>Chi-Square Test and Goodness of Fit</h3>
+                <label for="oi_value">Enter Oi values:</label>
+                <input type="text" id="oi_value" name="oi_value" placeholder='e.g., "23,24,23,24,25,24,23"'><br>
+                <label for="ei_value">Enter Ei values:</label>
+                <input type="text" id="ei_value" name="ei_value" placeholder='e.g., "23,24,23,24,25,24,23"'><br>
+                <button id="chi-square" type="button" onclick="chi_square()">CHI-SQUARE TEST</button>
+                <div id="result1"></div>
+            </div>
+            <div>
+                <img src="" alt="" style="width:250px; height: 250px;">
+            </div>
         </div>
-        <div>
-            <img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" >
-        </div>   
-    </div>     
-   </div>
+    </div>
    
     <style>
         #block1{
-            display: flex;
-        }
-        #block2{
             display: flex;
         }
         #inditurval{
@@ -114,11 +93,10 @@
             top: 50px;
         }
         img{
-                position: relative;
-                top: 50px;
-                left: 50px;
-                border-radius: 9px;
-
+            position: relative;
+            top: 50px;
+            left: 50px;
+            border-radius: 9px;
         }
         button{
             position: relative;
@@ -127,19 +105,31 @@
         .active-button{
             background-color: #04AA6D !important;
         }      
-    </style>  
-    <script >
+    </style>
+    
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
+
         function binomial() {
+            let x_value = document.getElementById('x_value').value.trim();
+            let f_value = document.getElementById('f_value').value.trim();
 
-            // Example input: "23,24,23,24,25,24,23"
-            let x_value = document.getElementById('x_value').value;
-            let f_value = document.getElementById('f_value').value;
+            if (!x_value || !f_value) {
+                alert("Please enter both x and f values.");
+                return;
+            }
 
-            // Split the input string into an array of substrings using commas
             let x = x_value.split(",").map(Number);
             let f = f_value.split(",").map(Number);
 
-            // Check if the lengths of x and f arrays are equal
             if (x.length !== f.length) {
                 alert("Please make sure x value and f value have equal lengths.");
                 return;
@@ -151,25 +141,18 @@
             let q = 1 - p;
             let N = sum(f);
 
-            // Calculate expected frequency (fOfx) for each x value
             let fOfxArray = x.map(xVal => (fac(n) / (fac(xVal) * fac(n - xVal))) * (p ** xVal) * (q ** (n - xVal)));
-
-            // Calculate observed frequency (f) for each x value
             let observedFrequencyArray = f.map(fVal => fVal);
-
-            // Calculate expected frequency (expected_frequency) for each x value
             let expectedFrequencyArray = x.map((xVal, index) => {
                 let fOfxVal = fOfxArray[index];
                 return Math.round(N * fOfxVal);
             });
 
-            // Calculate chi-square value
             let chi_square = 0;
             for (let i = 0; i < Math.min(observedFrequencyArray.length, expectedFrequencyArray.length); i++) {
                 chi_square += ((observedFrequencyArray[i] - expectedFrequencyArray[i]) ** 2) / expectedFrequencyArray[i];
             }
 
-            // Display additional information
             let result = document.getElementById("result");
             result.innerHTML = `<br><b>Additional Information:</b>
                                 <br> xbar: ${xbar}
@@ -178,14 +161,11 @@
                                 <br> q: ${q}
                                 <br> N: ${N}`;
 
-            // Display expected frequencies and observed frequencies
             result.innerHTML += "<br><b>Expected frequencies (Ei) and Observed frequencies (Oi):</b><br>";
             OneByOnePrint("Ei", expectedFrequencyArray, "Oi", observedFrequencyArray);
 
-            // Display chi-square result
             result.innerHTML += `<br>chi_square calculated value = ${chi_square}`;
 
-            // Function to print values one by one
             function OneByOnePrint(label1, array1, label2, array2) {
                 for (let i = 0; i < Math.min(array1.length, array2.length); i++) {
                     result.innerHTML += `${label1}[${i}]: ${array1[i]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${label2}[${i}]: ${array2[i]}<br>`;
@@ -193,50 +173,48 @@
             }
         }
 
-        // Define the sum function
         function sum(array) {
             return array.reduce((acc, val) => acc + val, 0);
         }
 
-        // Define the x_f_multsum function
         function x_f_multsum(x_value, f_value) {
             return x_value.reduce((acc, val, index) => acc + val * f_value[index], 0);
         }
 
-        // Define the factorial function
         function fac(num) {
             if (num === 0 || num === 1) return 1;
             return num * fac(num - 1);
         }
-        function chi_square() {
-            // Example input: "23,24,23,24,25,24,23"
-            let oi_value = document.getElementById('oi_value').value;
-            let ei_value = document.getElementById('ei_value').value;
 
-            // Split the input string into an array of substrings using commas
+        function chi_square() {
+            let oi_value = document.getElementById('oi_value').value.trim();
+            let ei_value = document.getElementById('ei_value').value.trim();
+
+            if (!oi_value || !ei_value) {
+                alert("Please enter both Oi and Ei values.");
+                return;
+            }
+
             let oi = oi_value.split(",").map(Number);
             let ei = ei_value.split(",").map(Number);
 
-            // Function to calculate chi-square value
-            function calculateChiSquare(oi, ei) {
-                return Math.pow((oi - ei), 2) / ei;
+            if (oi.length !== ei.length) {
+                alert("Please make sure Oi value and Ei value have equal lengths.");
+                return;
             }
 
-            // Calculate chi-square values and store in a new array
-            const chiSquareValues = oi.map((oiValue, index) => calculateChiSquare(oiValue, ei[index]));
+            let chiSquareValues = [];
+            let totalChiSquare = 0;
+            for (let i = 0; i < oi.length; i++) {
+                let chiSquareVal = Math.pow((oi[i] - ei[i]), 2) / ei[i];
+                chiSquareValues.push(chiSquareVal);
+                totalChiSquare += chiSquareVal;
+            }
 
-            // Sum the chi-square values to get the overall chi-square statistic
-            const totalChiSquare = chiSquareValues.reduce((sum, value) => sum + value, 0);
-
-            // Output the result
             console.log("Chi-Square Values:", chiSquareValues);
             console.log("Total Chi-Square:", totalChiSquare);
             document.getElementById("result1").innerHTML = "Chi-square value: " + totalChiSquare.toFixed(4);
         }
-
-
-
     </script>    
-    
 </body>
 </html>

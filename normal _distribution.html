@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
                 <h1> DISCRIPTIVE STATISTICS</h1>
                 <h3>VISUALIZATION TOOLS:-</h3>
@@ -22,9 +27,11 @@
                 <a href="measuresOfCentralTendency.html">measures of central tendency</a>
                 <h3>measures of dispersion</h3>
                 <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <a href="skewness_and_kurtusis.html">Skewness and Kurtosis</a>
                 <h3>Fertility Rate:-</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
                 <h3>Death Rasts:-</h3>
+                <a href="DeathRate.html">Death Rates</a>
                 <h3>DISTRIBUTION  THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
                 <a href="poission_distribution.html">Piosion Distribution</a>
@@ -40,46 +47,26 @@
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
                 <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
                 <h3>Hypothesis Testing:</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
                 <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox2">
         <h1>FITTING A NORMAL DISTRIBUTION:-</h1>
         <div id="block1">
             <div id="inditurval">
-                <label for="input">enter upper values <input type="text" id="upper" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <label for="input">enter upper values <input type="text" id="upper" name="input" value="0,1,2,3,4,5,6" placeholder='ex: 0,10,20,30,40,50,60'></label>
                 <br>
-                <label for="input">enter lower values <input type="text" id="lower" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <label for="input">enter lower values <input type="text" id="lower" name="input"  value="10,20,30,40,50,60,70 " placeholder='ex: 10,20,30,40,50,60,70 '></label>
                 <br>
-                <label for="input">enter x values <input type="text" id="x_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <label for="input">enter x values <input type="text" id="x_value" name="input" value="0,1,2,3,4,5,6" placeholder='ex: 0,1,2,3,4,5,6 '></label>
                 <br>
-                <label for="input">enter f values <input type="text" id="f_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                <label for="input">enter f values <input type="text" id="f_value" name="input" value="23,24,23,24,25,24,23" placeholder='ex: 23,24,23,24,25,24,23'></label>
                 <br>
                 <button  id="normal" type="button"  onclick="normal()"> NORMAL DISTRIBUTION</button>
                 <div id="result">
@@ -134,6 +121,15 @@
         }      
     </style>  
     <script >
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
         function normal() {
             let x_value = document.getElementById('x_value').value;
             let f_value = document.getElementById('f_value').value;

@@ -8,8 +8,13 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
                 <h1> DISCRIPTIVE STATISTICS</h1>
                 <h3>VISUALIZATION TOOLS:-</h3>
@@ -23,9 +28,11 @@
                 <a href="measuresOfCentralTendency.html">measures of central tendency</a>
                 <h3>measures of dispersion</h3>
                 <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <a href="skewness_and_kurtusis.html">Skewness and Kurtosis</a>
                 <h3>Fertility Rate:-</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
                 <h3>Death Rasts:-</h3>
+                <a href="DeathRate.html">Death Rates</a>
                 <h3>DISTRIBUTION  THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
                 <a href="poission_distribution.html">Piosion Distribution</a>
@@ -36,55 +43,45 @@
                 <h3>REGRESSION  ANALYSIS:</h3>
                 <a href="regression .html">Regression</a>
                 <h3>SAMPLING TECHNIQUE :-</h3>
-                <h4>Simple Random Sampling</h4>
+                <h2>Simple Random Sampling</h4>
                 <a href="SimpleRandomSampling.html">SRSWOR</a>
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
                 <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
                 <h3>Hypothesis Testing:</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
                 <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox">
+        <h1>Pie Chart</h1>
         <h2>Problem 1: Single Pie Chart</h2>
-        <div id="inditurval2">
-            <label for="problem1_values">Enter values (comma-separated):</label>
-            <input type="text" id="problem1_values" placeholder="93,47,22,36,54,22,36,50">
-            <label for="problem1_labels">Enter labels (comma-separated):</label>
-            <input type="text" id="problem1_labels" placeholder="Interest,Defense,Subsidies,Other non-plan expenditure,States share of taxes and duties,Non-plan assistance to state and UT Govts,State and UT plan assistance,Central plan">
-            <label for="problem1_colors">Enter colors (comma-separated):</label>
-            <input type="text" id="problem1_colors" placeholder="green,red,black,pink,blue,yellow,gray,orange">
-            <button onclick="generatePieChartProblem1()">Generate Pie Chart</button>
+        <div id="block1">
+            <div id="inditurval2">
+                <label for="problem1_values">Enter values (comma-separated):</label>
+                <input type="text" id="problem1_values" placeholder="93,47,22,36,54,22,36,50">
+                <br>
+                <label for="problem1_labels">Enter labels (comma-separated):</label>
+                <input type="text" id="problem1_labels" placeholder="Interest,Defense,Subsidies,Other non-plan expenditure,States share of taxes and duties,Non-plan assistance to state and UT Govts,State and UT plan assistance,Central plan">
+                <br>
+                <label for="problem1_colors">Enter colors (comma-separated):</label>
+                <input type="text" id="problem1_colors" placeholder="green,red,black,pink,blue,yellow,gray,orange">
+                <button onclick="generatePieChartProblem1()">Generate Pie Chart</button>
+                <br>
+                <div id="chart1_result"></div>
+            </div>
+            <div>
+                <img src="clg_photes/P5.png" alt="" style="width:250px; height: 250px;">
+            </div>  
         </div>
-        <div id="chart1_result"></div>
+        
         <br>
         <h2>Problem 2: Multiple Pie Charts</h2>
-        <div class="inditurval2">
+        <div id="inditurval2">
             <div id="chart2A">
                 <label for="problem2A_values">Enter values for Family A (comma-separated):</label>
                 <input type="text" id="problem2A_values" placeholder="240,160,80,200">
@@ -114,8 +111,18 @@
         <div id="chart2A_result"></div>
         <div id="chart2B_result"></div>
     </div>
+    
 
     <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
         let dataInputsCount = 0;
 
         function addDataInput(containerId, valuesPlaceholder, colorsPlaceholder) {
@@ -203,11 +210,10 @@
     </script>
 
     <style>
-        .mainbox {
-            margin: 20px;
-            font-size: medium;
+        #wrapper{
+            width: 20%;
         }
-
+    
         .flex-container {
             display: flex;
         }
@@ -226,6 +232,14 @@
             width: 40%;
             margin-right: 20px;
         }
+        .mainbox{
+            position: relative;
+            left:10px;
+            /* top: 50px; */
+            width: 1000px;
+            overflow: scroll;
+        }
+
         #basic, #basic2 {
             font-size: medium;
         }
@@ -237,8 +251,10 @@
             
         }
         #chart2A_result,#chart2B_result{
-            width: 40%;
+            width:40%;
         }
+        
     </style>
+   
 </body>
 </html>

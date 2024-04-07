@@ -7,124 +7,104 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photos/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
-                <h1> DISCRIPTIVE STATISTICS</h1>
-                <h3>VISUALIZATION TOOLS:-</h3>
+                <h1>DESCRIPTIVE STATISTICS</h1>
+                <h3>VISUALIZATION TOOLS:</h3>
                 <a href="LineChart.html">Line chart</a>
                 <a href="BarDiagram.html">Simple Bar Diagram</a>
-                <a href="BarDiagram2.html">subdivded Bar Diagram</a>
-                <a href="digram.html">Pie - Diagram</a>
-                <a href="histogram.html">Histogram</a>
-            
-                <h3>measures of central tendency</h3>
-                <a href="measuresOfCentralTendency.html">measures of central tendency</a>
-                <h3>measures of dispersion</h3>
-                <a href="MeasuresOfDispersion.html">measures of central tendency</a>
-                <h3>Fertility Rate:-</h3>
+                <a href="BarDiagram2.html">Subdivided Bar Diagram</a>
+                <a href="Diagram.html">Pie - Diagram</a>
+                <a href="Histogram.html">Histogram</a>
+                
+                <h3>MEASURES OF CENTRAL TENDENCY</h3>
+                <a href="measuresOfCentralTendency.html">Measures of Central Tendency</a>
+                <h3>MEASURES OF DISPERSION</h3>
+                <a href="MeasuresOfDispersion.html">Measures of Dispersion</a>
+                <a href="Skewness_and_Kurtosis.html">Skewness and Kurtosis</a>
+                <h3>FERTILITY RATE:</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
-                <h3>Death Rasts:-</h3>
-                <h3>DISTRIBUTION  THEORY</h3>
-                <a href="binomial _distribution.html">Binomial Distribution</a>
-                <a href="poission_distribution.html">Piosion Distribution</a>
-                <a href="normal _distribution.html">Normal Distribution</a>
-                <a href="exponential_distribution.html">Exponential Distribution</a>
+                <h3>DEATH RATES:</h3>
+                <a href="DeathRate.html">Death Rates</a>
+                <h3>DISTRIBUTION THEORY</h3>
+                <a href="Binomial_Distribution.html">Binomial Distribution</a>
+                <a href="Poisson_Distribution.html">Poisson Distribution</a>
+                <a href="Normal_Distribution.html">Normal Distribution</a>
+                <a href="Exponential_Distribution.html">Exponential Distribution</a>
                 <h3>CORRELATION ANALYSIS:</h3>
-                <a href="correlation.html">Correlation </a>
-                <h3>REGRESSION  ANALYSIS:</h3>
-                <a href="regression .html">Regression</a>
-                <h3>SAMPLING TECHNIQUE :-</h3>
+                <a href="Correlation.html">Correlation</a>
+                <h3>REGRESSION ANALYSIS:</h3>
+                <a href="Regression.html">Regression</a>
+                <h3>SAMPLING TECHNIQUE:</h3>
                 <h4>Simple Random Sampling</h4>
                 <a href="SimpleRandomSampling.html">SRSWOR</a>
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
-                <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
-                <h3>Hypothesis Testing:</h3>
-                <a href="ttest1.html">t-test</a>
+                <a href="SystematicRandomSampling.html">Systematic Random Sampling</a>
+                <h3>HYPOTHESIS TESTING:</h3>
+                <a href="TTest.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
-                <a href="OneWayANOVA.html">OneWayANOVA</a>
-                <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
+                <a href="OneWayANOVA.html">One-Way ANOVA</a>
+                <a href="TwoWayANOVA.html">Two-Way ANOVA</a>
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox2">
-        <h1>Measures Of Dispersion :</h1>
-        <h2>(Range,Quartile Deviation,Mean Deviation,<br> Standard Deviation, Coefficient Of Variation)</h2>
+        <h1>Measures Of Dispersion:</h1>
+        <h2>(Range, Quartile Deviation, Mean Deviation, Standard Deviation, Coefficient Of Variation)</h2>
         <div id="block1">
-            <div id="inditurval">
-                <h3>inditurval data :-</h3>
-                <label for="input">enter your data<input type="text" id="input" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+            <div id="individual">
+                <h3>individual data:-</h3>
+                <label for="input">Enter your data: <input type="text" id="input" name="input" placeholder='e.g., "23,24,23,24,25,24,23"'></label>
                 <br>
                 <button id="mean" type="button" onclick="MeasureOfDispersion()">Measures Of Dispersion</button>
                 <div id="result"></div>
             </div>
             
-            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
+            <div><img src="clg_photos/mean_individual.png" alt="" style="width:250px; height: 250px;"></div>
         </div>    
         <br>
         <br>
         <div id="block1">
-            <div id="inditurval">
-                <h3>discrete data :-</h3>
-                <label for="input">enter x value :  ---<input type="text" id="descreat_input_x" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+            <div id="discrete">
+                <h3>Discrete Data:</h3>
+                <label for="discrete_input_x">Enter x value: <input type="text" id="discrete_input_x" name="input" placeholder='e.g., "1,2,3,4,5,6"'></label>
                 <br>
-                <label for="input">enter f value :  ---<input type="text" id="descreat_input_f" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <label for="discrete_input_f">Enter f value: <input type="text" id="discrete_input_f" name="input" placeholder='e.g., "23,34,25,23,36,52"'></label>
                 <br>
                 <button id="dis_mean" type="button" onclick="dis_MeasureOfDispersion()">Measures Of Dispersion</button>
                 <div id="result2"></div>
             </div>
-            <div><img src="clg_photes/mean dis.png" alt="" style="width:250px; height: 250px;"></div>
-            
+            <div><img src="clg_photos/mean_discrete.png" alt="" style="width:250px; height: 250px;"></div>
         </div>
         <br>
         <br>
         <div id="block1">
-            <div id="inditurval">
-                <h3>continous data :-</h3>
-                <label for="input">enter m value :  ---<input type="text" id="continous_input_m" name="input" placeholder='ex: "10,20,30,40,50"'></label>
+            <div id="continuous">
+                <h3>Continuous Data:</h3>
+                <label for="continuous_input_m">Enter m value: <input type="text" id="continuous_input_m" name="input" placeholder='e.g., "10,20,30,40,50"'></label>
                 <br>
-                <label for="input">enter f value :  ---<input type="text" id="continous_input_f" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <label for="continuous_input_f">Enter f value: <input type="text" id="continuous_input_f" name="input" placeholder='e.g., "23,34,25,23,36,52"'></label>
                 <br>
-                <button  id="cont_mean" type="button"  onclick="cont_MeasureOfDispersion()">Measures Of Dispersion</button>
-                <div id="result3">
-    
-                </div>
+                <button id="cont_mean" type="button" onclick="cont_MeasureOfDispersion()">Measures Of Dispersion</button>
+                <div id="result3"></div>
             </div>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+            <div><img src="clg_photos/mean_continuous.png" alt="" style="width:250px; height: 250px;"></div>   
         </div>
     </div>     
-   </div>
    
     <style>
-        #block1{
+        #block1 {
             display: flex;
         }
-        #block2{
-            display: flex;
-        }
-        #inditurval{
+        #individual, #discrete, #continuous {
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
@@ -133,105 +113,109 @@
             left: 10px;
             top: 50px;
         }
-        img{
-                position: relative;
-                top: 50px;
-                left: 50px;
-                border-radius: 9px;
-
+        img {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            border-radius: 9px;
         }
-        button{
+        button {
             position: relative;
             left: 80px;
         }
-        .active-button{
+        .active-button {
             background-color: #04AA6D !important;
         }      
     </style>  
-    <script >
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
+
+        // Function to calculate sum of an array
+        function sum(array) {
+            return array.reduce((acc, val) => acc + val, 0);
+        }
+
+        // Function to calculate quartile for individual data
+        function calculateQuartile(data, position) {
+            let lowerIndex = Math.floor(position);
+            let upperIndex = Math.ceil(position);
+
+            if (lowerIndex === upperIndex) {
+                return data[lowerIndex - 1];
+            } else {
+                return data[lowerIndex - 1] + (position - lowerIndex) * (data[upperIndex - 1] - data[lowerIndex - 1]);
+            }
+        }
+
         function MeasureOfDispersion() {
             let inputData = document.getElementById('input').value.split(",").map(Number);
             if (inputData.some(isNaN)) {
                 alert("Please enter a valid sequence of numbers.");
                 return;
             }
-            let range = Math.max(...inputData)-Math.min(...inputData);
-            let co_range =range/(Math.max(...inputData)+Math.min(...inputData));
-            // Quartile  deviation
-            inputData.sort((a, b) => a - b);
 
+            let range = Math.max(...inputData) - Math.min(...inputData);
+            let co_range = range / (Math.max(...inputData) + Math.min(...inputData));
+            inputData.sort((a, b) => a - b);
             const N = inputData.length;
             const Q1_index = (N + 1) / 4;
             const Q3_index = 3 * (N + 1) / 4;
-            function calculateQuartile(data, position) {
-                let lowerIndex = Math.floor(position);
-                let upperIndex = Math.ceil(position);
-
-                if (lowerIndex === upperIndex) {
-                    return data[lowerIndex - 1];
-                } else {
-                    return data[lowerIndex - 1] + (position - lowerIndex) * (data[upperIndex - 1] - data[lowerIndex - 1]);
-                }
-            }
-            const Q1 = calculateQuartile(inputDataArray, Q1_index);
-            const Q3 = calculateQuartile(inputDataArray, Q3_index);
-
+            const Q1 = calculateQuartile(inputData, Q1_index);
+            const Q3 = calculateQuartile(inputData, Q3_index);
             const QD = (Q3 - Q1) / 2;
             let co_QD = QD / ((Q3 + Q1) / 2);
-            //Mean Deviation
-            let xbar =inputData.reduce((acc,val) => acc+val,0)/ inputData.length;
+            let xbar = inputData.reduce((acc, val) => acc + val, 0) / inputData.length;
             let MD = inputData.reduce((acc, val) => acc + Math.abs(val - xbar), 0) / inputData.length;
-            let co_MD = MD/xbar;
-            // Standard Deviation
+            let co_MD = MD / xbar;
             let sumOfX = sum(inputData);
             let n = inputData.length;
-            let sxbar =sumOfX/n;
-            let SD = Math.sqrt((inputData.reduce((acc, val) => acc + Math.pow(val, 2), 0) / n) - Math.pow( sumOfX / n, 2));
-            const co_SD = (SD/sxbar)*100;
-
+            let sxbar = sumOfX / n;
+            let SD = Math.sqrt((inputData.reduce((acc, val) => acc + Math.pow(val, 2), 0) / n) - Math.pow(sumOfX / n, 2));
+            const co_SD = (SD / sxbar) * 100;
 
             document.getElementById("result").innerHTML = `
-                <br> <h2>Measure Of Dispersion :-</h2>
+                <br> <h2>Measure Of Dispersion:</h2>
                 <br> Range value is: ${range.toFixed(2)}
                 <br> Quartile Deviation value is : ${QD.toFixed(2)}
                 <br> Mean Deviation value is : ${MD.toFixed(2)}
-                <br> Stanart Deviation value is : ${SD.toFixed(2)}
-                <br><br> <h2>Co - efficient  Term : </h2>
+                <br> Standard Deviation value is : ${SD.toFixed(2)}
+                <br><br> <h2>Co-efficient Term:</h2>
                 <br> Co-efficient Of Range value is: ${co_range.toFixed(2)}
-                <br> Co-efficient  Of Quartile Deviation value is : ${co_QD.toFixed(2)}
-                <br>  Co-efficient  Of Mean Deviation value is :${co_QD.toFixed(2)}
-                <br> Co-efficient Of Stanart Deviation value is :${co_SD.toFixed(2)}
+                <br> Co-efficient Of Quartile Deviation value is : ${co_QD.toFixed(2)}
+                <br> Co-efficient Of Mean Deviation value is : ${co_MD.toFixed(2)}
+                <br> Co-efficient Of Standard Deviation value is : ${co_SD.toFixed(2)}
             `;
         }
 
-        // function define
-        
-        // discreate date measure of tendentcity  define  function 
         function dis_MeasureOfDispersion() {
-            let xInput = document.getElementById("descreat_input_x").value.trim();
-            let fInput = document.getElementById("descreat_input_f").value.trim();
-            
-           
+            let xInput = document.getElementById("discrete_input_x").value.trim();
+            let fInput = document.getElementById("discrete_input_f").value.trim();
 
             let x = xInput.split(",").map(Number);
             let f = fInput.split(",").map(Number);
-            
-            // Check if lengths of x and f arrays are equal
+
             if (x.length !== f.length) {
                 alert("Sorry, x_value and f_value are not equal in length. Please check.");
-                return; // Exit function early if lengths are not equal
+                return;
             }
+
             // range 
             const f_maxindex = f.indexOf(Math.max(...f));
             const f_minindex = f.indexOf(Math.min(...f));
-            const DISCETE_RANGE =x[f_maxindex]-x[f_minindex];
-            let L =x_value[f_maxindex];
-            let S =x_value[f_minindex];
-            let co_of_range =DISCETE_RANGE/(x[f_maxindex]+x[f_minindex]);
-            // Quartile  deviation
+            const DISCETE_RANGE = x[f_maxindex] - x[f_minindex];
+            let L = x[f_maxindex];
+            let S = x[f_minindex];
+            let co_of_range = DISCETE_RANGE / (x[f_maxindex] + x[f_minindex]);
 
             // Function to calculate cumulative frequencies
-
             function calculateCumulativeFrequencies(frequencies) {
                 return frequencies.reduce((acc, val, index) => {
                     const cumulativeFrequency = val + (index > 0 ? acc[index - 1] : 0);
@@ -239,6 +223,7 @@
                     return acc;
                 }, []);
             }
+
             // Function to calculate quartiles
             function calculateQuartile(x_values, cumulativeFrequencies, totalFrequency, quartileNumber) {
                 const position = (quartileNumber / 4) * totalFrequency;
@@ -264,108 +249,109 @@
 
             // Calculate the quartile deviation (QD)
             const QD = IQR / 2;
-            let co_QD =(Q3-Q1)/(Q3+Q1);
+            let co_QD = (Q3 - Q1) / (Q3 + Q1);
 
             // Mean Deviation
-            const xbar = x.reduce((acc, val, index) => acc + val * f[index], 0) / f.reduce((acc,val) => acc+val ,0);
-            const dis_MD = x.reduce((acc, val, index) => acc + f[index] * Math.abs(val - xbar), 0) / f.reduce((acc,val) => acc+val ,0);
-            let co_MD = dis_MD/xbar;
-            // Standart Deviation
-            const sum_f = f.reduce((acc,val) => acc+val,0);
+            const xbar = x.reduce((acc, val, index) => acc + val * f[index], 0) / f.reduce((acc, val) => acc + val, 0);
+            const dis_MD = x.reduce((acc, val, index) => acc + f[index] * Math.abs(val - xbar), 0) / f.reduce((acc, val) => acc + val, 0);
+            let co_MD = dis_MD / xbar;
+
+            // Standard Deviation
+            const sum_f = f.reduce((acc, val) => acc + val, 0);
             const sum_fx = x.reduce((acc, val, index) => acc + Math.pow(val, 2) * f[index], 0);
             const sum_fx2 = x.reduce((acc, val, index) => acc + Math.pow(val, 2) * f[index], 0);
-            let sxbar =sum_fx/sum_f;
-            const disc_SD = Math.sqrt((sum_fx2 / sum_f) - Math.pow(sum_fx / sum_f, 2));
-            const co_SD = (disc_SD/sxbar)*100;
-            
-            // Display results
+            let sxbar = sum_fx / sum_f;
+            const disc_SD = Math.sqrt((sum_fx2 / sum_f) - Math.pow(sxbar, 2));
+            let co_SD = (disc_SD / sxbar) * 100;
+
             document.getElementById("result2").innerHTML = `
-                <br> <h2>Measure Of Dispersion :-</h2>
+                <br> <h2>Measure Of Dispersion:</h2>
                 <br> Range value is: ${DISCETE_RANGE.toFixed(2)}
                 <br> Quartile Deviation value is : ${QD.toFixed(2)}
                 <br> Mean Deviation value is : ${dis_MD.toFixed(2)}
-                <br> Stanart Deviation value is : ${disc_SD.toFixed(2)}
-                <br><br> <h2>Co - efficient  Term : </h2>
+                <br> Standard Deviation value is : ${disc_SD.toFixed(2)}
+                <br><br> <h2>Co-efficient Term:</h2>
                 <br> Co-efficient Of Range value is: ${co_of_range.toFixed(2)}
-                <br> Co-efficient  Of Quartile Deviation value is : ${co_QD.toFixed(2)}
-                <br>  Co-efficient  Of Mean Deviation value is :${co_MD.toFixed(2)}
-                <br> Co-efficient Of Stanart Deviation value is :${co_SD.toFixed(2)}
+                <br> Co-efficient Of Quartile Deviation value is : ${co_QD.toFixed(2)}
+                <br> Co-efficient Of Mean Deviation value is : ${co_MD.toFixed(2)}
+                <br> Co-efficient Of Standard Deviation value is : ${co_SD.toFixed(2)}
             `;
         }
-        
+
         function cont_MeasureOfDispersion() {
+            let xInput = document.getElementById("continuous_input_m").value.trim();
+            let fInput = document.getElementById("continuous_input_f").value.trim();
 
-            let mInput = document.getElementById("continous_input_m").value.trim();
-            let fInput = document.getElementById("continous_input_f").value.trim();
-
-            let m = mInput.split(",").map(Number);
+            let x = xInput.split(",").map(Number);
             let f = fInput.split(",").map(Number);
 
-            if (m.length !== f.length) {
-                alert("Sorry, m_value and f_value do not have equal lengths. Please check.");
+            if (x.length !== f.length) {
+                alert("Sorry, x_value and f_value are not equal in length. Please check.");
                 return;
             }
 
-            const N = m.length; // Total number of observations
-
-            // Calculate the upper and lower boundaries of the intervals
-            let upper_values = m.map((value, index) => value + (m[index + 1] - value) / 2).slice(0, N - 1);
-            let lower_values = m.map((value, index) => value - (value - (index === 0 ? 0 : m[index - 1])) / 2).slice(1, N);
-
-            // Calculate the class marks
-            let class_marks = m.map((value, index) => (value * f[index])).reduce((acc, val) => acc + val, 0) / f.reduce((acc, val) => acc + val, 0);
-
-            // Calculate the total frequency
-            let total_frequency = f.reduce((acc, val) => acc + val, 0);
-
-            // Calculate the range
-            let range = Math.max(...m) - Math.min(...m);
-
-            // Calculate the quartiles
-            let quartiles = [0, 0, 0];
-            let lower_cumulative_frequency = 0;
-            for (let i = 0; i < f.length; i++) {
-                let cumulative_frequency = lower_cumulative_frequency + f[i];
-                if (cumulative_frequency >= total_frequency / 4 && quartiles[0] === 0) {
-                    quartiles[0] = m[i] - ((cumulative_frequency - total_frequency / 4) / f[i]) * (m[i] - (i === 0 ? 0 : m[i - 1]));
-                }
-                if (cumulative_frequency >= total_frequency / 2 && quartiles[1] === 0) {
-                    quartiles[1] = m[i] - ((cumulative_frequency - total_frequency / 2) / f[i]) * (m[i] - (i === 0 ? 0 : m[i - 1]));
-                }
-                if (cumulative_frequency >= (3 * total_frequency) / 4 && quartiles[2] === 0) {
-                    quartiles[2] = m[i] - ((cumulative_frequency - (3 * total_frequency) / 4) / f[i]) * (m[i] - (i === 0 ? 0 : m[i - 1]));
-                }
-                lower_cumulative_frequency = cumulative_frequency;
+            // Function to calculate cumulative frequencies
+            function calculateCumulativeFrequencies(frequencies) {
+                return frequencies.reduce((acc, val, index) => {
+                    const cumulativeFrequency = val + (index > 0 ? acc[index - 1] : 0);
+                    acc.push(cumulativeFrequency);
+                    return acc;
+                }, []);
             }
 
-            // Calculate the quartile deviation
-            let quartile_deviation = (quartiles[2] - quartiles[0]) / 2;
+            // Function to calculate quartiles
+            function calculateQuartile(x_values, cumulativeFrequencies, totalFrequency, quartileNumber) {
+                const position = (quartileNumber / 4) * totalFrequency;
 
-            // Calculate the mean deviation
-            let mean_deviation = f.map((value, index) => Math.abs(class_marks - m[index]) * value).reduce((acc, val) => acc + val, 0) / total_frequency;
+                for (let i = 0; i < cumulativeFrequencies.length; i++) {
+                    if (cumulativeFrequencies[i] >= position) {
+                        return x_values[i];
+                    }
+                }
 
-            // Calculate the standard deviation
-            let variance = f.map((value, index) => Math.pow(m[index] - class_marks, 2) * value).reduce((acc, val) => acc + val, 0) / total_frequency;
-            let standard_deviation = Math.sqrt(variance);
+                return x_values[x_values.length - 1];
+            }
 
-            // Display the results
+            const cumulativeFrequencies = calculateCumulativeFrequencies(f);
+            const totalFrequency = cumulativeFrequencies[cumulativeFrequencies.length - 1];
+
+            // Calculate the quartiles (Q1 and Q3)     
+            const Q1 = calculateQuartile(x, cumulativeFrequencies, totalFrequency, 1);
+            const Q3 = calculateQuartile(x, cumulativeFrequencies, totalFrequency, 3);
+
+            // Calculate the interquartile range (IQR)
+            const IQR = Q3 - Q1;
+
+            // Calculate the quartile deviation (QD)
+            const QD = IQR / 2;
+            let co_QD = (Q3 - Q1) / (Q3 + Q1);
+
+            // Mean Deviation
+            const xbar = x.reduce((acc, val, index) => acc + val * f[index], 0) / f.reduce((acc, val) => acc + val, 0);
+            const dis_MD = x.reduce((acc, val, index) => acc + f[index] * Math.abs(val - xbar), 0) / f.reduce((acc, val) => acc + val, 0);
+            let co_MD = dis_MD / xbar;
+
+            // Standard Deviation
+            const sum_f = f.reduce((acc, val) => acc + val, 0);
+            const sum_fx = x.reduce((acc, val, index) => acc + Math.pow(val, 2) * f[index], 0);
+            const sum_fx2 = x.reduce((acc, val, index) => acc + Math.pow(val, 2) * f[index], 0);
+            let sxbar = sum_fx / sum_f;
+            const cont_SD = Math.sqrt((sum_fx2 / sum_f) - Math.pow(sxbar, 2));
+            let co_SD = (cont_SD / sxbar) * 100;
+
             document.getElementById("result3").innerHTML = `
-                <br><h2>Measure Of Dispersion :-</h2>
-                <br>Range value is: ${range.toFixed(2)}
-                <br>Quartile Deviation value is: ${quartile_deviation.toFixed(2)}
-                <br>Mean Deviation value is: ${mean_deviation.toFixed(2)}
-                <br>Standard Deviation value is: ${standard_deviation.toFixed(2)}
+                <br> <h2>Measure Of Dispersion:</h2>
+                <br> Range value is: ${IQR.toFixed(2)}
+                <br> Quartile Deviation value is : ${QD.toFixed(2)}
+                <br> Mean Deviation value is : ${dis_MD.toFixed(2)}
+                <br> Standard Deviation value is : ${cont_SD.toFixed(2)}
+                <br><br> <h2>Co-efficient Term:</h2>
+                <br> Co-efficient Of Range value is: ${co_QD.toFixed(2)}
+                <br> Co-efficient Of Quartile Deviation value is : ${co_QD.toFixed(2)}
+                <br> Co-efficient Of Mean Deviation value is : ${co_MD.toFixed(2)}
+                <br> Co-efficient Of Standard Deviation value is : ${co_SD.toFixed(2)}
             `;
-        }\
-
-        function sum(array){
-            return array.reduce((acc,val) => acc+val,0);
-        };
-
-
-
-        
-    </script>    
-    
+        }
+    </script>
 </body>
 </html>

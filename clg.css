@@ -1,28 +1,54 @@
 /* #092635 --- #1B4242 ---#5C8374 ---#9EC8B9*/
 body {
+    font-family: Arial, sans-serif;
     display: flex;
     background-color: #6c9485;
     height: 100vh;
     margin: 0;
+    overflow: hidden; 
+}
+.mainbox2{
+    position: relative;
+    left: 25px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+#inditurval {
+    padding: 50px;
+    background-color: #72a793;
+    border-radius: 8px;
+    width: 40%;
+    position: relative;
+    left: 10px;
+    top: 50px;
 }
 
 #wrapper div, #wrfapper h2{
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
 }
+h1{
+    font-family: Arial, sans-serif;
+    font-size: 21px;
+    color:#285e5e;
+
+}
 
 h3{
+    font-family: Arial, sans-serif;
     font-size: 21px;
-    color:rgb(47, 13, 80);
+    color:rgb(57, 22, 92);
 }
 #wrapper {
     position: relative;
     width: 250px;
-    background-color: #346b6b;
+    height: inherit;;
+    background-color: #3a8a8a;
     border-radius: 10px;
     padding: 10px;
-    overflow-x: auto;
-    overflow-y:auto;
+    /* overflow-x: auto; */
+    overflow-y:auto; 
     color: white;
 }
 #result{
@@ -41,6 +67,7 @@ h3{
     font-weight: 800;
 }
 a{
+    font-family: Arial, sans-serif;
     color: black;
     font-weight:bold;
     text-decoration: none;
@@ -58,14 +85,23 @@ a:hover{
     background-color: #6c9485;
     height: auto;
     width: 1000px;
-    overflow-x: auto;
-    overflow-y: auto;
 }
 input{
     font-size: 23px;
 }
 label{
     font-size: 22px;
+}
+#menu-toggle{
+    display: none;
+}
+img {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    top: 50px;
+    left: 50px;
+    border-radius: 9px;
 }
 button{
     margin-top: 20px;
@@ -77,4 +113,138 @@ button{
     border: none;
     background-color: #ffeba7;
     color: #102770;
+}
+@media only screen and (max-width: 600px) {
+    #main-nav {
+        display: none;
+    } 
+
+    body{
+        display: block;
+        background-color: #6c9485;
+
+    }
+    .menu{
+        position: relative;
+        left: 5px;
+    }
+    .menu button{
+        display: block;
+    }
+    #menu-toggle {
+        display:block;
+    }
+    #menu-toggle img{
+        border-radius: 50%;
+    }
+    #wrapper div, #wrfapper h2{
+        font-family: Arial, sans-serif;
+    }
+    h1{
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+    }
+    #main-nav.active {
+        /* position: fix;*/ 
+        display:contents;
+        overflow: visible;
+    } 
+    
+    #inditurval{
+        /* text-align: c; */
+        padding: 20px;
+        background-color: #72a793;
+        /* background-color: #102770; */
+        border-radius: 10px;
+        width:300px;
+        position: relative;
+        top: 30px;
+    }
+    #wrapper div, #wrfapper h2{
+      
+        background-color: #3a8a8a;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        width:fit-content;
+        margin: 20px;
+        padding: 20px;
+        border: 2px solid #50caca;
+        /* padding: 5px; */
+        border-radius: 8px;
+        /* border: 2px solid white; */
+    }
+    h1{
+        font-family: Arial, sans-serif;
+        font-size:small;
+        color:#285e5e;
+
+    }
+   
+
+    h3{
+        font-family: Arial, sans-serif;
+        font-size: 21px;
+        color:rgb(57, 22, 92);
+    }
+    #wrapper {
+        position:fixed;
+        display: contents;
+        width: 100%;
+        height: inherit;
+        overflow: hidden;
+        background-color: #3a8a8a;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+    } 
+    #result{
+        color: white;
+        font-weight: 800;
+    }
+    
+    a{
+        font-family: Arial, sans-serif;
+        color: black;
+        font-weight:bold;
+        text-decoration: none;
+        text-align: justify;
+        height:30px;
+        width: 100%;
+    }
+    a:hover{
+        color:skyblue;
+        background-color:#285e5e;
+        padding: 8px;  
+        border-radius: 8px;          
+    }
+    .mainbox2{
+        display: list-item;
+        background-color: #6c9485;
+        padding: 5px;
+        height: auto;
+        width: auto;
+    }
+    input{
+        font-size: 23px;
+    }
+    label{
+        font-size: 22px;
+    }
+    .menu button{
+        background-color: #6c9485 ;
+    }
+    
+    button{
+        margin-top: 20px;
+        border-radius: 4px;
+        height: 44px;
+        font-weight: 600;
+        padding: 0 30px;
+        letter-spacing: 1px;
+        border: none;
+        background-color: #ffeba7;
+        color: #102770;
+    }
+  
 }

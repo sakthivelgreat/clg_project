@@ -9,8 +9,13 @@
 </head>
 
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
                 <h1> DISCRIPTIVE STATISTICS</h1>
                 <h3>VISUALIZATION TOOLS:-</h3>
@@ -24,9 +29,11 @@
                 <a href="measuresOfCentralTendency.html">measures of central tendency</a>
                 <h3>measures of dispersion</h3>
                 <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <a href="skewness_and_kurtusis.html">Skewness and Kurtosis</a>
                 <h3>Fertility Rate:-</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
                 <h3>Death Rasts:-</h3>
+                <a href="DeathRate.html">Death Rates</a>
                 <h3>DISTRIBUTION  THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
                 <a href="poission_distribution.html">Piosion Distribution</a>
@@ -42,70 +49,52 @@
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
                 <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
                 <h3>Hypothesis Testing:</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
                 <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
+               
             </div>
-
-            
-
         </nav>
     </div>
-
     <div class="mainbox2">
         <h1>Stratified Random Sampling:</h1>
         <div id="block1">
-            <div id="inditurval">
+            <div class="inditural">
                 <h2>Method: 0</h2>
                 <label for="Nh0">N<sub>h</sub>:-<input type="text" id="inputNh0" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
                 <button onclick="addDataInput()">Add Data Input</button>
                 <div id="dataInputs"></div>
-                <br>
-                <h2>Method: 1</h2>
-                <br>
-                <label for="inputNh1">N<sub>h</sub>:-<input type="text" id="inputNh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="inputYbarh1">Y̅<sub>n</sub>:-<input type="text" id="inputYbarh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="inputSh1">S<sub>h</sub>:-<input type="text" id="inputSh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="inputn1">n :<input type="text" id="inputn1" maxlength="6" style="width: 40px;"></label>
-                <br>
-                <br>
-                <h2>Method: 2</h2>
-                <br>
-                <label for="inputNh2">N<sub>h</sub>:-<input type="text" id="inputNh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="inputSh2">S<sub>h</sub>:-<input type="text" id="inputSh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="inputCh">C<sub>h</sub>:-<input type="text" id="inputCh" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="inputc01">C<sub>0</sub> :<input type="text" id="inputc01" maxlength="6" style="width: 40px;"></label>
-                <br>
-                <label for="inputc2">C :<input type="text" id="inputc2" maxlength="6" style="width: 40px;"></label>
-                <br>
-                <br>
+            
+            <br>
+            <br>
+            <h2>Method: 1</h2>
+            <br>
+            <label for="inputNh1">N<sub>h</sub>:-<input type="text" id="inputNh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+            <br>
+            <label for="inputYbarh1">Y̅<sub>n</sub>:-<input type="text" id="inputYbarh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+            <br>
+            <label for="inputSh1">S<sub>h</sub>:-<input type="text" id="inputSh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+            <br>
+            <label for="inputn1">n :<input type="text" id="inputn1" maxlength="6" style="width: 40px;"></label>
+            <br>
+            <br>
+            <h2>Method: 2</h2>
+            <br>
+            <label for="inputNh2">N<sub>h</sub>:-<input type="text" id="inputNh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+            <br>
+            <label for="inputSh2">S<sub>h</sub>:-<input type="text" id="inputSh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+            <br>
+            <label for="inputCh">C<sub>h</sub>:-<input type="text" id="inputCh" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+            <br>
+            <label for="inputc01">C<sub>0</sub> :<input type="text" id="inputc01" maxlength="6" style="width: 40px;"></label>
+            <br>
+            <label for="inputc2">C :<input type="text" id="inputc2" maxlength="6" style="width: 40px;"></label>
+            <br>
+            </div>
+            <div class="inditural">
                 <input type="radio" id="set0" name="methodSet" checked>
                 <label for="set0">Nh,Y̅ni</label>
                 <input type="radio" id="set1" name="methodSet" checked>
@@ -114,12 +103,70 @@
                 <label for="set2">Nh, Sh, Ch</label>
                 <br>
                 <button id="mean" type="button" onclick="StrRansample()">Stratified Random Sampling</button>
-                <div id="result"></div>
+
             </div>
         </div>
+        <div id="result"></div>
     </div>
+    <style>
+        #result{
+            position: relative;
+            top: 100px;
+            left: 30px;
+        }
+        #block1{
+            display: flex;
+            flex-direction: column;
+        }
+        #block2{
+            display: flex;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        .inditural{
+                    
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+
+        }
+        img{
+                position: relative;
+                top: 50px;
+                left: 50px;
+                border-radius: 9px;
+
+        }
+        button{
+            position: relative;
+            left: 80px;
+        }
+        .active-button{
+            background-color: #04AA6D !important;
+        }      
+    </style>
 
     <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
         //  add input  data function 
         let dataInputsCount = 0;
 

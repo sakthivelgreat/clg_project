@@ -1,169 +1,343 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bar Plot</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> <!-- Plotly.js library -->
-    <link rel="stylesheet" href="clg.css">
-</head>
-<body>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!-- Plotly.js library -->
+    <link rel="stylesheet" href="clg.css" />
+  </head>
+  <body>
+    <div class="menu">
+      <button id="menu-toggle" onclick="toggleNav()">
+        <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50" />
+      </button>
+    </div>
     <div id="wrapper">
-        <nav>
-            <div id="wrapper2">
-                <h1> DISCRIPTIVE STATISTICS</h1>
-                <h3>VISUALIZATION TOOLS:-</h3>
-                <a href="LineChart.html">Line chart</a>
-                <a href="BarDiagram.html">Simple Bar Diagram</a>
-                <a href="BarDiagram2.html">subdivded Bar Diagram</a>
-                <a href="digram.html">Pie - Diagram</a>
-                <a href="histogram.html">Histogram</a>
-            
-                <h3>measures of central tendency</h3>
-                <a href="measuresOfCentralTendency.html">measures of central tendency</a>
-                <h3>measures of dispersion</h3>
-                <a href="MeasuresOfDispersion.html">measures of central tendency</a>
-                <h3>Fertility Rate:-</h3>
-                <a href="FertilityRates.html">Fertility Rates</a>
-                <h3>Death Rasts:-</h3>
-                <h3>DISTRIBUTION  THEORY</h3>
-                <a href="binomial _distribution.html">Binomial Distribution</a>
-                <a href="poission_distribution.html">Piosion Distribution</a>
-                <a href="normal _distribution.html">Normal Distribution</a>
-                <a href="exponential_distribution.html">Exponential Distribution</a>
-                <h3>CORRELATION ANALYSIS:</h3>
-                <a href="correlation.html">Correlation </a>
-                <h3>REGRESSION  ANALYSIS:</h3>
-                <a href="regression .html">Regression</a>
-                <h3>SAMPLING TECHNIQUE :-</h3>
-                <h4>Simple Random Sampling</h4>
-                <a href="SimpleRandomSampling.html">SRSWOR</a>
-                <a href="SimpleRandomSampling2.html">SRSWR</a>
-                <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
-                <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
-                <h3>Hypothesis Testing:</h3>
-                <a href="ttest1.html">t-test</a>
-                <a href="FTest.html">F-test</a>                
-                <a href="ChiSquareTest.html">Chi-Square Test</a>
-                <a href="OneWayANOVA.html">OneWayANOVA</a>
-                <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
-            </div>
-
-            
-
-        </nav>
+      <nav id="main-nav">
+        <div id="wrapper2">
+          <h1>DISCRIPTIVE STATISTICS</h1>
+          <h3>VISUALIZATION TOOLS:-</h3>
+          <a href="LineChart.html">Line chart</a>
+          <a href="BarDiagram.html">Simple Bar Diagram</a>
+          <a href="BarDiagram2.html">Subdivided Bar Diagram</a>
+          <a href="digram.html">Pie - Diagram</a>
+          <a href="histogram.html">Histogram</a>
+          <h3>measures of central tendency</h3>
+          <a href="measuresOfCentralTendency.html"
+            >Measures of central tendency</a
+          >
+          <h3>measures of dispersion</h3>
+          <a href="MeasuresOfDispersion.html">Measures of central tendency</a>
+          <a href="skewness_and_kurtusis.html">Skewness and Kurtosis</a>
+          <h3>Fertility Rate:-</h3>
+          <a href="FertilityRates.html">Fertility Rates</a>
+          <h3>Death Rates:-</h3>
+          <a href="DeathRate.html">Death Rates</a>
+          <h3>DISTRIBUTION THEORY</h3>
+          <a href="binomial _distribution.html">Binomial Distribution</a>
+          <a href="poission_distribution.html">Poisson Distribution</a>
+          <a href="normal _distribution.html">Normal Distribution</a>
+          <a href="exponential_distribution.html">Exponential Distribution</a>
+          <h3>CORRELATION ANALYSIS:</h3>
+          <a href="correlation.html">Correlation </a>
+          <h3>REGRESSION ANALYSIS:</h3>
+          <a href="regression .html">Regression</a>
+          <h3>SAMPLING TECHNIQUE :-</h3>
+          <h4>Simple Random Sampling</h4>
+          <a href="SimpleRandomSampling.html">SRSWOR</a>
+          <a href="SimpleRandomSampling2.html">SRSWR</a>
+          <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
+          <a href="SystamaticRandomSampling.html">Systematic Random Sampling</a>
+          <h3>Hypothesis Testing:</h3>
+          <a href="ttest1.html">t-test</a>
+          <a href="FTest.html">F-test</a>
+          <a href="ChiSquareTest.html">Chi-Square Test</a>
+          <a href="OneWayANOVA.html">OneWayANOVA</a>
+          <a href="OneWayANOVA2.html">TwoWayANOVA</a>
+        </div>
+      </nav>
     </div>
+
     <div class="mainbox2">
-        <h1>Bar Diagram (or) Bar Plot:-</h1>
-        <div id="block1">
-            <div id="inditurval">
-                <label for="x_value">Enter x values (comma-separated) <input type="text" id="x_value" name="input" placeholder='ex: "USA,USSR,UK,JAPAN,GERMANY"'></label>
-                <br>
-                <label for="y_value">Enter y values (comma-separated) <input type="text" id="y_value" name="input" placeholder='ex: "1500,1200,800,600,500"'></label>
-                <br>
-                <div id="basic">
-                    <label for="xname">x axis name: <input type="text" id="xname" placeholder='ex: sources of borrowing'></label>
-                    <br>
-                    <label for="yname">y axis name: <input type="text" id="yname" placeholder='ex: Amount of loan (in crores)'></label>
-                    <br>
-                    <label for="color">Color:  <input type="color" id="color" value="#ff0000"></label>
-                    <br>
-                    <label for="title">Title: <input type="text" id="title" value="India's foreign debt as on 31.04.2021"></label>
-                </div>
-                <button id="bar_plot_button" type="button" onclick="BarPlot()">Bar Plot</button>
-                <br>
-                <br>
-                <div id="chart"></div> 
-            </div>
-            <div>
-                <img src="clg_photos/mean_individual.png" alt="" style="width:250px; height: 250px;">
-            </div>   
-        </div>   
+      <h1>Bar Diagram (or) Bar Plot:-</h1>
+      <div id="block1">
+        <div id="inditurval">
+          <label for="x_value"
+            >Enter x values (comma-separated)
+            <input
+              type="text"
+              id="x_value"
+              name="input"
+              placeholder='ex: "USA,USSR,UK,JAPAN,GERMANY"'
+          /></label>
+          <br />
+          <label for="y_value"
+            >Enter y values (comma-separated)
+            <input
+              type="text"
+              id="y_value"
+              name="input"
+              placeholder='ex: "1500,1200,800,600,500"'
+          /></label>
+          <br />
+          <div id="basic">
+            <label for="xname"
+              >x axis name:
+              <input
+                type="text"
+                id="xname"
+                placeholder="ex: sources of borrowing"
+            /></label>
+            <br />
+            <label for="yname"
+              >y axis name:
+              <input
+                type="text"
+                id="yname"
+                placeholder="ex: Amount of loan (in crores)"
+            /></label>
+            <br />
+            <label for="color"
+              >Color: <input type="color" id="color" value="#ff0000"
+            /></label>
+            <br />
+            <label for="title">Title: <input type="text" id="title" /></label>
+          </div>
+          <button id="bar_plot_button" type="button" onclick="BarPlot()">
+            Bar Plot
+          </button>
+          <br />
+          <br />
+          <div id="chart"></div>
+        </div>
+        <div>
+          <img
+            src="clg_photes/P2.png"
+            alt=""
+            style="width: 250px; height: 250px"
+          />
+        </div>
+      </div>
     </div>
-    
     <style>
-        #block1 {
-            display: flex;
+      /* #m1{
+            position: relative;
+            top: 50px;
+            left: 20px;
+
+        } */
+      #block1 {
+        display: flex;
+      }
+      #block2 {
+        display: flex;
+      }
+      #inditurval {
+        padding: 50px;
+        background-color: #72a793;
+        border-radius: 8px;
+        width: 40%;
+        position: relative;
+        left: 10px;
+        top: 50px;
+      }
+      #basic {
+        font-size: medium;
+      }
+      img {
+        position: relative;
+        top: 50px;
+        left: 50px;
+        border-radius: 9px;
+      }
+      button {
+        position: relative;
+        left: 80px;
+      }
+      .active-button {
+        background-color: #04aa6d !important;
+      }
+
+      @media only screen and (max-width: 600px) {
+        #main-nav {
+          display: none;
         }
-        #block2 {
-            display: flex;
+
+        body {
+          display: block;
+          background-color: #6c9485;
         }
+        .menu {
+          position: relative;
+          left: 5px;
+        }
+        .menu button {
+          display: contents;
+        }
+        #menu-toggle {
+          display: block;
+        }
+        #menu-toggle img {
+          border-radius: 50%;
+        }
+        #wrapper div,
+        #wrfapper h2 {
+          font-family: Arial, sans-serif;
+        }
+        h1 {
+          font-family: Arial, sans-serif;
+          font-size: 18px;
+        }
+        #main-nav.active {
+          /* position: fix;*/
+          display: contents;
+          overflow: visible;
+        }
+
         #inditurval {
-            padding: 50px;
-            background-color: #72a793;
-            border-radius: 8px;
-            width: 40%;
-            position: relative;
-            left: 10px;
-            top: 50px;
+          /* text-align: c; */
+          padding: 20px;
+          background-color: #72a793;
+          /* background-color: #102770; */
+          border-radius: 10px;
+          width: 300px;
+          position: relative;
+          top: 30px;
         }
-        #basic {
-            font-size: medium;
+        #wrapper div,
+        #wrfapper h2 {
+          background-color: #3a8a8a;
+          font-family: Arial, sans-serif;
+          display: flex;
+          flex-direction: column;
+          width: fit-content;
+          margin: 20px;
+          padding: 20px;
+          border: 2px solid #50caca;
+          /* padding: 5px; */
+          border-radius: 8px;
+          /* border: 2px solid white; */
         }
-        
-        img {
-            position: relative;
-            top: 50px;
-            left: 50px;
-            border-radius: 9px;
+        h1 {
+          font-family: Arial, sans-serif;
+          font-size: small;
+          color: #285e5e;
         }
+
+        h3 {
+          font-family: Arial, sans-serif;
+          font-size: 21px;
+          color: rgb(57, 22, 92);
+        }
+        #wrapper {
+          position: fixed;
+          display: contents;
+          width: 100%;
+          height: inherit;
+          overflow: hidden;
+          background-color: #3a8a8a;
+          border-radius: 10px;
+          padding: 10px;
+          color: white;
+        }
+        #result {
+          color: white;
+          font-weight: 800;
+        }
+
+        a {
+          font-family: Arial, sans-serif;
+          color: black;
+          font-weight: bold;
+          text-decoration: none;
+          text-align: justify;
+          height: 30px;
+          width: 100%;
+        }
+        a:hover {
+          color: skyblue;
+          background-color: #285e5e;
+          padding: 8px;
+          border-radius: 8px;
+        }
+        .mainbox2 {
+          display: list-item;
+          background-color: #6c9485;
+          padding: 5px;
+          height: auto;
+          width: auto;
+        }
+        input {
+          font-size: 23px;
+        }
+        label {
+          font-size: 22px;
+        }
+        .menu button {
+          background-color: #6c9485;
+        }
+
         button {
-            position: relative;
-            left: 80px;
+          margin-top: 20px;
+          border-radius: 4px;
+          height: 44px;
+          font-weight: 600;
+          padding: 0 30px;
+          letter-spacing: 1px;
+          border: none;
+          background-color: #ffeba7;
+          color: #102770;
         }
-        .active-button {
-            background-color: #04AA6D !important;
-        }
+      }
     </style>
+
     <script>
-        function BarPlot() {
-            // method 1
-            let xValues = document.getElementById("x_value").value.split(",");
-            let yValues = document.getElementById("y_value").value.split(",").map(Number);
-            let xName = document.getElementById("xname").value;
-            let yName = document.getElementById("yname").value;
-            let color = document.getElementById("color").value;
-            let title = document.getElementById("title").value;
-            // plot
-            let trace = {
-                x: xValues,
-                y: yValues,
-                type: 'bar', 
-                marker: {
-                    color: color,
-                }
-            };
+      function toggleNav() {
+        var nav = document.getElementById("main-nav");
+        nav.classList.toggle("active");
 
-            let layout = {
-                xaxis: {
-                    title: xName
-                },
-                yaxis: {
-                    title: yName
-                },
-                title: title
-            };
+        // Toggle the aria-expanded attribute to indicate the state of the menu
+        var menuToggle = document.getElementById("menu-toggle");
+        var expanded =
+          menuToggle.getAttribute("aria-expanded") === "true" || false;
+        menuToggle.setAttribute("aria-expanded", !expanded);
+      }
 
-            Plotly.newPlot('chart', [trace], layout);
-        }
-        
+      function BarPlot() {
+        // method 1
+        let xValues = document.getElementById("x_value").value.split(",");
+        let yValues = document
+          .getElementById("y_value")
+          .value.split(",")
+          .map(Number);
+        let xName = document.getElementById("xname").value;
+        let yName = document.getElementById("yname").value;
+        let color = document.getElementById("color").value;
+        let title = document.getElementById("title").value;
+        // plot
+        let trace = {
+          x: xValues,
+          y: yValues,
+          type: "bar",
+          marker: {
+            color: color,
+          },
+        };
+
+        let layout = {
+          xaxis: {
+            title: xName,
+          },
+          yaxis: {
+            title: yName,
+          },
+          title: title,
+        };
+
+        Plotly.newPlot("chart", [trace], layout);
+      }
     </script>
-</body>
+  </body>
 </html>

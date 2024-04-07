@@ -7,93 +7,75 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photos/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
-                <h1> DISCRIPTIVE STATISTICS</h1>
+                <h1> DESCRIPTIVE STATISTICS</h1>
                 <h3>VISUALIZATION TOOLS:-</h3>
                 <a href="LineChart.html">Line chart</a>
                 <a href="BarDiagram.html">Simple Bar Diagram</a>
-                <a href="BarDiagram2.html">subdivded Bar Diagram</a>
+                <a href="BarDiagram2.html">Subdivided Bar Diagram</a>
                 <a href="digram.html">Pie - Diagram</a>
                 <a href="histogram.html">Histogram</a>
             
-                <h3>measures of central tendency</h3>
-                <a href="measuresOfCentralTendency.html">measures of central tendency</a>
-                <h3>measures of dispersion</h3>
-                <a href="MeasuresOfDispersion.html">measures of central tendency</a>
-                <h3>Fertility Rate:-</h3>
+                <h3>MEASURES OF CENTRAL TENDENCY</h3>
+                <a href="measuresOfCentralTendency.html">Measures of Central Tendency</a>
+                <h3>MEASURES OF DISPERSION</h3>
+                <a href="MeasuresOfDispersion.html">Measures of Dispersion</a>
+                <a href="skewness_and_kurtosis.html">Skewness and Kurtosis</a>
+                <h3>FERTILITY RATE</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
-                <h3>Death Rasts:-</h3>
-                <h3>DISTRIBUTION  THEORY</h3>
+                <h3>DEATH RATES</h3>
+                <a href="DeathRate.html">Death Rates</a>
+                <h3>DISTRIBUTION THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
-                <a href="poission_distribution.html">Piosion Distribution</a>
+                <a href="poission_distribution.html">Poisson Distribution</a>
                 <a href="normal _distribution.html">Normal Distribution</a>
                 <a href="exponential_distribution.html">Exponential Distribution</a>
-                <h3>CORRELATION ANALYSIS:</h3>
-                <a href="correlation.html">Correlation </a>
-                <h3>REGRESSION  ANALYSIS:</h3>
-                <a href="regression .html">Regression</a>
-                <h3>SAMPLING TECHNIQUE :-</h3>
+                <h3>CORRELATION ANALYSIS</h3>
+                <a href="correlation.html">Correlation</a>
+                <h3>REGRESSION ANALYSIS</h3>
+                <a href="regression.html">Regression</a>
+                <h3>SAMPLING TECHNIQUE</h3>
                 <h4>Simple Random Sampling</h4>
                 <a href="SimpleRandomSampling.html">SRSWOR</a>
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
-                <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
-                <h3>Hypothesis Testing:</h3>
+                <a href="SystematicRandomSampling.html">Systematic Random Sampling</a>
+                <h3>HYPOTHESIS TESTING</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
-                <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
+                <a href="OneWayANOVA2.html">TwoWayANOVA</a>
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox2">
-        <h1>FITTING A EXPONENTIAL  DISTRIBUTION:-</h1>
+        <h1>FITTING AN EXPONENTIAL DISTRIBUTION</h1>
         <div id="block1">
             <div id="inditurval">
-                <label for="input">enter x values <input type="text" id="x_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <label for="input">enter f values <input type="text" id="f_value" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <button  id="exponential_button" type="button"  onclick="exponential()"> EXPONENTIAL DISTRIBUTION</button>
-                <div id="result">
-    
-                </div>
+                <label for="x_value">Enter x values:</label>
+                <input type="text" id="x_value" name="x_value" value="0,1,2,3,4,5,6" placeholder='e.g : 0,1,2,3,4,5,6'><br>
+                <label for="f_value">Enter f values:</label>
+                <input type="text" id="f_value" name="f_value" value="23,24,23,24,25,24,23" placeholder='e.g : 23,24,23,24,25,24,23 '><br>
+                <button id="exponential_button" type="button" onclick="exponential()">EXPONENTIAL DISTRIBUTION</button>
+                <div id="result"></div>
             </div>    
-            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
+            <div>
+                <img src="" alt=""  style="width:250px; height: 250px;">
+            </div>
         </div>    
         <br>
-
     </div>     
-   </div>
    
     <style>
         #block1{
-            display: flex;
-        }
-        #block2{
             display: flex;
         }
         #inditurval{
@@ -106,11 +88,10 @@
             top: 50px;
         }
         img{
-                position: relative;
-                top: 50px;
-                left: 50px;
-                border-radius: 9px;
-
+            position: relative;
+            top: 50px;
+            left: 50px;
+            border-radius: 9px;
         }
         button{
             position: relative;
@@ -119,7 +100,6 @@
         .active-button{
             background-color: #04AA6D !important;
         }
-        /* #092635 --- #1B4242 ---#5C8374 ---#9EC8B9*/
         body {
             display: flex;
             background-color: #6c9485;
@@ -147,17 +127,6 @@
             color: white;
         }
         #result{
-            color: white;
-            font-weight: 800;
-        }
-        #result1{
-            color: white;
-        }
-        #result2{
-            color: white;
-            font-weight: 800;
-        }
-        #result3{
             color: white;
             font-weight: 800;
         }
@@ -200,67 +169,55 @@
             color: #102770;
         }      
     </style>  
-    <script >
-        function mean() {
 
-            // Example input: "23,24,23,24,25,24,23"
-            let x_value= document.getElementById('x_value').value;
-            let f_vlaue= document.getElementById('f_value').value;
+    <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
+
+        function exponential() {
+            let x_value = document.getElementById('x_value').value.trim();
+            let f_value = document.getElementById('f_value').value.trim();
             
-            // Split the input string into an array of substrings using commas
+            if (!x_value || !f_value) {
+                alert("Please enter both x values and f values.");
+                return;
+            }
+
             let x = x_value.split(",").map(Number);
             let f = f_value.split(",").map(Number);
 
-            // Check if any element in inputDataArray is not a valid number
-            if (x.length===f_vlaue.length) {
-                alert("Please  x value  and f value not equal  check.");
+            if (x.length !== f.length) {
+                alert("Please make sure x values and f values have equal lengths.");
                 return;
             }
-            let xbar = x_f_multsum(x,f)/sum(f);
+
+            let xbar = x_f_multsum(x, f) / sum(f);
             let n = x.length;
-            let p = xbar/n;
-            let q = 1-p;
-            
+            let p = xbar / n;
+            let q = 1 - p;
 
-            
-        
             let result = document.getElementById("result");
-            result.innerHTML = "Your result is the mean value: " + mean1;
-            // define  all function  binomial  distribution
-            function sum(array) {
-            return array.reduce((acc, val) => acc + val, 0);
-            }
-            //------
-            function x_f_multsum(x_value,f_value){
-            return x_value.reduce((acc,val,index)=> acc+val*f_value[index],0);
-            }
-        }
+            result.innerHTML = `<br><b>Additional Information:</b>
+                                <br> xbar: ${xbar}
+                                <br> n: ${n}
+                                <br> p: ${p}
+                                <br> q: ${q}`;
 
-        // Define the sum function
-        function sum(array) {
-            return array.reduce((acc, val) => acc + val, 0);
-        }
-        function dis_mean(){
-            const dis_mean_x = document.getElementById("descreat_input_x").value
-            const dis_mean_f = document.getElementById("descreat_input_f").value
-            const x_value = dis_mean_x.split(",").map(Number);
-            const f_value = dis_mean_f.split(",").map(Number);
-            if (x_value.length !==f_value.length){
-                alert("sorry x_value and f_vlaue not equal length . please check")
+            function sum(array) {
+                return array.reduce((acc, val) => acc + val, 0);
             }
-            const disc_mean = x_f_multsum(x_value,f_value)/f_sum(f_value);
-            const result2 = document.getElementById("result2");
-            result2.innerHTML = "Your result is the mean value: " + disc_mean;
+
+            function x_f_multsum(x_value, f_value) {
+                return x_value.reduce((acc, val, index) => acc + val * f_value[index], 0);
+            }
         }
-        function x_f_multsum(x_value,f_value){
-            return x_value.reduce((acc,val,index)=> acc+val*f_value[index],0);
-        }
-        function f_sum(f_value){
-            return f_value.reduce((acc,val)=> acc+val,0)
-        }
-        // continous formula create with function
-        
     </script>    
-    
 </body>
 </html>

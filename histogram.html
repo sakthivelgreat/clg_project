@@ -8,8 +8,13 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
                 <h1> DISCRIPTIVE STATISTICS</h1>
                 <h3>VISUALIZATION TOOLS:-</h3>
@@ -18,14 +23,15 @@
                 <a href="BarDiagram2.html">subdivded Bar Diagram</a>
                 <a href="digram.html">Pie - Diagram</a>
                 <a href="histogram.html">Histogram</a>
-            
                 <h3>measures of central tendency</h3>
                 <a href="measuresOfCentralTendency.html">measures of central tendency</a>
                 <h3>measures of dispersion</h3>
                 <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <a href="skewness_and_kurtusis.html">Skewness and Kurtosis</a>
                 <h3>Fertility Rate:-</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
                 <h3>Death Rasts:-</h3>
+                <a href="DeathRate.html">Death Rates</a>
                 <h3>DISTRIBUTION  THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
                 <a href="poission_distribution.html">Piosion Distribution</a>
@@ -41,58 +47,50 @@
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
                 <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
                 <h3>Hypothesis Testing:</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
                 <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox">
-        <div id="block1">
+        <div id="inditurval">
             <h2>Generate Histogram</h2>
-            <br>
-            <div id="inditurval2">
-                <label for="midx_values">Enter midpoints (comma-separated):</label><br>
-                <input type="text" id="midx_values" placeholder="5,15,25,35,45,55,65,75,85"><br>
-                <label for="f_values">Enter frequencies (comma-separated):</label><br>
-                <input type="text" id="f_values" placeholder="4,6,17,14,16,14,8,16,5"><br>
-                <label for="xname">x axis name : <input type="text" id="xname" placeholder='ex: sakthi'></label><br>
-                <label for="yname">y axis name : <input type="text" id="yname" placeholder='ex: sakthi'></label><br>
-                <label for="color">Enter Color:-<br><input type="text" id="color" name="red"></label><br>
-                <label for="border_color">Enter Border Color:-<br><input type="color" id="border_color" value="#000000"></label><br>
-                <label for="title">Title:-<br><input type="text" id="title" placeholder='"sakthi is bigestmen"'></label><br>
+            <label for="midx_values">Enter midpoints (comma-separated):</label><br>
+            <input type="text" id="midx_values" placeholder="5,15,25,35,45,55,65,75,85"><br>
+            <label for="f_values">Enter frequencies (comma-separated):</label><br>
+            <input type="text" id="f_values" placeholder="4,6,17,14,16,14,8,16,5"><br>
+            <label for="xname">x axis name : <br><input type="text" id="xname" placeholder='ex: sakthi'></label><br>
+            <label for="yname">y axis name : <br><input type="text" id="yname" placeholder='ex: sakthi'></label><br>
+            <label for="color">Enter Color:-<br><input type="text" id="color" name="red"></label><br>
+            <label for="border_color">Enter Border Color:-<br><input type="color" id="border_color" value="#000000"></label><br>
+            <label for="title">Title:-<br><input type="text" id="title" placeholder='"sakthi is bigestmen"'></label><br>
+            <br><br>
+            <div class="button">
                 <button onclick="generateHistogram()">Generate Histogram</button>
                 <button onclick="generateFrequencyPolygon()">Frequency Polygon</button>
                 <button onclick="generateFrequencyCurve()">Frequency Curve</button>
             </div>
+            <br><br>
             <div id="chart_result"></div>
-        </div>
+        </div> 
+        <div> <img src="clg_photes/P4.png" ></div>
+           
     </div>
 
     <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
         function generateHistogram() {
             let midpoints = document.getElementById("midx_values").value.split(",").map(Number);
             let frequencies = document.getElementById("f_values").value.split(",").map(Number);
@@ -220,23 +218,35 @@
     </script>
 
     <style>
-        .mainbox {
-            margin: 20px;
+        .mainbox{
+            display: flex;
+
+            position: relative;
+            left:10px;
+            /* top: 50px; */
+            width: 1000px;
+            height: auto;
+            overflow-x: hidden;
+            overflow-y:scroll; 
         }
-        
         #inditurval {
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
             width: 40%;
+            height:max-content;
             position: relative;
             left: 10px;
-            top: 50px;
+            /* top: 50px; */
         }
         #basic {
             font-size: medium;
         }
-        
+        .button{
+            display: flex; 
+            flex-direction: column;
+            width:fit-content;
+        }
         img {
             position: relative;
             top: 50px;

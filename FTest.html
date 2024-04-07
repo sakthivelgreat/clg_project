@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
                 <h1> DISCRIPTIVE STATISTICS</h1>
                 <h3>VISUALIZATION TOOLS:-</h3>
@@ -22,9 +27,11 @@
                 <a href="measuresOfCentralTendency.html">measures of central tendency</a>
                 <h3>measures of dispersion</h3>
                 <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <a href="skewness_and_kurtusis.html">Skewness and Kurtosis</a>
                 <h3>Fertility Rate:-</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
                 <h3>Death Rasts:-</h3>
+                <a href="DeathRate.html">Death Rates</a>
                 <h3>DISTRIBUTION  THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
                 <a href="poission_distribution.html">Piosion Distribution</a>
@@ -40,42 +47,22 @@
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
                 <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
                 <h3>Hypothesis Testing:</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
                 <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox2">
         <h1>F-test Calculator</h1>
         <div id="block1">
-            <div id="problem4">
-                <label for="x_values">Enter values for sample x (comma-separated):</label>
+            <div id="inditural">
+                <label for="x_values">Enter values for sample x <br>(comma-separated):</label>
                 <input type="text" id="x_values" placeholder="e.g., 16,17,25,26,32,34,38,40,42">
-                <label for="y_values">Enter values for sample y (comma-separated):</label>
+                <label for="y_values">Enter values for sample y <br>(comma-separated):</label>
                 <input type="text" id="y_values" placeholder="e.g., 600,590,590,630,610,630">
                 <button onclick="performFTest()">Calculate F-test</button>
                 <div id="problem4_result"></div>
@@ -84,6 +71,15 @@
     </div>
 
     <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
         function performFTest() {
             const xValues = document.getElementById("x_values").value.split(",").map(Number);
             const yValues = document.getElementById("y_values").value.split(",").map(Number);
@@ -228,10 +224,15 @@
             gap: 20px;
         }
 
-        #problem4 {
-            padding: 20px;
+        #inditural{
+            padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+
         }
 
         button {
@@ -252,12 +253,10 @@
             margin-bottom: 5px;
             display: block;
         }
-
-        input {
-            width: 60%;
-            padding: 8px;
-            margin-bottom: 10px;
+        #problem4_result{
+            color: white;
         }
+        
 
         textarea {
             width: 60%;

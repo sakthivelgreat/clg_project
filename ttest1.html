@@ -7,8 +7,13 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <div class="menu">
+        <button id="menu-toggle" onclick="toggleNav()">
+            <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
+        </button>
+    </div>
     <div id="wrapper">
-        <nav>
+        <nav id="main-nav">
             <div id="wrapper2">
                 <h1> DISCRIPTIVE STATISTICS</h1>
                 <h3>VISUALIZATION TOOLS:-</h3>
@@ -22,9 +27,11 @@
                 <a href="measuresOfCentralTendency.html">measures of central tendency</a>
                 <h3>measures of dispersion</h3>
                 <a href="MeasuresOfDispersion.html">measures of central tendency</a>
+                <a href="skewness_and_kurtusis.html">Skewness and Kurtosis</a>
                 <h3>Fertility Rate:-</h3>
                 <a href="FertilityRates.html">Fertility Rates</a>
                 <h3>Death Rasts:-</h3>
+                <a href="DeathRate.html">Death Rates</a>
                 <h3>DISTRIBUTION  THEORY</h3>
                 <a href="binomial _distribution.html">Binomial Distribution</a>
                 <a href="poission_distribution.html">Piosion Distribution</a>
@@ -40,78 +47,61 @@
                 <a href="SimpleRandomSampling2.html">SRSWR</a>
                 <a href="StratifiedRandomSampling.html">Stratified Random Sampling</a>
                 <a href="SystamaticRandomSampling.html">Systamatic Random Sampling</a>
-                <h3>Inferential Statistics:</h3>
-                <a href="">Confidence Interval for Mean</a>
-                <a href="">Confidence Interval for proportion</a>
                 <h3>Hypothesis Testing:</h3>
                 <a href="ttest1.html">t-test</a>
                 <a href="FTest.html">F-test</a>                
                 <a href="ChiSquareTest.html">Chi-Square Test</a>
                 <a href="OneWayANOVA.html">OneWayANOVA</a>
                 <a href="OneWayANOVA2.html">TwoWAyANOVA</a>
-                <h3>Experimental De1sign:</h3>
-                <a href="">CRD</a
-                <a href="">RBD</a>
-                <a href="">LSD</a>
-                <h3>SQL(Statistical Quality Control)</h3>
-                <a href="">X-bar chart</a>
-                <a href="">R chart</a>
-                <a href="">S chart</a>
-                <h4> Attributes</h4>
-                <a href="">p chart</a>
-                <a href="">np</a>
-
-
-
             </div>
-
-            
-
         </nav>
     </div>
     <div class="mainbox2">
+        <h1>t-test Calculator</h1>
         <div id="block1">
-            <h1>Systematic Sampling</h1>
-            <button onclick="addDataInput()" id="button1">Add Data Input</button>
-            <br>
-            <div id="dataInputs"></div>
-            <br>
-            <br>
-            <button onclick="calculateSystematicSampling()" id="button2"> Calculate Systematic Sampling</button>
-            <div id="results"></div>
-        </div>
-        <div class="mainbox2">
-            <h1>t-test Calculator</h1>
-            <div id="block1">
-                <div id="problem1">
-                    <label for="problem1_data">Problem 1: Enter data for Group 1 (comma-separated):</label>
-                    <input type="text" id="problem1_data" placeholder="e.g., 70,120,110,101,88,83,95,98,107,100">
-                    <label for="problem1_mu">Enter the hypothesized mean (μ):</label>
-                    <input type="number" id="problem1_mu" placeholder="e.g., 100">
-                    <button onclick="performTTest('problem1_data', 'problem1_mu', 'problem1_result')">Calculate t-test</button>
-                    <div id="problem1_result"></div>
-                </div>
-                <div id="problem2">
-                    <label for="problem2_data1">Problem 2: Enter data for Group 1 (comma-separated):</label>
-                    <input type="text" id="problem2_data1" placeholder="e.g., 25,32,30,34,24,14,32,24,30,31,35,25">
-                    <label for="problem2_data2">Enter data for Group 2 (comma-separated):</label>
-                    <input type="text" id="problem2_data2" placeholder="e.g., 44,34,22,10,47,31,40,30,32,35,18,21,35,29,22">
-                    <button onclick="performTTestTwoGroups('problem2_data1', 'problem2_data2', 'problem2_result')">Calculate t-test</button>
-                    <div id="problem2_result"></div>
-                </div>
-                <div id="problem3">
-                    <label for="problem3_data1">Problem 3: Enter paired data for Group 1 (comma-separated):</label>
-                    <input type="text" id="problem3_data1" placeholder="e.g., 49,53,51,52,47,50,52,53">
-                    <label for="problem3_data2">Enter paired data for Group 2 (comma-separated):</label>
-                    <input type="text" id="problem3_data2" placeholder="e.g., 52,55,52,53,50,54,54,53">
-                    <button onclick="performTTestPaired('problem3_data1', 'problem3_data2', 'problem3_result')">Calculate t-test</button>
-                    <div id="problem3_result"></div>
-                </div>
+            <div id="inditurval">
+                <label for="problem1_data">Problem 1: Enter data for Group 1 (comma-separated):</label>
+                <input type="text" id="problem1_data" placeholder="e.g., 70,120,110,101,88,83,95,98,107,100">
+                <label for="problem1_mu">Enter the hypothesized mean (μ):</label>
+                <input type="number" id="problem1_mu" placeholder="e.g., 100">
+                <br>
+                <button onclick="performTTest('problem1_data', 'problem1_mu', 'problem1_result')">Calculate t-test</button>
+                <br>
+                <div id="problem1_result"></div>
+            </div>
+            <div id="inditurval">
+                <label for="problem2_data1">Problem 2: Enter data for Group 1 (comma-separated):</label>
+                <input type="text" id="problem2_data1" placeholder="e.g., 25,32,30,34,24,14,32,24,30,31,35,25">
+                <label for="problem2_data2">Enter data for Group 2 (comma-separated):</label>
+                <input type="text" id="problem2_data2" placeholder="e.g., 44,34,22,10,47,31,40,30,32,35,18,21,35,29,22">
+                <br>
+                <button onclick="performTTestTwoGroups('problem2_data1', 'problem2_data2', 'problem2_result')">Calculate t-test</button>
+                <br>
+                <div id="problem2_result"></div>
+            </div>
+            <div id="inditurval">
+                <label for="problem3_data1">Problem 3: Enter paired data for Group 1 (comma-separated):</label>
+                <input type="text" id="problem3_data1" placeholder="e.g., 49,53,51,52,47,50,52,53">
+                <label for="problem3_data2">Enter paired data for Group 2 (comma-separated):</label>
+                <input type="text" id="problem3_data2" placeholder="e.g., 52,55,52,53,50,54,54,53">
+                <br>
+                <button onclick="performTTestPaired('problem3_data1', 'problem3_data2', 'problem3_result')">Calculate t-test</button>
+                <br>
+                <div id="problem3_result"></div>
             </div>
         </div>
     </div>
 
     <script>
+        function toggleNav() {
+            var nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('menu-toggle');
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
+        }
         function performTTest(dataId, muId, resultId) {
             const data = document.getElementById("problem1_data").value.split(",").map(Number);
             const mu = parseFloat(document.getElementById("problem1_mu").value);
@@ -290,13 +280,6 @@
             flex-direction: column;
             gap: 20px;
         }
-
-        #problem1, #problem2, #problem3 {
-            padding: 20px;
-            background-color: #72a793;
-            border-radius: 8px;
-        }
-
         button {
             margin-top: 10px;
             padding: 5px 10px;
@@ -305,6 +288,16 @@
             color: white;
             border-radius: 4px;
             cursor: pointer;
+        }
+        #inditurval{
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+
         }
 
         button:hover {
@@ -315,13 +308,9 @@
             margin-bottom: 5px;
             display: block;
         }
-
-        input {
-            width: 60%;
-            padding: 8px;
-            margin-bottom: 10px;
+        #problem1_result,#problem2_result,#problem3_result{
+            color: white;
         }
-
         textarea {
             width: 60%;
             height: 100px;
