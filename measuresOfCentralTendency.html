@@ -57,6 +57,10 @@
         </nav>
     </div>
     <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
+        <br><br>
         <h1>Measures Of Central Tendency</h1>
         <h2>(Mean,Median,Mode,Geometric Mean,Harmonic Mean)</h2>
         <div id="block1">
@@ -67,7 +71,7 @@
                 <button id="mean" type="button" onclick="MeasureOfCentralTendency()">Measure Of<br>Central Density</button>
                 <div id="result"></div>
             </div>
-            
+            <br><br>
             <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
         </div>    
         <br>
@@ -82,6 +86,7 @@
                 <button id="dis_mean" type="button" onclick="dis_MeasureOfCentralTendency()">Measure Of<br>Central Tendency</button>
                 <div id="result2"></div>
             </div>
+            <br><br>
             <div><img src="clg_photes/mean dis.png" alt="" style="width:250px; height: 250px;"></div>
             
         </div>
@@ -96,9 +101,9 @@
                 <br>
                 <button  id="cont_mean" type="button"  onclick="cont_MeasureOfCentralTendency()">Measure Of<br>CentralTendency</button>
                 <div id="result3">
-    
                 </div>
             </div>
+            <br><br>
             <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
         </div>
     </div>     
@@ -110,6 +115,10 @@
         }
         #block2{
             display: flex;
+        }
+        #result div, #result2 div, #result div{
+            width: auto;
+            height: auto;      
         }
         #inditurval{
             padding: 50px;
@@ -133,6 +142,54 @@
         }
         .active-button{
             background-color: #04AA6D !important;
+        }
+        #chart {
+            width: 100%;
+            height: auto; 
+            margin-top: 20px;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            #block1 {
+                display: block;
+                margin: auto;
+                width: 90%;
+                overflow-x: auto; 
+                height:auto;
+                overflow-y: visible;
+            }
+            #result div, #result2 div, #result div{
+                position: relative;
+                top: 0;
+                width: auto;
+                height: auto;
+                
+            }
+            input {
+                background-color: white;
+            }
+            #inditurval {
+                width: 90%; 
+                left: 0;
+                top: 0;
+                padding: 20px; 
+            }
+            #chart {
+                position: relative;
+                top: 0;
+                left: 0;
+                box-sizing: content-box;
+                width: auto;
+                height: auto;
+            }
+            #chart div{
+                background-color: white;
+                position:relative;
+                top: 2px;
+                left: 2px;
+                display: flex;
+                width: auto;
+            }
         }      
     </style>  
     <script >

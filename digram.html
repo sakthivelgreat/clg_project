@@ -57,11 +57,18 @@
             </div>
         </nav>
     </div>
-    <div class="mainbox">
+    <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
         <h1>Pie Chart</h1>
-        <h2>Problem 1: Single Pie Chart</h2>
+        <div id="mm1">
+            <img src="clg_photes/P5.png" alt="" style="width:250px; height: 250px;"> 
+        </div>
         <div id="block1">
-            <div id="inditurval2">
+            <br><br><br>
+            <div id="inditurval">
+                <h2>Problem 1: Single Pie Chart</h2>
                 <label for="problem1_values">Enter values (comma-separated):</label>
                 <input type="text" id="problem1_values" placeholder="93,47,22,36,54,22,36,50">
                 <br>
@@ -74,41 +81,46 @@
                 <br>
                 <div id="chart1_result"></div>
             </div>
-            <div>
+            <br><br><br>
+            <div id="mm2">
                 <img src="clg_photes/P5.png" alt="" style="width:250px; height: 250px;">
             </div>  
         </div>
         
-        <br>
-        <h2>Problem 2: Multiple Pie Charts</h2>
-        <div id="inditurval2">
-            <div id="chart2A">
-                <label for="problem2A_values">Enter values for Family A (comma-separated):</label>
-                <input type="text" id="problem2A_values" placeholder="240,160,80,200">
-                <br>
-                <label for="problem2A_colors">Enter colors for Family A (comma-separated):</label>
-                <input type="text" id="problem2A_colors" placeholder="violet,pink,skyblue,blue">
-                <br>
-                <label for="problem2A_content">Enter content for Family A (comma-separated):</label>
-                <input type="text" id="problem2A_content" placeholder="content1,content2,content3,content4">
-                <br>
-                <button onclick="addDataInput('chart2A', '240,160,80,200', 'violet,pink,skyblue,blue')">Add Input</button>
+        <br><br><br>
+        <div id="block1">
+            <div id="inditurval" >
+                <h2>Problem 2: Multiple Pie Charts</h2>
+                <div id="chartA">
+                    <label for="problem2A_values">Enter values for Family A (comma-separated):</label>
+                    <input type="text" id="problem2A_values" placeholder="240,160,80,200">
+                    <br>
+                    <label for="problem2A_colors">Enter colors for Family A (comma-separated):</label>
+                    <input type="text" id="problem2A_colors" placeholder="violet,pink,skyblue,blue">
+                    <br>
+                    <label for="problem2A_content">Enter content for Family A (comma-separated):</label>
+                    <input type="text" id="problem2A_content" placeholder="content1,content2,content3,content4">
+                    <br>
+                    <button onclick="addDataInput('chart2A', '240,160,80,200', 'violet,pink,skyblue,blue')">Add Input</button>
+                </div>
+                <div id="chartB">
+                    <label for="problem2B_values">Enter values for Family B (comma-separated):</label>
+                    <input type="text" id="problem2B_values" placeholder="240,160,80,200">
+                    <br>
+                    <label for="problem2B_colors">Enter colors for Family B (comma-separated):</label>
+                    <input type="text" id="problem2B_colors" placeholder="violet,pink,skyblue,blue">
+                    <br>
+                    <label for="problem2B_content">Enter content for Family B (comma-separated):</label>
+                    <input type="text" id="problem2B_content" placeholder="content1,content2,content3,content4">
+                    <br>
+                    <button onclick="addDataInput('chart2B', '240,160,80,200', 'violet,pink,skyblue,blue')">Add Input</button>
+                </div>
+                <br><br>
+                <button onclick="generatePieChartProblem2()">Generate Pie Charts</button>
             </div>
-            <div id="chart2B">
-                <label for="problem2B_values">Enter values for Family B (comma-separated):</label>
-                <input type="text" id="problem2B_values" placeholder="240,160,80,200">
-                <br>
-                <label for="problem2B_colors">Enter colors for Family B (comma-separated):</label>
-                <input type="text" id="problem2B_colors" placeholder="violet,pink,skyblue,blue">
-                <br>
-                <label for="problem2B_content">Enter content for Family B (comma-separated):</label>
-                <input type="text" id="problem2B_content" placeholder="content1,content2,content3,content4">
-                <br>
-                <button onclick="addDataInput('chart2B', '240,160,80,200', 'violet,pink,skyblue,blue')">Add Input</button>
-            </div>
-            <button onclick="generatePieChartProblem2()">Generate Pie Charts</button>
         </div>
         <div id="chart2A_result"></div>
+        <br><br>
         <div id="chart2B_result"></div>
     </div>
     
@@ -208,52 +220,87 @@
             Plotly.newPlot('chart2B_result', data2B, layout2B);
         }
     </script>
-
     <style>
-        #wrapper{
-            width: 20%;
+        #block1 {
+            display: flex;
+            width: auto;
         }
-    
-        .flex-container {
+        #block2 {
             display: flex;
         }
-
-        #chart1, #chart2A, #chart2B {
-            width: 50%;
-        }
-        #block1, #block2 {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        #inditurval, #inditurval2 {
-            padding: 20px;
+        #inditurval {
+            padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
             width: 40%;
-            margin-right: 20px;
-        }
-        .mainbox{
             position: relative;
-            left:10px;
-            /* top: 50px; */
-            width: 1000px;
-            overflow: scroll;
+            left: 10px;
+            top: 50px;
         }
-
-        #basic, #basic2 {
+        #basic {
             font-size: medium;
         }
+        
+        img {
+            position: relative;
+            top: 10%;
+            left: 10%;
+            border-radius: 9px;
+        }
         button {
-            margin-top: 10px;
+            position: relative;
+            left: 80px;
         }
-        #chart1_result{
-            width: 40%;
-            
+        .active-button {
+            background-color: #04AA6D !important;
         }
-        #chart2A_result,#chart2B_result{
-            width:40%;
+        #chart {
+            width: 100%;
+            height: auto; 
+            margin-top: 20px;
         }
         
+        @media only screen and (max-width: 768px) {
+            #block1 {
+                display: block;
+                margin: auto;
+                width: 90%;
+                overflow-x: auto; 
+                height:auto;
+                overflow-y: visible;
+            }
+            
+            input {
+                background-color: white;
+            }
+            #inditurval {
+                width: 90%; 
+                left: 0;
+                top: 0;
+                padding: 20px; 
+            }
+            div #mm1 {
+                position: relative;
+                top: 30px;
+            }
+            
+            #chart1_result, #chart2A_result, #chart2B_result {
+                position: relative;
+                top: 0;
+                left: 0;
+                box-sizing: content-box;
+                width: auto;
+                height: auto;
+            }
+            #chart1_result div, #chart2A_result div, #chart2B_result div {
+                background-color: white;
+                position:relative;
+                top: 2px;
+                left: 2px;
+                display: flex;
+                width: auto;
+            }
+        }
     </style>
    
 </body>

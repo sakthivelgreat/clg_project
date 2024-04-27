@@ -6,19 +6,7 @@
     <title>Bio-Data</title>
     <link rel="stylesheet" href="pross.css">
     <style>
-        body{
-            text-align: center;
-            font-size:x-large;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #2c3038; /* Light background */
-            color: #43a8a8; /* Dark text */
-            margin: 0;
-            padding: 0;
-            justify-content: space-between;
-            flex-direction: row;
-        }
+        
         .profile-topnav {
             height: 50px;
             background-color: #575757; /* Dark blue background for nav bar */
@@ -65,109 +53,37 @@
         .profile-topnav ul li a:hover {
             color: #b46666; /* Lighter color on hover */
         }
-        /* Existing CSS */
-        /* Add your existing CSS styles here */
-
-        /* New CSS for Bio-Data */
-        .bio-data-container {
-            margin: 20px;
-            padding: 20px;
-            border: 2px solid #43a8a8; /* Dark text */
-            border-radius: 10px;
-            background-color: #2c3038; /* Light background */
-            color: #43a8a8; /* Dark text */
-        }
-
-        .bio-data-container h2 {
-            color: skyblue;
-            font-size: 22px;
-        }
-
-        .bio-data-container p {
-            margin-bottom: 10px;
-        }
-
-        .bio-data-container ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .bio-data-container ul li {
-            margin-bottom: 5px;
-        }
-
-        .bio-data-container table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        .bio-data-container th, .bio-data-container td {
-            border: 1px solid #43a8a8;
-            padding: 8px;
-            text-align: left;
-        }
-
-        .bio-data-container th {
-            background-color: #575757; /* Dark blue background for table header */
-            color: #e2c9c9; /* White text */
-        }
-
-        .bio-data-container tr:nth-child(even) {
-            background-color: #575757; /* Dark blue background for even rows */
-        }
-        .bio-data-container p span{
-            font-family: 'Lora', serif;
-            color:#e2c9c9;
-            font-style: italic;
-        }
-        .bio-data-container span p{
-            font-family: 'Lora', serif;
-            color:#e2c9c9;
-            font-style: italic;
-
-        }
+        .bio-data-container{
+            text-align: center;
+            
+        } 
     </style>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
+        @media screen and (min-width : 768px){
+            .english , .tamil {
+                text-align: left;
+            }
 
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #f4f4f4;
-            border-radius: 10px;
         }
-        #dd{
-            color: rgb(17, 178, 242);
+        @media screen and (max-width : 768px){
+            .profile-topnav {
+                background-color: #575757; 
+                position: relative;
+                /* top: 100px; */
+                height: auto;
+            }
+            #menu {
+                position: relative;
+            }
+            
         }
-        #dd:hover{
-            color: rgb(163, 212, 231);
-            text-shadow: 10px 10px 6px;
-        }
-
-        /* h2 {
-            color: #43a8a8;
-        }
-
-        p {
-            color: #333;
-            margin-bottom: 20px;
-        } */
     </style>
 
 </head>
 <body>
 
     <div class="profile-topnav">
-        <div class="name"><h3>DEPARTMENT  OF  STATISTICS</h3></div>
-        <img src="logo.png" alt="Logo" class="logo" onclick="toggleMenu()">
+        <div class="name-container"><h3 class="name">DEPARTMENT  OF  STATISTICS</h3></div>
         <ul id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="CreatorProfile.html">Creator Profile</a></li>
@@ -177,53 +93,53 @@
         </ul>
     </div>
     <div class="bio-data-container">
-        <!-- <div class="container"> -->
             <h1 id="dd">Rules and Regulations</h1>
             <h2>English:</h2>
-            <p>
-                1. Admin Access Control: Responsible for managing user access rights and permissions within the system, ensuring proper authorization for sensitive data.
-            </p>
-            <p>
-                2. Data Integrity Officer: Ensures the accuracy and reliability of data inputs and outputs, conducting regular audits to maintain data integrity standards.
-            </p>
-            <p>
-                3. Result Validator: Reviews and verifies calculation results, ensuring accuracy and consistency with established criteria and guidelines.
-            </p>
-            <p>
-                4. Compliance Monitor: Monitors adherence to regulatory requirements and college policies, providing guidance on compliance issues.
-            </p>
-            <p>
-                5. Quality Assurance Coordinator: Oversees quality control processes, ensuring that calculations meet quality standards and performance metrics.
-            </p>
-            <p>
-                6. Student Advocate: Represents student interests in matters related to result calculation and verification, ensuring fair treatment and transparency.
-            </p>
-            <p>
-                7. Ethics Committee Member: Participates in ethical reviews of calculation processes, ensuring adherence to ethical principles and standards.
-            </p>
-            <p>
-                8. Documentation Specialist: Manages documentation related to calculation methodologies, procedures, and results, ensuring clarity and accessibility.
-            </p>
-            <p>
-                9. Training Coordinator: Organizes training sessions for users involved in result verification, ensuring proficiency in system operation and procedures.
-            </p>
-            <p>
-                10. Communications Liaison: Facilitates communication between stakeholders involved in result verification, ensuring effective exchange of information and feedback.
-            </p>
+            <div class="english">
+                <p>
+                    1. Admin Access Control: Responsible for managing user access rights and permissions within the system, ensuring proper authorization for sensitive data.
+                </p>
+                <p>
+                    2. Data Integrity Officer: Ensures the accuracy and reliability of data inputs and outputs, conducting regular audits to maintain data integrity standards.
+                </p>
+                <p>
+                    3. Result Validator: Reviews and verifies calculation results, ensuring accuracy and consistency with established criteria and guidelines.
+                </p>
+                <p>
+                    4. Compliance Monitor: Monitors adherence to regulatory requirements and college policies, providing guidance on compliance issues.
+                </p>
+                <p>
+                    5. Quality Assurance Coordinator: Oversees quality control processes, ensuring that calculations meet quality standards and performance metrics.
+                </p>
+                <p>
+                    6. Student Advocate: Represents student interests in matters related to result calculation and verification, ensuring fair treatment and transparency.
+                </p>
+                <p>
+                    7. Ethics Committee Member: Participates in ethical reviews of calculation processes, ensuring adherence to ethical principles and standards.
+                </p>
+                <p>
+                    8. Documentation Specialist: Manages documentation related to calculation methodologies, procedures, and results, ensuring clarity and accessibility.
+                </p>
+                <p>
+                    9. Training Coordinator: Organizes training sessions for users involved in result verification, ensuring proficiency in system operation and procedures.
+                </p>
+                <p>
+                    10. Communications Liaison: Facilitates communication between stakeholders involved in result verification, ensuring effective exchange of information and feedback.
+                </p>
+            </div>
         
             <h2>Tamil:</h2>
-            <p>
-                1. நிர்வாகம் அணுகல் கட்டமைப்பாளர்: அமைப்புகளின் உரிமம் மற்றும் அனுமதிகளை நடுவம் செயல்படுத்தும் பொருள்கள், நம்பகமான தரவுகளுக்கான சரிபார்க்கையை உறுதிபடுத்தும்.
-            </p>
-            <p>
-                2. தரவு செல்லுபடி அதிகாரி: தரவு உள்ளிட்டுக்கள் மற்றும் வெளியீடுகளின் சரித்திரத்தை உறுதிபடுத்த மொத்தம் விசாரிக்கும், தரவு செல்லுபடி நிறைவேற்ற நிதிரை நடத்தும்.
-            </p>
-            <p>
-                3. முடிவு சரிபார்ப்பாளர்: கணக்கில் முடிவுகளைச் சரிபார்க்க மற்றும் சரியானது மற்றும் தெளிவான அடிப்படைகளுடன் ஒத்திசைவு செய்யும்.
-            </p>
-            <!-- Add more translations here -->
-        
-        <!-- </div> -->
+            <div class="tamil">
+                <p>
+                    1. நிர்வாகம் அணுகல் கட்டமைப்பாளர்: அமைப்புகளின் உரிமம் மற்றும் அனுமதிகளை நடுவம் செயல்படுத்தும் பொருள்கள், நம்பகமான தரவுகளுக்கான சரிபார்க்கையை உறுதிபடுத்தும்.
+                </p>
+                <p>
+                    2. தரவு செல்லுபடி அதிகாரி: தரவு உள்ளிட்டுக்கள் மற்றும் வெளியீடுகளின் சரித்திரத்தை உறுதிபடுத்த மொத்தம் விசாரிக்கும், தரவு செல்லுபடி நிறைவேற்ற நிதிரை நடத்தும்.
+                </p>
+                <p>
+                    3. முடிவு சரிபார்ப்பாளர்: கணக்கில் முடிவுகளைச் சரிபார்க்க மற்றும் சரியானது மற்றும் தெளிவான அடிப்படைகளுடன் ஒத்திசைவு செய்யும்.
+                </p>
+            </div>
     </div>
 </body>
 </html>

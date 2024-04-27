@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One-way ANOVA Calculator</title>
-    <link rel="stylesheet" href="clg.css">
+    <link rel="stylesheet" href="clg.css"> 
     <style>
-        .mainbox2 {
-            margin: 20px;
-            font-size: medium;
-        }
-
         #block1 {
             display: flex;
             flex-direction: column;
@@ -21,7 +16,7 @@
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
-            width: 25%;
+            width: 40%;
             position: relative;
             left: 10px;
             top: 50px;
@@ -29,19 +24,15 @@
         #dataTable{
             position: relative;
             top: 50px;
+            margin-bottom: 20px;
            
         }
-        .Table{
-            width: auto;
+        #anovaResult{
+            position: relative;
+            top: 50px;
+            color: white;
         }
-        #dataTable input , #dataTable tr{
-            background-color: #72a793;
-            width: 50px;
-            border-radius: 5px;
-        }
-        #dataTable input{
-            background-color: white;
-        }
+
         table {
             border-collapse: collapse;
         }
@@ -50,6 +41,16 @@
             border: 1px solid black;
             padding: 5px;
         }
+
+        button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
         #inditurval button{
             position: relative;
             top: 10px;
@@ -60,18 +61,21 @@
         }
         button {
             position: relative;
-            top: 20px;
+            top: 50px;
             width: 100%;
             padding: 5px 10px;
             background-color: #4CAF50;
             border: none;
             color: white;
             border-radius: 4px;
-            cursor: pointer;
+            cursor:pointer;
         }
-
         button:hover {
             background-color: #45a049;
+        }
+        #dataTable input{
+            background-color: white;
+            width:75px;
         }
 
         label {
@@ -82,11 +86,90 @@
         input[type="number"] {
             width: 60px;
         }
-        #chiSquareResult{
-            color: white;
+        @media screen and (max-width: 768px) {
+            #gotohome {
+                position: relative;
+                bottom:50px;
+                left: 60px;
+            }
         }
-        #anovaResult{
-            color: white;
+
+    </style>
+    <style>
+        
+        #block1 {
+            display: flex;
+            width: auto;
+        }
+        /* .mainbox2 {
+            position: relative;
+            left: 25px;
+        } */
+        #block2 {
+            display: flex;
+        }
+        #inditurval {
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        #basic {
+            font-size: medium;
+        }
+        
+        img {
+            position: relative;
+            top: 10%;
+            left: 10%;
+            border-radius: 9px;
+        }
+        button {
+            position: relative;
+            left: 80px;
+        }
+        .active-button {
+            background-color: #04AA6D !important;
+        }
+        
+        
+        @media only screen and (max-width: 768px) {
+            #block1 {
+                display: block;
+                margin: auto;
+                width: 90%;
+                overflow-x: auto; 
+                height:auto;
+                overflow-y: visible;
+            }
+            
+            input {
+                background-color: white;
+            }
+            #inditurval {
+                width: 90%; 
+                left: 0;
+                top: 0;
+                padding: 20px; 
+            }
+            #gotohome {
+                text-align:start;
+                position: relative;
+                left: 100px;
+            }
+            div #anovaResult{
+                position:relative;
+                top: 50px;
+                color: white;
+            }
+            #inditurval button {
+                position: relative;
+                bottom: 20px;
+            }
+            
         }
     </style>
 </head>
@@ -140,6 +223,9 @@
         </nav>
     </div>
     <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
         <h1>One-way ANOVA Calculator</h1>
         <div id="block1">
             <div id="inditurval">
@@ -147,12 +233,14 @@
                 <input type="number" id="numGroups" min="2" value="2">
                 <label for="groupSize">Group Size:</label>
                 <input type="number" id="groupSize" min="2" value="2">
+                <br>
                 <button onclick="createTable()">Create Table</button>
+                <br><br>
             </div>
-            <div class="Table">
-                <div id="dataTable"></div>
-            </div>
+            <br><br>
+            <div id="dataTable"></div>
             <button onclick="performANOVA()">Calculate One-way ANOVA</button>
+            <br><br>
             <div id="anovaResult"></div>
         </div>
     </div>
@@ -174,7 +262,7 @@
             let tableHTML = '<table>';
             tableHTML += '<tr>';
             for (let j = 0; j < numGroups; j++) {
-                tableHTML += `<th><input type="text" id="groupTitle_${j}" placeholder="Group ${j + 1}"></th>`;
+                tableHTML += `<th><input type="text" id="groupTitle_${j}" placeholder="Group${j + 1}"></th>`;
             }
             tableHTML += '</tr>';
             for (let i = 0; i < groupSize; i++) {

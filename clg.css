@@ -3,22 +3,56 @@ body {
     font-family: Arial, sans-serif;
     display: flex;
     background-color: #6c9485;
-    height: 100vh;
-    margin: 0;
-    overflow: hidden; 
+    overflow: hidden;
+    height:100vh;
+    width: 100%;
+    /* height: auto; */
+    margin: 0; 
 }
-.mainbox2{
-    position: relative;
-    left: 25px;
+.mainbox2 {
+    background-color: #6c9485;
+    height: inherit;
+    overflow: auto;
     overflow-x: hidden;
-    overflow-y: auto;
+}
+#wrapper{
+    width: 30%;
+}
+.mainbox2 {
+    width: 100%;
+}
+
+/* #wrapper {
+    width: 100%;
+} */
+.mainbox {
+    display: flex;
+    position: relative;
+    left:10px;
+    /* top: 50px; */
+    /* width: 100%; */
+    height: auto;
+    overflow-x: hidden;
+    overflow-y:scroll; 
+}
+#block1 {
+    display: flex;
+    /* width: auto;
+    height: auto; */
+}
+#block2 {
+    display: flex;
+    /* width: auto;
+    height: auto; */
 }
 #inditurval {
     padding: 50px;
     background-color: #72a793;
     border-radius: 8px;
     width: 40%;
+    height: auto;
     position: relative;
+    bottom: 100px;
     left: 10px;
     top: 50px;
 }
@@ -42,8 +76,8 @@ h3{
 }
 #wrapper {
     position: relative;
-    width: 250px;
-    height: inherit;;
+    /* width: 100%; */
+    height: inherit;
     background-color: #3a8a8a;
     border-radius: 10px;
     padding: 10px;
@@ -80,12 +114,6 @@ a:hover{
     background-color:#285e5e;
    
 }
-.mainbox2{
-    position: relative;
-    background-color: #6c9485;
-    height: auto;
-    width: 1000px;
-}
 input{
     font-size: 23px;
 }
@@ -103,6 +131,29 @@ img {
     left: 50px;
     border-radius: 9px;
 }
+button a{
+    color: rgb(113, 186, 210);
+}
+#gotohome {
+    text-align: end;
+    position: relative;
+    right: 100px;
+}
+#gotohome button {
+    margin-top: 20px;
+    border-radius: 4px;
+    height: 44px;
+    font-weight: 600;
+    padding: 0 30px;
+    letter-spacing: 1px;
+    border: none;
+    background-color:#3a8a8a;
+    color: #102770;
+    border: solid 2px white; 
+}  
+.mainbox2 #gotohome button {
+    width: auto;
+} 
 button{
     margin-top: 20px;
     border-radius: 4px;
@@ -114,13 +165,39 @@ button{
     background-color: #ffeba7;
     color: #102770;
 }
-@media only screen and (max-width: 600px) {
+@media screen and (min-width: 768px) {
+    #mm1 {
+        display: none;
+    }
+    .mainbox2 h1 {
+        font-family: 'Lora', serif;
+        color: lightblue;
+        font-size:xx-large;
+        text-transform:uppercase;
+
+    }
+    .mainbox2 h1:hover {
+        
+        text-shadow: 6px 6px 6px;
+    }
+    body button {
+        cursor: pointer;
+    }
+    
+}
+@media only screen and (max-width: 768px) {
+    body {
+        display: block;
+        height:max-content;
+        width: auto;
+        overflow-y: visible;
+        overflow-x: visible;
+    }
     #main-nav {
         display: none;
     } 
-
+    
     body{
-        display: block;
         background-color: #6c9485;
 
     }
@@ -131,10 +208,14 @@ button{
     .menu button{
         display: block;
     }
-    #menu-toggle {
-        display:block;
+    #menu-toggle { 
+        display:contents;
     }
     #menu-toggle img{
+        position: relative;
+        top: 0;
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
     }
     #wrapper div, #wrfapper h2{
@@ -144,24 +225,52 @@ button{
         font-family: Arial, sans-serif;
         font-size: 18px;
     }
+    h2{
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+    }
     #main-nav.active {
         /* position: fix;*/ 
         display:contents;
         overflow: visible;
     } 
-    
-    #inditurval{
-        /* text-align: c; */
-        padding: 20px;
+    #block1 div {
+        padding: 10px;
         background-color: #72a793;
-        /* background-color: #102770; */
-        border-radius: 10px;
-        width:300px;
+        border-radius: 15px;
+        width: auto;
+        height: auto;
         position: relative;
         top: 30px;
     }
+    #block1 {
+        width: auto;
+        height:max-content;
+    }
+    #mm2 {
+        display: none;
+    }
+    #mm1 {
+        display: contents];
+    }
+    #pp {
+        position: relative;
+        top: 20px;
+        width: 90%;
+        height: 100%;
+        padding: 10px;
+    }
+    #pp img {
+        height: 80%;
+        width: 80%;
+    }
+    input{
+        width: auto;
+    }
+    input[type="color"] {
+        width: 20%;
+    }
     #wrapper div, #wrfapper h2{
-      
         background-color: #3a8a8a;
         font-family: Arial, sans-serif;
         display: flex;
@@ -170,9 +279,8 @@ button{
         margin: 20px;
         padding: 20px;
         border: 2px solid #50caca;
-        /* padding: 5px; */
+        border-spacing: 50px;
         border-radius: 8px;
-        /* border: 2px solid white; */
     }
     h1{
         font-family: Arial, sans-serif;
@@ -180,16 +288,14 @@ button{
         color:#285e5e;
 
     }
-   
-
     h3{
         font-family: Arial, sans-serif;
         font-size: 21px;
         color:rgb(57, 22, 92);
     }
     #wrapper {
-        position:fixed;
-        display: contents;
+        position: absolute;
+        display:contents;
         width: 100%;
         height: inherit;
         overflow: hidden;
@@ -202,7 +308,6 @@ button{
         color: white;
         font-weight: 800;
     }
-    
     a{
         font-family: Arial, sans-serif;
         color: black;
@@ -219,14 +324,26 @@ button{
         border-radius: 8px;          
     }
     .mainbox2{
+        
+        overflow-y: visible;
+        height: auto;
         display: list-item;
         background-color: #6c9485;
         padding: 5px;
         height: auto;
         width: auto;
     }
-    input{
-        font-size: 23px;
+    .mainbox2 h1 {
+        text-align: center;
+        font-family: 'Lora', serif;
+        color: lightblue;
+        font-size:xx-large;
+        text-transform:capitalize;
+
+    }
+    .mainbox2 h1:hover {
+        
+        text-shadow: 6px 6px 6px;
     }
     label{
         font-size: 22px;
@@ -248,3 +365,4 @@ button{
     }
   
 }
+

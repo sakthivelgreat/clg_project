@@ -56,28 +56,35 @@
             </div>
         </nav>
     </div>
-    <div class="mainbox">
-        <div id="inditurval">
-            <h2>Generate Histogram</h2>
-            <label for="midx_values">Enter midpoints (comma-separated):</label><br>
-            <input type="text" id="midx_values" placeholder="5,15,25,35,45,55,65,75,85"><br>
-            <label for="f_values">Enter frequencies (comma-separated):</label><br>
-            <input type="text" id="f_values" placeholder="4,6,17,14,16,14,8,16,5"><br>
-            <label for="xname">x axis name : <br><input type="text" id="xname" placeholder='ex: sakthi'></label><br>
-            <label for="yname">y axis name : <br><input type="text" id="yname" placeholder='ex: sakthi'></label><br>
-            <label for="color">Enter Color:-<br><input type="text" id="color" name="red"></label><br>
-            <label for="border_color">Enter Border Color:-<br><input type="color" id="border_color" value="#000000"></label><br>
-            <label for="title">Title:-<br><input type="text" id="title" placeholder='"sakthi is bigestmen"'></label><br>
-            <br><br>
-            <div class="button">
-                <button onclick="generateHistogram()">Generate Histogram</button>
-                <button onclick="generateFrequencyPolygon()">Frequency Polygon</button>
-                <button onclick="generateFrequencyCurve()">Frequency Curve</button>
-            </div>
-            <br><br>
-            <div id="chart_result"></div>
-        </div> 
-        <div> <img src="clg_photes/P4.png" ></div>
+    <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
+        <h2>Generate Histogram</h2>
+        <div id="mm1"> <img src="clg_photes/P4.png" ></div>
+        <div id="block1">
+            <div id="inditurval">
+                <label for="midx_values">Enter midpoints (comma-separated):</label><br>
+                <input type="text" id="midx_values" placeholder="5,15,25,35,45,55,65,75,85"><br>
+                <label for="f_values">Enter frequencies (comma-separated):</label><br>
+                <input type="text" id="f_values" placeholder="4,6,17,14,16,14,8,16,5"><br>
+                <label for="xname">x axis name : <br><input type="text" id="xname" placeholder='ex: sakthi'></label><br>
+                <label for="yname">y axis name : <br><input type="text" id="yname" placeholder='ex: sakthi'></label><br>
+                <label for="color">Enter Color:-<br><input type="text" id="color" name="red"></label><br>
+                <label for="border_color">Enter Border Color:-<br><input type="color" id="border_color" value="#000000"></label><br>
+                <label for="title">Title:-<br><input type="text" id="title" placeholder='"sakthi is bigestmen"'></label><br>
+                <br><br>
+                <div class="button">
+                    <button onclick="generateHistogram()">Generate Histogram</button>
+                    <button onclick="generateFrequencyPolygon()">Frequency Polygon</button>
+                    <button onclick="generateFrequencyCurve()">Frequency Curve</button>
+                </div>
+                <br><br>
+                <div id="chart_result"></div>
+            </div> 
+            <div id="mm2"> <img src="clg_photes/P4.png" ></div>
+        </div>
+        
            
     </div>
 
@@ -218,48 +225,81 @@
     </script>
 
     <style>
-        .mainbox{
+        #block1 {
             display: flex;
-
-            position: relative;
-            left:10px;
-            /* top: 50px; */
-            width: 1000px;
-            height: auto;
-            overflow-x: hidden;
-            overflow-y:scroll; 
+            width: auto;
+        }
+        #block2 {
+            display: flex;
         }
         #inditurval {
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
             width: 40%;
-            height:max-content;
             position: relative;
             left: 10px;
-            /* top: 50px; */
+            top: 50px;
         }
+        
         #basic {
             font-size: medium;
         }
-        .button{
-            display: flex; 
-            flex-direction: column;
-            width:fit-content;
-        }
+        
         img {
             position: relative;
-            top: 50px;
-            left: 50px;
+            top: 10%;
+            left: 10%;
             border-radius: 9px;
         }
         button {
             position: relative;
             left: 80px;
-            margin-top: 10px;
         }
         .active-button {
             background-color: #04AA6D !important;
+        }
+        #chart {
+            width: 100%;
+            height: auto; 
+            margin-top: 20px;
+        }
+        
+        @media only screen and (max-width: 768px) {
+        
+            #block1 {
+                display: block;
+                margin: auto;
+                width: 90%;
+                overflow-x: auto; 
+                height:auto;
+                overflow-y: visible;
+            }
+            input {
+                background-color: white;
+            }
+            #inditurval {
+                width: 90%; 
+                left: 0;
+                top: 0;
+                padding: 20px; 
+            }
+            #chart {
+                position: relative;
+                top: 0;
+                left: 0;
+                box-sizing: content-box;
+                width: auto;
+                height: auto;
+            }
+            #chart div{
+                background-color: white;
+                position:relative;
+                top: 2px;
+                left: 2px;
+                display: flex;
+                width: auto;
+            }
         }
     </style>
 </body>

@@ -9,7 +9,8 @@
 <body>
     <div class="menu">
         <button id="menu-toggle" onclick="toggleNav()">
-            <img src="clg_photos/menubar.png" alt="Menu" width="50" height="50">
+            <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
+
         </button>
     </div>
     <div id="wrapper">
@@ -56,6 +57,10 @@
         </nav>
     </div>
     <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
+        <br>
         <h1>FITTING A BINOMIAL DISTRIBUTION</h1>
         <div id="block1">
             <div id="inditurval">
@@ -65,6 +70,7 @@
                 <input type="text" id="f_value" name="f_value" value="23,24,23,24,25,24,23" placeholder='e.g : 23,24,23,24,25,24,23'><br>
                 <button id="binomial_button" type="button" onclick="binomial()">BINOMIAL DISTRIBUTION</button>
                 <div id="result"></div>
+                <br>
                 <h3>Chi-Square Test and Goodness of Fit</h3>
                 <label for="oi_value">Enter Oi values:</label>
                 <input type="text" id="oi_value" name="oi_value" placeholder='e.g., "23,24,23,24,25,24,23"'><br>
@@ -73,6 +79,7 @@
                 <button id="chi-square" type="button" onclick="chi_square()">CHI-SQUARE TEST</button>
                 <div id="result1"></div>
             </div>
+            <br><br>
             <div>
                 <img src="" alt="" style="width:250px; height: 250px;">
             </div>
@@ -104,7 +111,47 @@
         }
         .active-button{
             background-color: #04AA6D !important;
-        }      
+        }     
+        @media only screen and (max-width: 768px) {
+            #block1 {
+                display: block;
+                margin: auto;
+                width: 90%;
+                overflow-x: auto; 
+                height:auto;
+                overflow-y: visible;
+            }
+            #result div, #result2 div, #result div{
+                width: auto;
+                height: auto;
+                
+            }
+            input {
+                background-color: white;
+            }
+            #inditurval {
+                width: 90%; 
+                left: 0;
+                top: 0;
+                padding: 20px; 
+            }
+            #chart {
+                position: relative;
+                top: 0;
+                left: 0;
+                box-sizing: content-box;
+                width: auto;
+                height: auto;
+            }
+            #chart div{
+                background-color: white;
+                position:relative;
+                top: 2px;
+                left: 2px;
+                display: flex;
+                width: auto;
+            }
+        }    
     </style>
     
     <script>

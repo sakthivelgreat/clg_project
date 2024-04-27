@@ -36,7 +36,7 @@ h1 {
 h2 {
   color: skyblue;
 }
-h2:hover {
+.name:hover {
   text-shadow: 6px 6px 6px;
 }
 .name h3 {
@@ -151,9 +151,15 @@ span h2 {
   }
 
   .name {
+    width:;
+    color: white;
     text-align: center;
     margin: 25px;
   }
+  /* .name h3{
+    position: fixed;
+    color: yellow;
+  } */
 
   .logo {
     display: none;
@@ -210,11 +216,14 @@ span h2 {
     display: list-item;
   }
 
-  .bio-data-container {
+  /* .bio-data-container {
     margin-top: 50px;
+  } */
+  .bio-data-container{
+    position: relative;
+    /* top: 50px; */
+    text-align: center;
   }
-
-  .name-container {
-    margin: 25px;
-  }
+  
+ 
 }

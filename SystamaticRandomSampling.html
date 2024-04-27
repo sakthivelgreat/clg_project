@@ -60,9 +60,12 @@
         </nav>
     </div>
     <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
+        <h1>Systematic Sampling</h1>
         <div id="block1">
             <div id="inditurval">
-                <h1>Systematic Sampling</h1>
                 <button onclick="addDataInput()" id="button1">Add Data Input</button>
                 <br>
                 <div id="dataInputs"></div>
@@ -99,11 +102,10 @@
             left: 30px;
         }
         img{
-                position: relative;
-                top: 50px;
-                left: 50px;
-                border-radius: 9px;
-
+            position: relative;
+            top: 50px;
+            left: 50px;
+            border-radius: 9px;
         }
         button{
             position: relative;
@@ -156,7 +158,7 @@
 
             // Step 1: Display input data in table with y̅<sub>i</sub> values and ((y̅<sub>i</sub>) - (y̅<sub>sys</sub>))^2
             let step1HTML = '<h2>Step 1: Input Data</h2>';
-            step1HTML += '<table border="1"><tr><th>Data Index</th>';
+            step1HTML += '<table border="1"><tr><th>Data <br> Index</th>';
             for (let i = 0; i < data.length; i++) {
                 step1HTML += `<th>Data ${i + 1}</th>`;
             }

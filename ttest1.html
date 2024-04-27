@@ -57,6 +57,9 @@
         </nav>
     </div>
     <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
         <h1>t-test Calculator</h1>
         <div id="block1">
             <div id="inditurval">
@@ -69,6 +72,7 @@
                 <br>
                 <div id="problem1_result"></div>
             </div>
+            <br><br>
             <div id="inditurval">
                 <label for="problem2_data1">Problem 2: Enter data for Group 1 (comma-separated):</label>
                 <input type="text" id="problem2_data1" placeholder="e.g., 25,32,30,34,24,14,32,24,30,31,35,25">
@@ -79,6 +83,7 @@
                 <br>
                 <div id="problem2_result"></div>
             </div>
+            <br><br>
             <div id="inditurval">
                 <label for="problem3_data1">Problem 3: Enter paired data for Group 1 (comma-separated):</label>
                 <input type="text" id="problem3_data1" placeholder="e.g., 49,53,51,52,47,50,52,53">
@@ -270,11 +275,6 @@
     </script>
 
     <style>
-        .mainbox2 {
-            margin: 20px;
-            font-size: medium;
-        }
-
         #block1 {
             display: flex;
             flex-direction: column;
@@ -317,6 +317,88 @@
             padding: 8px;
             margin-bottom: 10px;
             box-sizing: border-box;
+        }
+    </style>
+    <style>
+        
+        #block1 {
+            display: flex;
+            width: auto;
+        }
+        /* .mainbox2 {
+            position: relative;
+            left: 25px;
+        } */
+        #block2 {
+            display: flex;
+        }
+        #inditurval {
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        #basic {
+            font-size: medium;
+        }
+        
+        img {
+            position: relative;
+            top: 10%;
+            left: 10%;
+            border-radius: 9px;
+        }
+        button {
+            position: relative;
+            left: 80px;
+        }
+        .active-button {
+            background-color: #04AA6D !important;
+        }
+        #chart {
+            width: 100%;
+            height: auto; 
+            margin-top: 20px;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            #block1 {
+                display: block;
+                margin: auto;
+                width: 90%;
+                overflow-x: auto; 
+                height:auto;
+                overflow-y: visible;
+            }
+            
+            input {
+                background-color: white;
+            }
+            #inditurval {
+                width: 90%; 
+                left: 0;
+                top: 0;
+                padding: 20px; 
+            }
+            #chart {
+                position: relative;
+                top: 0;
+                left: 0;
+                box-sizing: content-box;
+                width: auto;
+                height: auto;
+            }
+            #chart div{
+                background-color: white;
+                position:relative;
+                top: 2px;
+                left: 2px;
+                display: flex;
+                width: auto;
+            }
         }
     </style>
 </body>

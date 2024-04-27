@@ -6,72 +6,11 @@
     <title>Bio-Data</title>
     <link rel="stylesheet" href="pross.css">
     <style>
-        body{
-            text-align: center;
-            font-size:x-large;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #2c3038; /* Light background */
-            color: #43a8a8; /* Dark text */
-            margin: 0;
-            padding: 0;
-            justify-content: space-between;
-            flex-direction: row;
-        }
-        .profile-topnav {
-            height: 50px;
-            background-color: #575757; /* Dark blue background for nav bar */
-            border-bottom: 1px solid #1B4242; /* Dark border bottom */
-            display: flex;
-            align-items: center;
-        }
-        .profile-topnav .name {
-            margin-right: auto; /* Pushes the name to the left */
-            color: rgb(161, 161, 187);
-            font-family: 'Lora', serif;
-        }
-        .name h3:hover {
-            text-shadow: 6px 6px 6px;
-        }
-        .name h3 {
-            text-transform: capitalize;
-            font-family: 'Lora', serif;
-            font-size: 25px;
-            font-weight: 900;
-            margin-left: 1rem;
-            color: rgb(173, 173, 173);
-        }
-        .profile-topnav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        .profile-topnav ul li {
-            margin-left: 20px;
-        }
-        .profile-topnav img{
-            display: none;
-        }
-        .profile-topnav ul li a {
-            text-decoration: none;
-            color: #e2c9c9; /* White text */
-            font-size: 18px; /* Smaller font size for links */
-            font-style: italic;
-            font-weight: 700;
-            font-family: Arial, sans-serif;
-        }
-        .profile-topnav ul li a:hover {
-            color: #b46666; /* Lighter color on hover */
-        }
-        /* Existing CSS */
-        /* Add your existing CSS styles here */
-
-        /* New CSS for Bio-Data */
         .bio-data-container {
             margin: 20px;
             padding: 20px;
+            text-align: center;
+            font-size: x-large;
             border: 2px solid #43a8a8; /* Dark text */
             border-radius: 10px;
             background-color: #2c3038; /* Light background */
@@ -128,13 +67,44 @@
             font-style: italic;
 
         }
+        #dd{
+            color: rgb(13, 121, 163);
+        }
+        #dd:hover{
+            color: rgb(131, 131, 242);
+            text-shadow: 10px 10px 6px;
+        }
+        @media screen and (min-width : 768px) {
+            div #mm2{
+                display: none;
+            }
+            
+        }
+        @media screen and (max-width : 768px) {
+            div .mm1{
+                display: none;
+            } 
+            #mmm1 , #mmm2 ,#mmm3 , #mmm4 {
+                display: none;
+            }
+            #mmm1.active ,#mmm2.active ,#mmm3.active ,#mmm4.active{                
+                display:contents;
+                overflow: visible;
+                font-size: small;
+            }
+            .bio-data-container{
+                position: relative;
+                top: 50px;
+                text-align: center;
+            }
+        }
     </style>
+   
 </head>
 <body>
 
     <div class="profile-topnav">
-        <div class="name"><h3>DEPARTMENT  OF  STATISTICS</h3></div>
-        <img src="logo.png" alt="Logo" class="logo" onclick="toggleMenu()">
+        <div class="name-container"><h3 class="name">DEPARTMENT  OF  STATISTICS</h3></div>
         <ul id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="CreatorProfile.html">Creator Profile</a></li>
@@ -177,49 +147,110 @@
         <span><p>SQL</p></span>
         <span><p>Git and GitHub</p></span>
         <h2>ACADEMICS:</h2>
-        <table>
-            <tr>
-                <th>COURSE</th>
-                <th>BOARD/UNIVERSITY</th>
-                <th>YEAR OF PASSING</th>
-                <th>PERCENTAGE</th>
-              
-            </tr>
-            <tr>
-                <td>10/SSLC</td>
-                <td>GOVT HIGH SCHOOL NEERMULLIKUTTAI SALEM</td>
-                <td>2016</td>
-                <td>82.6 %</td>
-              
-            </tr>
-            <tr>
-                <td>+2/HSC</td>
-                <td>GOVT BOYS HR SEC SCHOOL BELUR</td>
-                <td>2017-2018</td>
-                <td>67.4%</td>
-            </tr>
-            <tr>
-                <td>UG</td>
-                <td>GOVERNMENT ARTS COLLEGE (AUTONOMOUS), SALEM</td>
-                <td>2018-2020 (3Years)</td>
-                <td>71.4%</td>
-            </tr>
-            <tr>
-                <td>PG</td>
-                <td>GOVERNMENT ARTS COLLEGE (AUTONOMOUS), SALEM</td>
-                <td>2022-2024 (2Years)-</td>
-                <td>coming soon</td>
-            </tr>
-        </table>
+        <div class="mm1">
+            <table>
+                <tr>
+                    <th>COURSE</th>
+                    <th>BOARD/UNIVERSITY</th>
+                    <th>YEAR OF PASSING</th>
+                    <th>PERCENTAGE</th>
+                  
+                </tr>
+                <tr>
+                    <td>10/SSLC</td>
+                    <td>GOVT HIGH SCHOOL NEERMULLIKUTTAI SALEM</td>
+                    <td>2016</td>
+                    <td>82.6 %</td>
+                  
+                </tr>
+                <tr>
+                    <td>+2/HSC</td>
+                    <td>GOVT BOYS HR SEC SCHOOL BELUR</td>
+                    <td>2017-2018</td>
+                    <td>67.4%</td>
+                </tr>
+                <tr>
+                    <td>UG</td>
+                    <td>GOVERNMENT ARTS COLLEGE (AUTONOMOUS), SALEM</td>
+                    <td>2018-2020 (3Years)</td>
+                    <td>71.4%</td>
+                </tr>
+                <tr>
+                    <td>PG</td>
+                    <td>GOVERNMENT ARTS COLLEGE (AUTONOMOUS), SALEM</td>
+                    <td>2022-2024 (2Years)-</td>
+                    <td>coming soon</td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div id="mm2">
+            <div id="m1">
+                <button onclick="toggleNav(1)">10/SSLC</button>
+            </div>
+            <br>
+            <div id="mmm1">
+                <p>BOARD/UNIVERSITY: <span></span>GOVT HIGH SCHOOL NEERMULLIKUTTAI SALEM</p>
+                <p>YEAR OF PASSING : <span>2016</span></p>
+                <p>PERCENTAGE : <span>82.6 %</span></p>
+            </div>
+            <br>
+            <div id="m2">
+                <button onclick="toggleNav(2)">+2/HSC</button>
+            </div>
+            <br>
+            <div id="mmm2">
+                <p>BOARD/UNIVERSITY: <span>GOVT BOYS HR SEC SCHOOL BELUR</span></p>
+                <p>YEAR OF PASSING : <span>2017-2018</span></p>
+                <p>PERCENTAGE : <span>67.4%</span></p>
+            </div>
+            <br>
+            <div id="m3">
+                <button onclick="toggleNav(3)">UG</button>
+            </div>
+            <br>
+            <div id="mmm3">
+                <p>BOARD/UNIVERSITY: <span>GOVERNMENT ARTS COLLEGE (AUTONOMOUS), SALEM</span></p>
+                <p>YEAR OF PASSING : <span>2018-2020 (3Years)</span></p>
+                <p>PERCENTAGE : <span>71.4%</span></p>
+            </div>
+            <br>
+            <div id="m4">
+                <button onclick="toggleNav(4)">PG</button>
+            </div>
+            <br>
+            <div id="mmm4">
+                <p>BOARD/UNIVERSITY: <span>GOVERNMENT ARTS COLLEGE (AUTONOMOUS), SALEM</span></p>
+                <p>YEAR OF PASSING : <span>2022-2024 (3Years)</span></p>
+                <p>PERCENTAGE : <span>coming soon</span></p>
+            </div>
+            
+        </div>
     </div>
-    <style>
-        #dd{
-            color: rgb(13, 121, 163);
+    <script>
+        function toggleNav(index) {
+            var nav = document.getElementById('mmm' + index);
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            } else {
+                nav.classList.add('active');
+            }
+
+            // Toggle the aria-expanded attribute to indicate the state of the menu
+            var menuToggle = document.getElementById('m' + index);
+            var expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+            menuToggle.setAttribute('aria-expanded', !expanded);
         }
-        #dd:hover{
-            color: rgb(131, 131, 242);
-            text-shadow: 10px 10px 6px;
+
+        // JavaScript function to toggle the visibility of the menu
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'none' || menu.style.display === '') {
+                menu.style.display = 'flex';
+            } else {
+                menu.style.display = 'none';
+            }
         }
-    </style>
+    </script>
 </body>
 </html>

@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One-way ANOVA Calculator</title>
     <link rel="stylesheet" href="clg.css">
-    <style>
-        /* Your CSS styles here */
-    </style>
 </head>
 <body>
     <div class="menu">
@@ -60,6 +57,9 @@
         </nav>
     </div>
     <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
         <h1>Two-way ANOVA Calculator</h1>
         <div id="block1">
             <div id="inditurval">
@@ -67,30 +67,19 @@
                 <input type="number" id="numGroups" min="2" value="3">
                 <label for="groupSize">Group Size:</label>
                 <input type="number" id="groupSize" min="2" value="5">
+                <br>
                 <button onclick="createTable()">Create Table</button>
             </div>
             <div class="Table">
                 <div id="dataTable"></div>
             </div>
             <button onclick="performANOVA()">Calculate two-way ANOVA</button>
+            <br><br><br>
             <div id="anovaResult"></div>
         </div>
     </div>
     <style>
-        .mainbox2 {
-            margin: 20px;
-            font-size: medium;
-        }
-        #dataTable{
-            position: relative;
-            top: 50px;
-           
-        }
-        #anovaResult{
-            position: relative;
-            top: 50px;
-            color: white;
-        }
+        
         #block1 {
             display: flex;
             flex-direction: column;
@@ -106,10 +95,21 @@
             left: 10px;
             top: 50px;
         }
-        #dataTable {
+        #dataTable{
+            position: relative;
+            top: 50px;
             margin-bottom: 20px;
+           
         }
-
+        #anovaResult{
+            position: relative;
+            top: 50px;
+            color: white;
+        }
+        #gotohome {
+            position: relative;
+            bottom: 50px;
+        }
         table {
             border-collapse: collapse;
         }
@@ -145,7 +145,7 @@
             border: none;
             color: white;
             border-radius: 4px;
-            cursor: pointer;
+            cursor:pointer;
         }
         button:hover {
             background-color: #45a049;
@@ -158,6 +158,88 @@
 
         input[type="number"] {
             width: 60px;
+        }
+    </style>
+    <style>
+        
+        #block1 {
+            display: flex;
+            width: auto;
+        }
+        /* .mainbox2 {
+            position: relative;
+            left: 25px;
+        } */
+        #block2 {
+            display: flex;
+        }
+        #inditurval {
+            padding: 50px;
+            background-color: #72a793;
+            border-radius: 8px;
+            width: 40%;
+            position: relative;
+            left: 10px;
+            top: 50px;
+        }
+        #basic {
+            font-size: medium;
+        }
+        
+        img {
+            position: relative;
+            top: 10%;
+            left: 10%;
+            border-radius: 9px;
+        }
+        button {
+            position: relative;
+            left: 80px;
+        }
+        .active-button {
+            background-color: #04AA6D !important;
+        }
+        #chart {
+            width: 100%;
+            height: auto; 
+            margin-top: 20px;
+        }
+        
+        @media only screen and (max-width: 768px) {
+            #block1 {
+                display: block;
+                margin: auto;
+                width: 90%;
+                overflow-x: auto; 
+                height:auto;
+                overflow-y: visible;
+            }
+            
+            input {
+                background-color: white;
+            }
+            #inditurval {
+                width: 90%; 
+                left: 0;
+                top: 0;
+                padding: 20px; 
+            }
+            #chart {
+                position: relative;
+                top: 0;
+                left: 0;
+                box-sizing: content-box;
+                width: auto;
+                height: auto;
+            }
+            #chart div{
+                background-color: white;
+                position:relative;
+                top: 2px;
+                left: 2px;
+                display: flex;
+                width: auto;
+            }
         }
     </style>
 

@@ -57,8 +57,11 @@
         </nav>
     </div>
     <div class="mainbox2">
+        <div id="gotohome">
+            <button><a href="index.html">Go to Home</a></button>
+        </div>
         <h1>SIMPLE RANDOM  SAMPLING ( WITHOUT  REPLACEMENT:):-</h1>
-        <div id="block1"></div>
+        <div id="block1">
             <div id="inditurval">
                 <h3>SRSWOR :-</h3>
                 <label for="input">enter population of units with values<input type="text" id="input" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
@@ -66,12 +69,11 @@
                 <label for="SampleSize">possible values of size </label><input name="SampleSize" id="SampleSize" maxlength="6" style="width:40px;"></label>
                 <br>
                 <button  id="mean" type="button"  onclick="SRSWOR()">Sample values and <br> Variance of sample mean</button>
-                <div id="result">
-    
-                </div>
-            </div>    
-            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
-        </div>    
+                <div id="result"></div>          
+            </div>
+            <br><br>   
+            <div><img src="clg_photes/mean intiduval .png"  ></div>
+        </div>   
         
    </div>
    
@@ -92,10 +94,10 @@
             top: 50px;
         }
         img{
-                position: relative;
-                top: 50px;
-                left: 50px;
-                border-radius: 9px;
+            position: relative;
+            top: 50px;
+            left: 50px;
+            border-radius: 9px;
 
         }
         button{
@@ -104,6 +106,46 @@
         }
         .active-button{
             background-color: #04AA6D !important;
+        } 
+        @media only screen and (max-width: 768px) {
+            #block1 {
+                display: block;
+                margin: auto;
+                width: 90%;
+                overflow-x: auto; 
+                height:auto;
+                overflow-y: visible;
+            }
+            #result div, #result2 div, #result div{
+                width: auto;
+                height: auto;
+                
+            }
+            input {
+                background-color: white;
+            }
+            #inditurval {
+                width: 90%; 
+                left: 0;
+                top: 0;
+                padding: 20px; 
+            }
+            #chart {
+                position: relative;
+                top: 0;
+                left: 0;
+                box-sizing: content-box;
+                width: auto;
+                height: auto;
+            }
+            #chart div{
+                background-color: white;
+                position:relative;
+                top: 2px;
+                left: 2px;
+                display: flex;
+                width: auto;
+            }
         }      
     </style>  
     <script>
