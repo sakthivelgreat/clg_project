@@ -26,14 +26,19 @@ body {
     width: 100%;
 } */
 .mainbox {
-    display: flex;
+    /* display: flex;
     position: relative;
-    left:10px;
+    left:10px; */
     /* top: 50px; */
     /* width: 100%; */
     height: auto;
     overflow-x: hidden;
     overflow-y:scroll; 
+}
+.mainbox div {
+    text-align: center;
+
+
 }
 #block1 {
     display: flex;
@@ -51,10 +56,10 @@ body {
     border-radius: 8px;
     width: 40%;
     height: auto;
-    position: relative;
+    /* position: relative;
     bottom: 100px;
     left: 10px;
-    top: 50px;
+    top: 50px; */
 }
 
 #wrapper div, #wrfapper h2{
@@ -66,7 +71,6 @@ h1{
     font-family: Arial, sans-serif;
     font-size: 21px;
     color:#285e5e;
-
 }
 
 h3{
@@ -165,6 +169,34 @@ button{
     background-color: #ffeba7;
     color: #102770;
 }
+#mm2 {
+    background-color: white;
+    font-family:"Lora", serif;
+    font-size: large;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+    position: relative;
+    left: 5%;
+    width: 40%;
+    height: 40%;
+}
+#mm2 h1{
+    text-transform:capitalize;
+    font-family:"Lora", serif;
+    color:rgb(161, 161, 211);;
+}
+#mm1 h1{
+    text-transform:capitalize;
+    font-family:"Lora", serif;
+    color:rgb(161, 161, 211);;
+}
+#mm2 h1:hover {
+    color:rgb(103, 71, 133);
+}
+#mm1 h1:hover {
+    color:rgb(103, 71, 133);
+}
 @media screen and (min-width: 768px) {
     #mm1 {
         display: none;
@@ -250,8 +282,20 @@ button{
     #mm2 {
         display: none;
     }
+    /* #mm1 {
+        display: contents;
+    } */
     #mm1 {
-        display: contents];
+        background-color: white;
+        font-family:"Lora", serif;
+        font-size: large; 
+        text-align: center;
+        border-radius: 8px;
+        padding: 10px;
+        position: relative;
+        left: 5%;
+        width: 80%;
+        /* height: 40%; */
     }
     #pp {
         position: relative;

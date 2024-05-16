@@ -71,8 +71,34 @@
                 <div id="result"></div>
             </div>
             <br><br>
-            <div><img src="clg_photos/mean_individual.png" alt="" style="width:250px; height: 250px;"></div>
-        </div>    
+            <div id="mm2">
+                <h1>Individual  Series:</h1>
+                <p>
+                    <b>
+                        Range: <br>
+                        Range = Maximum value –Minimum value <br>
+                        Quartile Deviation: <br>
+                        Q.D =<sup>Q3-Q1</sup>/<sub>2</sub> <br>
+                        Q1 = 1<sup>st</sup> Quartile value <br>
+                        Q3 = 3<sup>rd</sup> Quartile value <br>
+                        Mean deviation : <br>
+                        M.D = <sup>∑|X-X&#x0305;|</sup> /<sub>N</sub> <br>
+                        Standard Deviation : <br>
+                        S.D = √[∑x<sup>2</sup>/<sub>N</sub> - (∑x<sup>2</sup>/<sub>N</sub>)<sup>2</sup>] <br>
+                    </b>
+                </p>
+                <h1>Co-efficient Term:</h1>
+                <p>
+                    <b>
+                        Coefficient of Range = <Sup>L-S</Sup>/ <sub>L+S</sub> <br>
+                        Coefficient of QD =<sup>Q3-Q1</sup>/ <sub>Q3+Q1</sub> <br>
+                        Coefficient of MD = <sup>MD</sup>/X&#x0305; <br>
+                        Coefficient of SD = <sup>SD</sup>/<sub>X&#x0305;</sub>*100
+                    
+                    </b>
+                </p>
+            </div>
+        </div>     
         <br>
         <br>
         <div id="block1">
@@ -86,7 +112,33 @@
                 <div id="result2"></div>
             </div>
             <br><br>
-            <div><img src="clg_photos/mean_discrete.png" alt="" style="width:250px; height: 250px;"></div>
+            <div id="mm2">
+                <h1>Discrete Series:</h1>
+                <p>
+                    <b>
+                        Range: <br>
+                        Range = Maximum value –Minimum value <br>
+                        Quartile Deviation: <br>
+                        Q.D =<sup>Q3-Q1</sup>/<sub>2</sub> <br>
+                        Q1 = 1<sup>st</sup> Quartile value <br>
+                        Q3 = 3<sup>rd</sup> Quartile value <br>
+                        Mean deviation : <br>
+                        M.D = <sup>∑f|X-X&#x0305;|</sup> /<sub>N</sub> <br>
+                        Standard Deviation : <br>
+                        S.D = √[∑fx<sup>2</sup>/<sub>N</sub> - (∑fx<sup>2</sup>/<sub>N</sub>)<sup>2</sup>] <br>
+                    </b>
+                </p>
+                <h1>Co-efficient Term:</h1>
+                <p>
+                    <b>
+                        Coefficient of Range = <Sup>L-S</Sup>/ <sub>L+S</sub> <br>
+                        Coefficient of QD =<sup>Q3-Q1</sup>/ <sub>Q3+Q1</sub> <br>
+                        Coefficient of MD = <sup>MD</sup>/X&#x0305; <br>
+                        Coefficient of SD = <sup>SD</sup>/<sub>X&#x0305;</sub>*100
+                    
+                    </b>
+                </p>
+            </div>
         </div>
         <br>
         <br>
@@ -101,7 +153,33 @@
                 <div id="result3"></div>
             </div>
             <br><br>
-            <div><img src="clg_photos/mean_continuous.png" alt="" style="width:250px; height: 250px;"></div>   
+            <div id="mm2">
+                <h1>Continuous Series:</h1>
+                <p>
+                    <b>
+                        Range: <br>
+                        Range = Maximum value –Minimum value <br>
+                        Quartile Deviation: <br>
+                        Q.D =<sup>Q3-Q1</sup>/<sub>2</sub> <br>
+                        Q1 = 1<sup>st</sup> Quartile value <br>
+                        Q3 = 3<sup>rd</sup> Quartile value <br>
+                        Mean deviation : <br>
+                        M.D = <sup>∑f|m-X&#x0305;|</sup> /<sub>N</sub> <br>
+                        Standard Deviation : <br>
+                        S.D = √[∑fm<sup>2</sup>/<sub>N</sub> - (∑fm<sup>2</sup>/<sub>N</sub>)<sup>2</sup>] <br>
+                    </b>
+                </p>
+                <h1>Co-efficient Term:</h1>
+                <p>
+                    <b>
+                        Coefficient of Range = <Sup>L-S</Sup>/ <sub>L+S</sub> <br>
+                        Coefficient of QD =<sup>Q3-Q1</sup>/ <sub>Q3+Q1</sub> <br>
+                        Coefficient of MD = <sup>MD</sup>/X&#x0305; <br>
+                        Coefficient of SD = <sup>SD</sup>/<sub>X&#x0305;</sub>*100
+                    
+                    </b>
+                </p>
+            </div>   
         </div>
     </div>     
    
@@ -116,13 +194,10 @@
             width: 40%;
             position: relative;
             left: 10px;
-            top: 50px;
         }
-        img {
-            position: relative;
-            top: 50px;
-            left: 50px;
-            border-radius: 9px;
+        #mm2 p {
+            font-size: small;
+            text-align: left;
         }
         button {
             position: relative;
@@ -142,9 +217,9 @@
             }
             #result div, #result2 div, #result div{
                 width: auto;
-                height: auto;
-                
+                height: auto;  
             }
+            
             input {
                 background-color: white;
             }
@@ -216,7 +291,7 @@
             const Q1 = calculateQuartile(inputData, Q1_index);
             const Q3 = calculateQuartile(inputData, Q3_index);
             const QD = (Q3 - Q1) / 2;
-            let co_QD = QD / ((Q3 + Q1) / 2);
+            let co_QD = (Q3-Q1) / ((Q3 + Q1));
             let xbar = inputData.reduce((acc, val) => acc + val, 0) / inputData.length;
             let MD = inputData.reduce((acc, val) => acc + Math.abs(val - xbar), 0) / inputData.length;
             let co_MD = MD / xbar;

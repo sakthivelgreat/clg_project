@@ -72,7 +72,27 @@
                 <div id="result"></div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
+            <div id="mm2">
+                <h1>Individual  Series:</h1>
+                <p>
+                    <b>
+                        Mean : <br>
+                        (¯x) = (∑x)/N <br>
+                        Median: <br>
+                        M = [<sup>((N+1))</sup>/<sub>2</sub>] <sup>th item</sup><br>
+                        Mode: <br>
+                        The "mode" of a set of individual
+                            data  points refers to the value(s) 
+                        that appear most frequently in the dataset.
+                        <br>   
+                        Geometric Mean: <br>
+                        G.M = Antilog <sup>(Ʃ log⁡x)</sup>/<sub>N</sub>
+                        <br>
+                        Harmonic Mean: <br>
+                        H.M = <sup>N</sup>/<sub>Ʃ(1/x)</sub>
+                        </b>
+                </p>
+            </div>
         </div>    
         <br>
         <br>
@@ -87,7 +107,27 @@
                 <div id="result2"></div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean dis.png" alt="" style="width:250px; height: 250px;"></div>
+            <div id="mm2">
+                <h1>Discrete Series:</h1>
+                <p>
+                    <b>
+                        Mean: <br>
+                        mean(¯x)  = <sup>(∑fx)</sup>/ <sub>Ʃf</sub> <br>
+                        Ʃf = N <br>
+                        Median: <br>
+                        median(M) = [<sup>((N+1))</sup>/<sub>2</sub>] <sup>th item</sup> <br>
+                        Mode: <br>
+                        The "mode" of a set of individual
+                            data  points refers to the value(s) 
+                        that appear most frequently in the dataset. <br>
+                        Geometric Mean: <br>
+                        G.M = Antilog <sup>(Ʃ f*log⁡x)</sup>/<sub>N</sub> <br>
+                        Harmonic Mean: <br>
+                        H.M = <sup>N</sup>/<sub>Ʃ(f/x)</sub> <br>
+                        </b>            
+                </p>
+                
+            </div>
             
         </div>
         <br>
@@ -104,7 +144,34 @@
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+            <div id="mm2">
+                <h1>Continuous series: </h1>
+                <p>
+                    <b>
+                        Mean: <br>
+                        mean(¯x)  = <sup>(∑fm)</sup>/ <sub>Ʃf</sub> <br>
+                        Ʃf = N <br>
+                        Median: <br>
+                        median(M) = L+ [ <sup> [(<sup>N</sup>/ <sub>2</sub>) -cf ]</sup> / <sub>f</sub> ] -X <sub>i</sub> <br>
+                        L = lower limit of the median class <br>
+                        Cf = cumulative frequency of the class <br>
+                        F = frequency of the median class <br>
+                        i = size of class interval of the median class <br>
+                        Mode: <br>
+                        M <sub>0</sub> = L + [<sup>f<sub>1</sub>-f<sub>0</sub></sup>]/[<sub>2f<sub>1</sub>-f<sub>0</sub>-f<sub>2</sub></sub>]*i <br>
+                        L = lower limit of model class  <br>
+                        f <sub>0</sub>= frequency of model class <br>
+                        f <sub>1</sub>= frequency of class proceeding the model class <br>
+                        f <sub>2</sub>= frequency of class succeeding the model class <br>
+                        Geometric Mean: <br>
+                        G.M = Antilog <sup>(Ʃ f*log⁡m)</sup>/<sub>N</sub> <br>
+                        Harmonic Mean: <br>
+                        H.M = <sup>N</sup>/<sub>Ʃ(f/m)</sub> <br>
+                        </b>         
+
+                    </b>
+                </p>
+            </div>
         </div>
     </div>     
    </div>
@@ -127,14 +194,6 @@
             width: 40%;
             position: relative;
             left: 10px;
-            top: 50px;
-        }
-        img{
-                position: relative;
-                top: 50px;
-                left: 50px;
-                border-radius: 9px;
-
         }
         button{
             position: relative;
@@ -148,7 +207,15 @@
             height: auto; 
             margin-top: 20px;
         }
-        
+        #mm2 {
+            text-align: left;
+            
+        }
+        @media only screen and (min-width: 768px) {
+            #mm2 {
+                font-size: small;
+            }
+        }
         @media only screen and (max-width: 768px) {
             #block1 {
                 display: block;
