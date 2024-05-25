@@ -6,17 +6,23 @@
     <title>One-way ANOVA Calculator</title>
     <link rel="stylesheet" href="clg.css"> 
     <style>
+        #block {
+            display: flex;
+            width: 100%;
+        }
         #block1 {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            width:50%;
+            position: relative;
+            left: 5%;
         }
 
         #inditurval{
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
-            width: 40%;
+            width: 60%;
             position: relative;
             left: 10px;
             top: 50px;
@@ -95,24 +101,12 @@
         }
 
     </style>
-    <style>
-        
-        #block1 {
-            display: flex;
-            width: auto;
-        }
-        /* .mainbox2 {
-            position: relative;
-            left: 25px;
-        } */
-        #block2 {
-            display: flex;
-        }
+    <style>    
         #inditurval {
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
-            width: 40%;
+            /* width: 40%; */
             position: relative;
             left: 10px;
             top: 50px;
@@ -174,6 +168,9 @@
     </style>
 </head>
 <body>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
     <div class="menu">
         <button id="menu-toggle" onclick="toggleNav()">
             <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
@@ -227,21 +224,118 @@
             <button><a href="index.html">Go to Home</a></button>
         </div>
         <h1>One-way ANOVA Calculator</h1>
-        <div id="block1">
-            <div id="inditurval">
-                <label for="numGroups">Number of Groups:</label>
-                <input type="number" id="numGroups" min="2" value="2">
-                <label for="groupSize">Group Size:</label>
-                <input type="number" id="groupSize" min="2" value="2">
-                <br>
-                <button onclick="createTable()">Create Table</button>
+        <div id="mm1">
+            <h1>One-Way ANOVA</h1>
+            <p>
+                One-Way ANOVA tests if there are any statistically significant differences between the means of three or more independent groups.
+            </p>
+            
+            <p>
+                \[
+                F = \frac{\text{MSB}}{\text{MSW}}
+                \]
+            </p>
+            <p>
+                \[
+                \text{MSB} = \frac{\text{SSB}}{\text{df}_B}
+                \]
+            </p>
+            <p>
+                \[
+                \text{MSW} = \frac{\text{SSW}}{\text{df}_W}
+                \]
+            </p>
+            <p>
+                \[
+                \text{SSB} = \sum_{i=1}^{k} n_i (\bar{X}_i - \bar{X})^2
+                \]
+            </p>
+            <p>
+                \[
+                \text{SSW} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (X_{ij} - \bar{X}_i)^2
+                \]
+            </p>
+            <p>
+                \[
+                \text{df}_B = k - 1
+                \]
+            </p>
+            <p>
+                \[
+                \text{df}_W = N - k
+                \]
+            </p>
+        </div>
+        <div id="block">
+            <div id="block1">
+                <div id="inditurval">
+                    <label for="numGroups">Number of Groups:</label>
+                    <input type="number" id="numGroups" min="2" value="2">
+                    <label for="groupSize">Group Size:</label>
+                    <input type="number" id="groupSize" min="2" value="2">
+                    <br>
+                    <button onclick="createTable()">Create Table</button>
+                    <br><br>
+                </div>
                 <br><br>
+                <div id="dataTable"></div>
+                <button onclick="performANOVA()">Calculate One-way ANOVA</button>
+                <br><br>
+                <div id="anovaResult"></div>
             </div>
-            <br><br>
-            <div id="dataTable"></div>
-            <button onclick="performANOVA()">Calculate One-way ANOVA</button>
-            <br><br>
-            <div id="anovaResult"></div>
+            <div id="mm2">
+                <h1>One-Way ANOVA</h1>
+                <p>
+                    One-Way ANOVA tests if there are any statistically significant differences between the means of three or more independent groups.
+                </p>
+                <p>
+                    **Null Hypothesis (H0)**: All group means are equal (\(\mu_1 = \mu_2 = \mu_3 = \cdots = \mu_k\)).
+                </p>
+                <p>
+                    **Alternative Hypothesis (H1)**: At least one group mean is different from the others.
+                </p>
+                <p>
+                    The formula for the F-statistic in ANOVA is:
+                </p>
+                <p>
+                    \[
+                    F = \frac{\text{MSB}}{\text{MSW}}
+                    \]
+                </p>
+                <p>
+                    where:
+                </p>
+                <p>
+                    \[
+                    \text{MSB} = \frac{\text{SSB}}{\text{df}_B}
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{MSW} = \frac{\text{SSW}}{\text{df}_W}
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{SSB} = \sum_{i=1}^{k} n_i (\bar{X}_i - \bar{X})^2
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{SSW} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (X_{ij} - \bar{X}_i)^2
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{df}_B = k - 1
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{df}_W = N - k
+                    \]
+                </p>
+            </div>
         </div>
     </div>
 

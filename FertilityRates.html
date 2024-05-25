@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>clg project</title>
     <link rel="stylesheet" href="clg.css">
+    
 </head>
 <body>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
     <div class="menu">
         <button id="menu-toggle" onclick="toggleNav()">
             <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
@@ -22,7 +26,6 @@
                 <a href="BarDiagram2.html">subdivded Bar Diagram</a>
                 <a href="digram.html">Pie - Diagram</a>
                 <a href="histogram.html">Histogram</a>
-            
                 <h3>measures of central tendency</h3>
                 <a href="measuresOfCentralTendency.html">measures of central tendency</a>
                 <h3>measures of dispersion</h3>
@@ -61,6 +64,14 @@
             <button><a href="index.html">Go to Home</a></button>
         </div>
         <h1>FERTILITY RATES:-</h1>
+        <div id="mm1">
+            <h1>Crude Birth Rate (CBR)</h1>
+            <p>
+                \[
+                \text{CBR} = \frac{\text{Number of live births in a year}}{\text{Total population}} \times 1,000
+                \]
+            </p>
+        </div>
         <div id="block1">
             <div id="inditurval">
                 <h3>Crude Birth Rate:-</h3>
@@ -76,11 +87,26 @@
                 </div>
             </div>    
             <br><br>
-            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
+            <div id="mm2">
+                <h1>Crude Birth Rate (CBR)</h1>
+                <p>
+                    \[
+                    \text{CBR} = \frac{\text{Number of live births in a year}}{\text{Total population}} \times 1,000
+                    \]
+                </p>
+            </div>
         </div>    
         <br>
         <br>
-        <div id="block1">
+        <div id="mm1">
+            <h1>General Fertility Rate (GFR)</h1>
+            <p>
+                \[
+                \text{GFR} = \frac{\text{Number of live births in a year}}{\text{Number of women aged 15-49}} \times 1,000
+                 \]
+            </p>
+        </div>   
+        <div id="block1">  
             <div id="inditurval">
                 <h3>General fertility Rate :-</h3>
                 <label for="input">Enter Data "Live Birth":<input type="text" id="Bt1" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
@@ -93,10 +119,25 @@
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean dis.png" alt=""  style="width:250px; height: 250px;" ></div>   
+           <div id="mm2">
+                <h1>General Fertility Rate (GFR)</h1>
+                <p>
+                    \[
+                    \text{GFR} = \frac{\text{Number of live births in a year}}{\text{Number of women aged 15-49}} \times 1,000
+                     \]
+                </p>
+            </div>   
         </div>
         <br>
         <br>
+        <div id="mm1">
+            <h1>Age-Specific Fertility Rate (ASFR)</h1>
+            <p>
+                \[
+                \text{ASFR} = \frac{\text{Number of live births to women in age group } x}{\text{Number of women in age group } x} \times 1,000
+                \]
+            </p>
+        </div>   
         <div id="block1">
             <div id="inditurval">
                 <h3> Age Specific Fertility Rate:-</h3>
@@ -110,10 +151,25 @@
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+            <div id="mm2">
+                <h1>Age-Specific Fertility Rate (ASFR)</h1>
+                <p>
+                    \[
+                    \text{ASFR} = \frac{\text{Number of live births to women in age group } x}{\text{Number of women in age group } x} \times 1,000
+                    \]
+                </p>
+            </div>   
         </div>
         <br>
         <br>
+        <div id="mm1">
+            <h1>Total Fertility Rate (TFR)</h1>
+            <p>
+                \[
+                \text{TFR} = \sum (\text{ASFR}_x \times \text{number of years in each age group})
+                \]
+            </p>
+        </div>   
         <div id="block1">
             <div id="inditurval">
                 <h3> Total  Fertility Rate:-</h3>
@@ -129,8 +185,24 @@
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+            <div id="mm2">
+                <h1>Total Fertility Rate (TFR)</h1>
+                <p>
+                    \[
+                    \text{TFR} = \sum (\text{ASFR}_x \times \text{number of years in each age group})
+                    \]
+                </p>
+            </div>   
         </div>
+        <br><br>
+        <div id="mm1">
+            <h1>Gross Reproduction Rate (GRR)</h1>
+            <p>
+                \[
+                \text{GRR} = \text{TFR} \times \frac{\text{number of female births}}{\text{total number of births}}
+                \]
+            </p>
+        </div>  
         <div id="block1">
             <div id="inditurval">
                 <h3> Gross Reproduction Rate:-</h3>
@@ -139,7 +211,7 @@
                 <label for="input">Enter Data "Female Population":<input type="text" id="tP" maxlength="6"  style="width: 40px;"></label>
                 <br>
                 <label for="input">Enter Data "TFR":<input type="text" id="TFR" maxlength="6"  style="width: 40px;"></label>
-
+                <br>
                 <button  id="cont_mean" type="button"  onclick="GRR()">GRR</button>
                 <h1>(or)</h1>
                 <br>
@@ -153,7 +225,23 @@
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+            <div id="mm2">
+                <h1>Gross Reproduction Rate (GRR)</h1>
+                <p>
+                    \[
+                    \text{GRR} = \text{TFR} \times \frac{\text{number of female births}}{\text{total number of births}}
+                    \]
+                </p>
+            </div>   
+        </div>
+        <br><br>
+        <div id="mm1">
+            <h1>Net Reproduction Rate (NRR)</h1>
+            <p>
+                \[
+                \text{NRR} = \sum (\text{ASFR}_x \times \text{L}_x)
+                \]
+            </p>
         </div>
         <div id="block1">
             <div id="inditurval">
@@ -168,7 +256,14 @@
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean cont.png"  style="width:250px; height: 250px;" ></div>   
+            <div id="mm2">
+                <h1>Net Reproduction Rate (NRR)</h1>
+                <p>
+                    \[
+                    \text{NRR} = \sum (\text{ASFR}_x \times \text{L}_x)
+                    \]
+                </p>
+            </div>   
         </div>
         
     </div>     
@@ -188,14 +283,6 @@
             width: 40%;
             position: relative;
             left: 10px;
-            top: 50px;
-        }
-        img{
-                position: relative;
-                top: 50px;
-                left: 50px;
-                border-radius: 9px;
-
         }
         button{
             position: relative;
@@ -212,6 +299,9 @@
                 overflow-x: auto; 
                 height:auto;
                 overflow-y: visible;
+            }
+            #mm1 {
+                width: 100%;
             }
             #result div, #result2 div, #result div{
                 width: auto;

@@ -8,17 +8,22 @@
     <style>
         #block1 {
             display: flex;
+            
+        }
+        #block {
+            display: flex;
             flex-direction: column;
+            width: 50%;
+            
         }
 
         #inditurval{
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
-            width: 25%;
+            width:auto;
             position: relative;
             left: 10px;
-            top: 50px;
         }
         #dataTable{
             position: relative;
@@ -43,7 +48,7 @@
         table {
             border-collapse:collapse;
         }
-
+       
         table, th, td {
             border: 1px solid black;
             padding: 5px;
@@ -87,50 +92,6 @@
         }
     </style>
     <style>
-        
-        #block1 {
-            display: flex;
-            width: auto;
-        }
-        /* .mainbox2 {
-            position: relative;
-            left: 25px;
-        } */
-        #block2 {
-            display: flex;
-        }
-        #inditurval {
-            padding: 50px;
-            background-color: #72a793;
-            border-radius: 8px;
-            width: 40%;
-            position: relative;
-            left: 10px;
-            top: 50px;
-        }
-        #basic {
-            font-size: medium;
-        }
-        
-        img {
-            position: relative;
-            top: 10%;
-            left: 10%;
-            border-radius: 9px;
-        }
-        button {
-            position: relative;
-            left: 80px;
-        }
-        .active-button {
-            background-color: #04AA6D !important;
-        }
-        #chart {
-            width: 100%;
-            height: auto; 
-            margin-top: 20px;
-        }
-        
         @media only screen and (max-width: 768px) {
             #block1 {
                 display: block;
@@ -140,9 +101,15 @@
                 height:auto;
                 overflow-y: visible;
             }
-            
+            #block {
+                width: auto;
+            }
+            #block button{
+                position: relative;
+                left: 25%;
+            }
             input {
-                background-color: white;
+                background-color: rgba(163, 47, 47, 0.171);
             }
             #inditurval {
                 width: 90%; 
@@ -169,6 +136,9 @@
     </style>
 </head>
 <body>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
     <div class="menu">
         <button id="menu-toggle" onclick="toggleNav()">
             <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
@@ -222,24 +192,70 @@
         <div id="gotohome">
             <button><a href="index.html">Go to Home</a></button>
         </div>
-        <h1>Chi-square Test Calculator</h1>
+        <br><br>        <h1>Chi-square Test Calculator</h1>
+        <div id="mm1">
+            <h1>Chi-Square Test of Independence</h1>
+            <p>
+                The Chi-Square test of independence tests if there is a significant association between two categorical variables.
+            </p>
+            <p>
+                \[
+                \chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+                \]
+            </p>
+            <p> where:</p>
+            <ul>
+                <li>- \( O_i \) is the observed frequency.</li>
+                <li>- \( E_i \) is the expected frequency.</li>
+            </ul>
+        </div>
         <div id="block1">
-            <div id="inditurval">
-                <label for="numRows">Number of Rows:</label>
-                <input type="number" id="numRows" min="2" value="2">
-                <label for="numCols">Number of Columns:</label>
-                <input type="number" id="numCols" min="2" value="2">
-                <br>
-                <button onclick="createTable()">Create Table</button>
+            <div id="block">
+                <div id="inditurval">
+                    <label for="numRows">Number of Rows:</label>
+                    <input type="number" id="numRows" min="2" value="2">
+                    <label for="numCols">Number of Columns:</label>
+                    <input type="number" id="numCols" min="2" value="2">
+                    <br>
+                    <button onclick="createTable()">Create Table</button>
+                    <br><br>
+                </div>
+                <div class="Table">
+                    <div id="dataTable"></div>
+                </div>
                 <br><br>
+                <button onclick="performChiSquareTest()">Chi-square Test</button>
+                <br><br><br><br>
+                <div id="chiSquareResult"></div>
             </div>
-            <div class="Table">
-                <div id="dataTable"></div>
+            <div id="mm2">
+                <h1>Chi-Square Test of Independence</h1>
+                <p>
+                    The Chi-Square test of independence tests if there is a significant association between two categorical variables.
+                </p>
+                
+                <p>
+                    The formula for the Chi-Square test statistic is:
+                </p>
+                <p>
+                    \[
+                    \chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}
+                    \]
+                </p>
+                <p>
+                    where:
+                    - \( O_i \) is the observed frequency.
+                    - \( E_i \) is the expected frequency.
+                </p>
+                <p>
+                    The degrees of freedom for the Chi-Square test of independence is:
+                </p>
+                <p>
+                    \[
+                    df = (r - 1)(c - 1)
+                    \]
+                </p>
             </div>
-            <br><br>
-            <button onclick="performChiSquareTest()">Chi-square Test</button>
-            <br><br><br><br>
-            <div id="chiSquareResult"></div>
         </div>
     </div>
 

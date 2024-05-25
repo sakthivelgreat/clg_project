@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
     <div class="menu">
         <button id="menu-toggle" onclick="toggleNav()">
             <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
@@ -61,6 +64,21 @@
             <button><a href="index.html">Go to Home</a></button>
         </div>
         <h1>CORRELATION :-</h1>
+        <div id="mm1">
+            <h1>Pearson correlation</h1>
+            <p>
+                The Pearson correlation coefficient measures how
+                 closely two sets of data points cluster around a 
+                 straight line: +1 indicates a perfect positive linear relationship, 
+                -1 a perfect negative one, and 0 no linear relationship. As denoted by
+            </p>
+            <p>
+                \[
+                r = \frac{n \sum xy - (\sum x)(\sum y)}{\sqrt{[n \sum x^2 - (\sum x)^2][n \sum y^2 - (\sum y)^2]}}
+                \]
+            </p>
+        </div>
+        <br><br>
         <div id="block1">
             <div id="inditurval">
                 <h3>CORRELATION COEFFICIENT <br> (karl pearsons correlation coefficient) :-</h3>
@@ -83,13 +101,31 @@
                     -1 a perfect negative one, and 0 no linear relationship. As denoted by
                 </p>
                 <p>
-                     [∑ (X<sub>i</sub> -<sub>-</sub>X)(Y<sub>i</sub> -<sub>-</sub>Y)] <br> r  =  ____________________________ <br>
-                    √ [∑ (X<sub>i</sub> -<sup>-</sup>X) <sup>2</sup> ]* [∑ (Y<sub>i</sub> -<sup>-</sup>Y) <sup>2</sup>]    
+                    \[
+                    r = \frac{n \sum xy - (\sum x)(\sum y)}{\sqrt{[n \sum x^2 - (\sum x)^2][n \sum y^2 - (\sum y)^2]}}
+                    \]
                 </p>
             </div>
         </div>    
         <br>
         <br>
+        <div id="mm1">
+            <h1>spearman rank correlation</h1>
+            <p>
+                The Spearman Rank Correlation Coefficient, often denoted as
+                ρ or r <sub>s</sub> is a non-parametric measure of the strength 
+                and direction of the association between two ranked variables. 
+            </p>
+            <p>
+                The formula for the Spearman Rank Correlation Coefficient is:
+            </p>
+            <p>
+                \[
+                \text{r}_s = 1- \frac{6 \sum d_i^2 }{n(n^2 -1)}
+                \]
+            </p>
+        </div>   
+        <br><br>
         <div id="block1">
             <div id="inditurval">
                 <h3>RANK CORRELATION COEFFICIENT (spearman rank correlation):-</h3>
@@ -104,7 +140,22 @@
                
             </div>
             <br><br>
-            <div><img src="clg_photes/median dis.png" alt=""  style="width:250px; height: 250px;" ></div>   
+            <div id="mm2">
+                <h1>spearman rank correlation</h1>
+                <p>
+                    The Spearman Rank Correlation Coefficient, often denoted as
+                    ρ or r <sub>s</sub> is a non-parametric measure of the strength 
+                    and direction of the association between two ranked variables. 
+                </p>
+                <p>
+                    The formula for the Spearman Rank Correlation Coefficient is:
+                </p>
+                <p>
+                    \[
+                    \text{r}_s = 1- \frac{6 \sum d_i^2 }{n(n^2 -1)}
+                    \]
+                </p>
+            </div>   
         </div>
         <br>
     

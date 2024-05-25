@@ -64,62 +64,86 @@
             <button><a href="index.html">Go to Home</a></button>
         </div>
         <h1>Stratified Random Sampling:</h1>
-        <div id="block1">
-            <div class="inditural">
-                <h2>Method: 0</h2>
-                <label for="Nh0">N<sub>h</sub>:-<input type="text" id="inputNh0" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <button onclick="addDataInput()">Add Data Input</button>
-                <div id="dataInputs"></div>
-            
-            <br>
-            <br>
-            <h2>Method: 1</h2>
-            <br>
-            <label for="inputNh1">N<sub>h</sub>:-<input type="text" id="inputNh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-            <br>
-            <label for="inputYbarh1">Y̅<sub>n</sub>:-<input type="text" id="inputYbarh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-            <br>
-            <label for="inputSh1">S<sub>h</sub>:-<input type="text" id="inputSh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-            <br>
-            <label for="inputn1">n :<input type="text" id="inputn1" maxlength="6" style="width: 40px;"></label>
-            <br>
-            <br>
-            <h2>Method: 2</h2>
-            <br>
-            <label for="inputNh2">N<sub>h</sub>:-<input type="text" id="inputNh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-            <br>
-            <label for="inputSh2">S<sub>h</sub>:-<input type="text" id="inputSh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-            <br>
-            <label for="inputCh">C<sub>h</sub>:-<input type="text" id="inputCh" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-            <br>
-            <label for="inputc01">C<sub>0</sub> :<input type="text" id="inputc01" maxlength="6" style="width: 40px;"></label>
-            <br>
-            <label for="inputc2">C :<input type="text" id="inputc2" maxlength="6" style="width: 40px;"></label>
-            <br>
-            </div>
-            <div class="inditural">
-                <input type="radio" id="set0" name="methodSet" checked>
-                <label for="set0">Nh,Y̅ni</label>
-                <input type="radio" id="set1" name="methodSet" checked>
-                <label for="set1">Nh, Y̅h, Sh</label>
-                <input type="radio" id="set2" name="methodSet">
-                <label for="set2">Nh, Sh, Ch</label>
-                <br>
-                <button id="mean" type="button" onclick="StrRansample()">Stratified Random Sampling</button>
-
-            </div>
+        <div id="mm1">
+            <h1>Stratified Random Sampling</h1>
+            <p>
+                Stratified random sampling is a sampling method 
+                that divides the population into distinct subgroups, 
+                or strata, that share similar characteristics. A 
+                random sample is then taken from each stratum. 
+            </p>
         </div>
-        <div id="result"></div>
+        <div id="block1">
+            <div id="inditural">
+                <div>
+                    <h2>Method: 0</h2>
+                    <label for="Nh0">N<sub>h</sub>:-<input type="text" id="inputNh0" placeholder='ex: "23,24,23,24,25,24,23"'></label> <br>
+                    <button onclick="addDataInput()">Add Data Input</button>
+                    <div id="dataInputs"></div>
+                    <br>
+                    <br>
+                    <h2>Method: 1</h2>
+                    <br>
+                    <label for="inputNh1">N<sub>h</sub>:-<input type="text" id="inputNh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                    <br>
+                    <label for="inputYbarh1">Y̅<sub>n</sub>:-<input type="text" id="inputYbarh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                    <br>
+                    <label for="inputSh1">S<sub>h</sub>:-<input type="text" id="inputSh1" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                    <br>
+                    <label for="inputn1">n :<input type="text" id="inputn1" maxlength="6" style="width: 40px;"></label>
+                    <br>
+                    <br>
+                    <h2>Method: 2</h2>
+                    <br>
+                    <label for="inputNh2">N<sub>h</sub>:-<input type="text" id="inputNh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                    <br>
+                    <label for="inputSh2">S<sub>h</sub>:-<input type="text" id="inputSh2" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                    <br>
+                    <label for="inputCh">C<sub>h</sub>:-<input type="text" id="inputCh" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
+                    <br>
+                    <label for="inputc01">C<sub>0</sub> :<input type="text" id="inputc01" maxlength="6" style="width: 40px;"></label>
+                    <br>
+                    <label for="inputc2">C :<input type="text" id="inputc2" maxlength="6" style="width: 40px;"></label>
+                    <br>
+                </div>
+                <div>
+                    <input type="radio" id="set0" name="methodSet" checked>
+                    <label for="set0">Nh,Y̅ni</label>
+                    <input type="radio" id="set1" name="methodSet" checked>
+                    <label for="set1">Nh, Y̅h, Sh</label>
+                    <input type="radio" id="set2" name="methodSet">
+                    <label for="set2">Nh, Sh, Ch</label>
+                    <br>
+                    <button id="mean" type="button" onclick="StrRansample()">Stratified Random Sampling</button>
+                    <div id="result"></div>
+                </div>
+            </div>
+            <div id="mm2">
+                <h1>Stratified Random Sampling</h1>
+                <p>
+                    Stratified random sampling is a sampling method 
+                    that divides the population into distinct subgroups, 
+                    or strata, that share similar characteristics. A 
+                    random sample is then taken from each stratum. This
+                    method ensures that all subgroups are represented
+                    in the sample, which can provide more precise and
+                    reliable results compared to simple random sampling, 
+                    especially when there are significant differences 
+                    between strata.
+                </p>
+            </div>
+            
+        </div>
+        
     </div>
     <style>
         #result{
-            position: relative;
-            top: 100px;
-            left: 30px;
+            text-align:left ;
+           
         }
         #block1{
             display: flex;
-            flex-direction: column;
+            /* flex-direction: column; */
         }
         #block2{
             display: flex;
@@ -128,12 +152,15 @@
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
-            width: 40%;
+            width: 50%;
             position: relative;
             left: 10px;
             top: 50px;
         }
-        .inditural{
+        #block1{
+            display: flex;
+        }
+        #inditural{
                     
             padding: 50px;
             background-color: #72a793;
@@ -144,13 +171,7 @@
             top: 50px;
 
         }
-        img{
-                position: relative;
-                top: 50px;
-                left: 50px;
-                border-radius: 9px;
-
-        }
+        
         button{
             position: relative;
             left: 80px;

@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
     <div class="menu">
         <button id="menu-toggle" onclick="toggleNav()">
             <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
@@ -61,36 +64,132 @@
             <button><a href="index.html">Go to Home</a></button>
         </div>
         <h1>Two-way ANOVA Calculator</h1>
-        <div id="block1">
-            <div id="inditurval">
-                <label for="numGroups">Number of Groups:</label>
-                <input type="number" id="numGroups" min="2" value="3">
-                <label for="groupSize">Group Size:</label>
-                <input type="number" id="groupSize" min="2" value="5">
-                <br>
-                <button onclick="createTable()">Create Table</button>
+        <div id="block">
+            <div id="block1">
+                <div id="inditurval">
+                    <label for="numGroups">Number of Groups:</label>
+                    <input type="number" id="numGroups" min="2" value="3">
+                    <label for="groupSize">Group Size:</label>
+                    <input type="number" id="groupSize" min="2" value="5">
+                    <br>
+                    <button onclick="createTable()">Create Table</button>
+                </div>
+                <div class="Table">
+                    <div id="dataTable"></div>
+                </div>
+                <button onclick="performANOVA()">Calculate two-way ANOVA</button>
+                <br><br><br>
+                <div id="anovaResult"></div>
             </div>
-            <div class="Table">
-                <div id="dataTable"></div>
+            <div id="mm2">
+                <h1>Two-Way ANOVA</h1>
+                <p>
+                    Two-Way ANOVA tests if there are significant differences between the means of groups split on two independent variables and if there is an interaction effect between the variables.
+                </p>
+                <p>
+                    The formulas for the sums of squares are:
+                </p>
+                <p>
+                    \[
+                    \text{SST} = \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{n} (X_{ijk} - \bar{X})^2
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{SSA} = \sum_{i=1}^{a} n b (\bar{X}_{i\cdot\cdot} - \bar{X})^2
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{SSB} = \sum_{j=1}^{b} n a (\bar{X}_{\cdot j \cdot} - \bar{X})^2
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{SSAB} = \sum_{i=1}^{a} \sum_{j=1}^{b} n (\bar{X}_{ij \cdot} - \bar{X}_{i \cdot \cdot} - \bar{X}_{\cdot j \cdot} + \bar{X})^2
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{SSE} = \sum_{i=1}^{a} \sum_{j=1}^{b} \sum_{k=1}^{n} (X_{ijk} - \bar{X}_{ij \cdot})^2
+                    \]
+                </p>
+                <p>
+                    The degrees of freedom are:
+                </p>
+                <p>
+                    \[
+                    \text{df}_A = a - 1
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{df}_B = b - 1
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{df}_{AB} = (a - 1)(b - 1)
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{df}_E = ab(n - 1)
+                    \]
+                </p>
+                <p>
+                    The mean squares and F-statistics are:
+                </p>
+                <p>
+                    \[
+                    \text{MSA} = \frac{\text{SSA}}{\text{df}_A}
+                    \]
+                    \[
+                    F_A = \frac{\text{MSA}}{\text{MSE}}
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{MSB} = \frac{\text{SSB}}{\text{df}_B}
+                    \]
+                    \[
+                    F_B = \frac{\text{MSB}}{\text{MSE}}
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{MSAB} = \frac{\text{SSAB}}{\text{df}_{AB}}
+                    \]
+                    \[
+                    F_{AB} = \frac{\text{MSAB}}{\text{MSE}}
+                    \]
+                </p>
+                <p>
+                    \[
+                    \text{MSE} = \frac{\text{SSE}}{\text{df}_E}
+                    \]
+                </p>
             </div>
-            <button onclick="performANOVA()">Calculate two-way ANOVA</button>
-            <br><br><br>
-            <div id="anovaResult"></div>
         </div>
     </div>
     <style>
+        #block {
+            display: flex;
+            width: 100%;
+        }
         
         #block1 {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            width: 50%;
+
         }
 
         #inditurval{
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
-            width: 40%;
+            width: 60%;
             position: relative;
             left: 10px;
             top: 50px;
@@ -161,50 +260,6 @@
         }
     </style>
     <style>
-        
-        #block1 {
-            display: flex;
-            width: auto;
-        }
-        /* .mainbox2 {
-            position: relative;
-            left: 25px;
-        } */
-        #block2 {
-            display: flex;
-        }
-        #inditurval {
-            padding: 50px;
-            background-color: #72a793;
-            border-radius: 8px;
-            width: 40%;
-            position: relative;
-            left: 10px;
-            top: 50px;
-        }
-        #basic {
-            font-size: medium;
-        }
-        
-        img {
-            position: relative;
-            top: 10%;
-            left: 10%;
-            border-radius: 9px;
-        }
-        button {
-            position: relative;
-            left: 80px;
-        }
-        .active-button {
-            background-color: #04AA6D !important;
-        }
-        #chart {
-            width: 100%;
-            height: auto; 
-            margin-top: 20px;
-        }
-        
         @media only screen and (max-width: 768px) {
             #block1 {
                 display: block;

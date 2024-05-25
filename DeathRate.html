@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
     <div class="menu">
         <button id="menu-toggle" onclick="toggleNav()">
             <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
@@ -61,6 +64,18 @@
             <button><a href="index.html">Go to Home</a></button>
         </div>
         <h1>MORTALITY RATES:-</h1>
+        <br>
+        <div id="mm1">
+            <h1>Crude Death Rate (CDR)</h1>
+            <p>
+                The number of deaths per 1,000 people in a population per year.
+            </p>
+            <p>
+                \[
+                \text{CDR} = \frac{\text{Number of deaths in a year}}{\text{Total population}}\times{1,000}
+                \]
+            </p>
+        </div>
         <div id="block1">
             <div id="inditurval">
                 <h3>Crude Death Rate:-</h3>
@@ -75,62 +90,37 @@
                 <div id="result">
     
                 </div>
-                <br>
-                <br>
-                <h4></h4>Crude Death Rate For  Males:</h4>
-                <label for="input">Males Deaths :<input type="text" id="mD" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <br>
-                <br>
-                <label for="input">Male Population :<input type="text" id="mP" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <button  id="mean" type="button"  onclick="CDRForMales()"> CBR For Male</button>
-                <div id="resultA">
-    
-                </div>
-                <br>
-                <br>
-                <br>
-                <h4>  Crude Death Rate For Females:</h4>
-                <label for="input">Female Deaths :<input type="text" id="fD" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <br>
-                <br>
-                <label for="input"> Female Population :<input type="text" id="fP" name="input" placeholder='ex: "23,24,23,24,25,24,23"'></label>
-                <br>
-                <button  id="mean" type="button"  onclick="CDRForFemale()"> CBR For Females</button>
-                <div id="resultB">
-    
-                </div>
             </div>    
             <br><br>
-            <div><img src="clg_photes/mean intiduval .png" alt=""  style="width:250px; height: 250px;" ></div>
-        </div>    
-        <br>
-        <br>
-        <div id="block1">
-            <div id="inditurval">
-                <h3>General fertility Rate :-</h3>
-                <label for="input">Enter Data "Live Birth":<input type="text" id="Bt1" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
-                <br>
-                <label for="input">Enter Data "Female Population":<input type="text" id="fPx" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
-                <br>
-                <button  id="dis_mean" type="button"  onclick="GFR()">GFR</button>
-                <div id="result2">
-    
-                </div>
+            <div id="mm2">
+                <h1>Crude Death Rate (CDR)</h1>
+                <p>
+                    The number of deaths per 1,000 people in a population per year.
+                </p>
+                <p>
+                    \[
+                    \text{CDR} = \frac{\text{Number of deaths in a year}}{\text{Total population}}\times{1,000}
+                    \]
+                </p>
             </div>
-            <br><br>
-            <div><img src="clg_photes/mean dis.png" alt=""  style="width:250px; height: 250px;" ></div>   
+        </div>    
+        <br><br>
+        <div id="mm1">
+            <h1>Age-Specific Mortality Rate (ASMR)</h1>
+            <p> The number of deaths per 1,000 people in a specific age group per year.</p>
+            <p>
+                \[
+                \text{ASMR} = \frac{\text{Number of deaths in age group x}}{\text{Number of people in age group x}} \times{1,000}
+                \]
+            </p>
         </div>
-        <br>
-        <br>
+        <br><br>
         <div id="block1">
             <div id="inditurval">
-                <h3> Age Specific Fertility Rate:-</h3>
-                <label for="input">Enter Data "Live Birth":<input type="text" id="nBx" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
+                <h3> Age-Specific Mortality Rate (ASMR):-</h3>
+                <label for="input">Enter Data "Number of deaths":<input type="text" id="nBx" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
                 <br>
-                <label for="input">Enter Data "Female Population":<input type="text" id="nfPx" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
+                <label for="input">Enter Data "Number of people":<input type="text" id="nfPx" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
                 <br>
                 <button  id="cont_mean" type="button"  onclick="ASFR()">ASFR</button>
                 <div id="result3">
@@ -138,28 +128,27 @@
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
-        </div>
-        <br>
-        <br>
-        <div id="block1">
-            <div id="inditurval">
-                <h3> Total  Fertility Rate:-</h3>
-                <label for="input">Enter Data "Live Birth":<input type="text" id="nBx1" name="input" placeholder='ex: "1,2,3,4,5,6"'></label>
-                <br>
-                <label for="input">Enter Data "Female Population":<input type="text" id="nfPx1" name="input" placeholder='ex: "23,34,25,23,36,52"'></label>
-                <br>
-                <label for="input">Enter Data "Age Interval Range":<input type="text" id="CIrange" maxlength="6"  style="width: 40px;"></label>
-                <br>
-                <button  id="cont_mean" type="button"  onclick="TFR()">TFR</button>
-                <div id="result4">
-    
-                </div>
+            <div id="mm2">
+                <h1>Age-Specific Mortality Rate (ASMR)</h1>
+                <p> The number of deaths per 1,000 people in a specific age group per year.</p>
+                <p>
+                    \[
+                    \text{ASMR} = \frac{\text{Number of deaths in age group x}}{\text{Number of people in age group x}} \times{1,000}
+                    \]
+                </p>
             </div>
-            <br><br>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
         </div>
-        <br>
+        <br><br>
+        <div id="mm1">
+            <h1>Death Rate of Area</h1>
+            <p>
+                \[
+                \text{CDR} = \frac{\sum(\text{m}_x^s*\text{p}_x^s)}
+                {\sum(\text{p}_x^s)}
+                \]
+            </p>
+        </div>
+        <br><br>
         <div id="block1">
             <div id="inditurval">
                 <h3>Death  Rate Of Area, Country , Zone:-</h3>
@@ -172,8 +161,26 @@
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+            <div id="mm2">
+                <h1>Death Rate of Area</h1>
+                <p>
+                    \[
+                    \text{CDR} = \frac{\sum(\text{m}_x^s*\text{p}_x^s)}
+                    {\sum(\text{p}_x^s)}
+                    \]
+                </p>
+            </div>
         </div>
+        <br><br>
+        <div id="mm1">
+            <h1>Standardised Death Rates</h1>
+            <p>
+                \[
+                \text{SDR} =\frac{\sum(\text{m}_x^a*\text{p}_x^s)}{\sum(\text{p}_x^s)}
+                \]
+            </p>
+        </div>  
+        <br><br>
         <div id="block1">
             <div id="inditurval">
                 <h3>Standardized Death  Rates Of Area, Country , Zone:-</h3>
@@ -181,13 +188,20 @@
                 <br>
                 <label for="input">Enter Data " Standard Population Size":<input type="text" id="tP" maxlength="6"  style="width: 40px;"></label>
                 <br>
-                <button  id="cont_mean" type="button"  onclick="SDRinArea()"></button>
+                <button  id="cont_mean" type="button"  onclick="SDRinArea()">tandardized Death  Rates</button>
                 <div id="result6">
     
                 </div>
             </div>
             <br><br>
-            <div><img src="clg_photes/mean cont.png" alt=""  style="width:250px; height: 250px;" ></div>   
+            <div id="mm2">
+                <h1>Standardised Death Rates</h1>
+                <p>
+                    \[
+                    \text{SDR} =\frac{\sum(\text{m}_x^a*\text{p}_x^s)}{\sum(\text{p}_x^s)}
+                    \]
+                </p>
+            </div>   
         </div>
         
     </div>     
@@ -207,7 +221,6 @@
             width: 40%;
             position: relative;
             left: 10px;
-            top: 50px;
         }
         img{
             position: relative;
@@ -302,7 +315,7 @@
             let mx = document.getElementById("nf").value.split(",").map(Number);
             let px = document.getElementById("tP").value.split(",").map(Number);
             let CDRA = sumOfMultiArray(mx,px)/sum(px)
-            document.getElementById("result5").innerHTML = "Standardised Death Rate of Area value :" +CDRA.toFixed(2)
+            document.getElementById("result6").innerHTML = "Standardised Death Rate of Area value :" +CDRA.toFixed(2)
         };
         
         function sumOf1Div2(array1,array2){

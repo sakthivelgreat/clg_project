@@ -64,6 +64,15 @@
             <button><a href="index.html">Go to Home</a></button>
         </div>
         <h1>Systematic Sampling</h1>
+        <div id="mm1">
+            <h1>Systamatic Random Sampling</h1>
+            <p>
+                Systematic sampling is a method of sampling where you select every 
+                k-th element from a population after choosing a starting point r
+                andomly within the first k elements. This method is simple to 
+                implement and ensures a spread of samples across the entire population.
+            </p>
+        </div>
         <div id="block1">
             <div id="inditurval">
                 <button onclick="addDataInput()" id="button1">Add Data Input</button>
@@ -72,15 +81,28 @@
                 <br>
                 <br>
                 <button onclick="calculateSystematicSampling()" id="button2"> Calculate Systematic Sampling</button>
+                <br>
+                <div id="results"></div>
             </div>
-            <div id="results"></div>
+            <div id="mm2">
+                <h1>Systamatic Random Sampling</h1>
+                <p>
+                    Systematic sampling is a method of sampling where you select every 
+                    k-th element from a population after choosing a starting point r
+                    andomly within the first k elements. This method is simple to 
+                    implement and ensures a spread of samples across the entire population.
+                </p>
+            </div>
         </div>
     </div>
     
     <style>
         #block1{
             display: flex;
-            flex-direction: column;
+            /* flex-direction: column; */
+            width: auto;
+            height: auto;
+
         }
         #block2{
             display: flex;
@@ -92,13 +114,10 @@
             width: 40%;
             position: relative;
             left: 10px;
-            top: 50px;
-
         }
         #results{
             color: white;
             position: relative;
-            top: 100px;
             left: 30px;
         }
         img{
@@ -114,6 +133,26 @@
         .active-button{
             background-color: #04AA6D !important;
         }      
+        @media only screen and (max-width: 768px) {
+            
+            results{
+                color: white;
+                position: relative;
+                left: 10px;
+            }
+            #inditurval{
+                padding: 50px;
+                background-color: #72a793;
+                border-radius: 8px;
+                width: 100%;
+                position: relative;
+                left: 10px;
+            }
+            button{
+                position: relative;
+                left: 30px;
+            }
+        }
     </style>  
     <script>
         function toggleNav() {

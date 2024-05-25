@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="clg.css">
 </head>
 <body>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
     <div class="menu">
         <button id="menu-toggle" onclick="toggleNav()">
             <img src="clg_photes/menubar.png" alt="Menu" width="50" height="50">
@@ -61,6 +64,20 @@
             <button><a href="index.html">Go to Home</a></button>
         </div>
         <h1>F-test Calculator</h1>
+        <div id="mm1">
+            <h1>F-Test </h1>
+            <p>
+                The F-test is a statistical test used to compare the variances
+                 of two populations to determine if they are significantly 
+                 different. It is often used in the context of ANOVA (Analysis 
+                 of Variance) and regression analysis.
+            </p>
+            <p>
+                \[
+                \text{F}   =\frac{\text{S}_1^2}{\text{S}_2^2}            
+                \]
+            </p>
+        </div>
         <div id="block1">
             <div id="inditural">
                 <label for="x_values">Enter values for sample x <br>(comma-separated):</label>
@@ -69,6 +86,27 @@
                 <input type="text" id="y_values" placeholder="e.g., 600,590,590,630,610,630">
                 <button onclick="performFTest()">Calculate F-test</button>
                 <div id="problem4_result"></div>
+            </div>
+            <div id="mm2">
+                <h1>F-Test </h1>
+                <p>
+                    The F-test is a statistical test used to compare the variances
+                     of two populations to determine if they are significantly 
+                     different. It is often used in the context of ANOVA (Analysis 
+                     of Variance) and regression analysis.
+                </p>
+                <p>
+                    The formula for the F-test statistic is:
+                </p>
+                <p>
+                    \[
+                    \text{F}   =\frac{\text{S}_1^2}{\text{S}_2^2}            
+                    \]
+                </p>
+                <ul>
+                    <li>S<sub>1</sub><sup>2</sup>is the variance of the first sample.</li>
+                    <li>S<sub>2</sub><sup>2</sup>​is the variance of the second sample.</li>
+                </ul>
             </div>
         </div>
     </div>
@@ -218,7 +256,7 @@
     <style>
         #block1 {
             display: flex;
-            flex-direction: column;
+            /* flex-direction: column; */
             /* gap: 20px; */
         }
         button {
@@ -234,10 +272,9 @@
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
-            width: 40%;
+            width: auto;
             position: relative;
             left: 10px;
-            top: 50px;
         }
 
         button:hover {
@@ -265,10 +302,7 @@
             display: flex;
             width: auto;
         }
-        /* .mainbox2 {
-            position: relative;
-            left: 25px;
-        } */
+       
         #block2 {
             display: flex;
         }
@@ -276,10 +310,9 @@
             padding: 50px;
             background-color: #72a793;
             border-radius: 8px;
-            width: 40%;
+            width: 500px;
             position: relative;
             left: 10px;
-            top: 50px;
         }
         #basic {
             font-size: medium;
