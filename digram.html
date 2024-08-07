@@ -80,13 +80,13 @@
             <div id="inditurval">
                 <h2>Problem 1: Single Pie Chart</h2>
                 <label for="problem1_values">Enter values (comma-separated):</label>
-                <input type="text" id="problem1_values" placeholder="93,47,22,36,54,22,36,50">
+                <input type="text" id="problem1_values" value="93,47,22,36,54,22,36,50" placeholder="93,47,22,36,54,22,36,50">
                 <br>
                 <label for="problem1_labels">Enter labels (comma-separated):</label>
-                <input type="text" id="problem1_labels" placeholder="Interest,Defense,Subsidies,Other non-plan expenditure,States share of taxes and duties,Non-plan assistance to state and UT Govts,State and UT plan assistance,Central plan">
+                <input type="text" id="problem1_labels" value="Interest, Defense, Subsidies, Other Non-Plan Expenditure, States' Share of Taxes and Duties, Non-Plan Assistance to States/UTs, Plan Assistance to States/UTs, Central Plan" placeholder="Interest, Defense, Subsidies, Other Non-Plan Expenditure, States' Share of Taxes and Duties, Non-Plan Assistance to States/UTs, Plan Assistance to States/UTs, Central Plan">
                 <br>
                 <label for="problem1_colors">Enter colors (comma-separated):</label>
-                <input type="text" id="problem1_colors" placeholder="green,red,black,pink,blue,yellow,gray,orange">
+                <input type="text" id="problem1_colors" value="green,red,black,pink,blue,yellow,gray,orange" placeholder="green,red,black,pink,blue,yellow,gray,orange">
                 <button onclick="generatePieChartProblem1()">Generate Pie Chart</button>
                 <br>
                 <div id="chart1_result"></div>
@@ -113,25 +113,25 @@
                 <h2>Problem 2: Multiple Pie Charts</h2>
                 <div id="chartA">
                     <label for="problem2A_values">Enter values for Family A (comma-separated):</label>
-                    <input type="text" id="problem2A_values" placeholder="240,160,80,200">
+                    <input type="text" id="problem2A_values"   value="240,160,80,200" placeholder="240,160,80,200">
                     <br>
                     <label for="problem2A_colors">Enter colors for Family A (comma-separated):</label>
-                    <input type="text" id="problem2A_colors" placeholder="violet,pink,skyblue,blue">
+                    <input type="text" id="problem2A_colors" value="violet,pink,skyblue,blue" placeholder="violet,pink,skyblue,blue">
                     <br>
                     <label for="problem2A_content">Enter content for Family A (comma-separated):</label>
-                    <input type="text" id="problem2A_content" placeholder="content1,content2,content3,content4">
+                    <input type="text" id="problem2A_content" value="content1,content2,content3,content4" placeholder="content1,content2,content3,content4">
                     <br>
                     <button onclick="addDataInput('chart2A', '240,160,80,200', 'violet,pink,skyblue,blue')">Add Input</button>
                 </div>
                 <div id="chartB">
                     <label for="problem2B_values">Enter values for Family B (comma-separated):</label>
-                    <input type="text" id="problem2B_values" placeholder="240,160,80,200">
+                    <input type="text" id="problem2B_values" value="240,160,80,200" placeholder="240,160,80,200">
                     <br>
                     <label for="problem2B_colors">Enter colors for Family B (comma-separated):</label>
-                    <input type="text" id="problem2B_colors" placeholder="violet,pink,skyblue,blue">
+                    <input type="text" id="problem2B_colors" value="violet,pink,skyblue,blue" placeholder="violet,pink,skyblue,blue">
                     <br>
                     <label for="problem2B_content">Enter content for Family B (comma-separated):</label>
-                    <input type="text" id="problem2B_content" placeholder="content1,content2,content3,content4">
+                    <input type="text" id="problem2B_content" value="content1,content2,content3,content4" placeholder="content1,content2,content3,content4">
                     <br>
                     <button onclick="addDataInput('chart2B', '240,160,80,200', 'violet,pink,skyblue,blue')">Add Input</button>
                 </div>
