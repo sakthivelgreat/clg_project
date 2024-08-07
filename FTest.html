@@ -84,6 +84,7 @@
                 <input type="text" id="x_values" placeholder="e.g., 16,17,25,26,32,34,38,40,42">
                 <label for="y_values">Enter values for sample y <br>(comma-separated):</label>
                 <input type="text" id="y_values" placeholder="e.g., 600,590,590,630,610,630">
+                </br>
                 <button onclick="performFTest()">Calculate F-test</button>
                 <div id="problem4_result"></div>
             </div>
@@ -260,12 +261,14 @@
             /* gap: 20px; */
         }
         button {
+            position: relative;
+            top: 10%;
             margin-top: 10px;
             padding: 5px 10px;
             background-color: #4CAF50;
             border: none;
             color: white;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
         }
         #inditural{
