@@ -38,6 +38,8 @@ body {
 }
 #block1 {
     display: flex;
+    position: relative;
+    left: 1%;
     /* width: auto;
     height: auto; */
 }
@@ -147,9 +149,21 @@ button a{
     padding: 0 30px;
     letter-spacing: 1px;
     border: none;
-    background-color:#3a8a8a;
+    /* background-color:#3a8a8a; */
+    background: linear-gradient(45deg, #d0759f, #f14536); /* Reversed gradient on hover */
     color: #102770;
     border: solid 2px white; 
+}
+#gotohome button:hover{
+    background: linear-gradient(45deg, #f14536,#d0759f ); /* Reversed gradient on hover */
+    transform: scale(1.05);
+
+
+}
+#gotohome button a:hover{
+    background: linear-gradient(45deg, #f14536,#d0759f ); /* Reversed gradient on hover */
+    transform: scale(1.05);
+
 }  
 .mainbox2 #gotohome button {
     width: auto;
