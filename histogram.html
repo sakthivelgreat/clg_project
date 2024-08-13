@@ -75,14 +75,14 @@
         <div id="block1">
             <div id="inditurval">
                 <label for="midx_values">Enter midpoints (comma-separated):</label><br>
-                <input type="text" id="midx_values" placeholder="5,15,25,35,45,55,65,75,85"><br>
+                <input type="text" id="midx_values" value="5,15,25,35,45,55,65,75,85" placeholder="5,15,25,35,45,55,65,75,85"><br>
                 <label for="f_values">Enter frequencies (comma-separated):</label><br>
-                <input type="text" id="f_values" placeholder="4,6,17,14,16,14,8,16,5"><br>
-                <label for="xname">x axis name : <br><input type="text" id="xname" placeholder='ex: sakthi'></label><br>
-                <label for="yname">y axis name : <br><input type="text" id="yname" placeholder='ex: sakthi'></label><br>
-                <label for="color">Enter Color:-<br><input type="text" id="color" name="red"></label><br>
-                <label for="border_color">Enter Border Color:-<br><input type="color" id="border_color" value="#000000"></label><br>
-                <label for="title">Title:-<br><input type="text" id="title" placeholder='"sakthi is bigestmen"'></label><br>
+                <input type="text" id="f_values" value="4,6,17,14,16,14,8,16,5" placeholder="4,6,17,14,16,14,8,16,5"><br>
+                <label for="xname">x axis name : <br><input type="text" id="xname" value="sakthi axies 1" placeholder='ex: sakthi axies 1'></label><br>
+                <label for="yname">y axis name : <br><input type="text" id="yname" value="sakthi axies 2" placeholder='ex: sakthi axies 2'></label><br>
+                <label for="color">Enter Color:-<br><input type="text" id="color" value="red" name="red"></label><br>
+                <label for="border_color">Enter Border Color:-<br><input type="color" id="border_color" value="black" placeholder="black"></label><br>
+                <label for="title">Title:-<br><input type="text" id="title" value="sakthi is growth" placeholder='"sakthi is growth"'></label><br>
                 <br><br>
                 <div class="button">
                     <button onclick="generateHistogram()">Generate Histogram</button>
@@ -263,7 +263,12 @@
         #basic {
             font-size: medium;
         }
-        
+        .button button{
+            display: flex;
+            width: 50%;
+            justify-content: center;
+            align-items: center;
+        }
         img {
             position: relative;
             top: 10%;
