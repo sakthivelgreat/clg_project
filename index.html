@@ -17,7 +17,9 @@
         }
 
         .login-container {
-            background-color: #fff;
+            outline: 2px solid #ff79c6;
+            background: radial-gradient(circle, #6d6e7b, #14151b);
+            color: #f8f8f2;
             padding: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
@@ -177,7 +179,7 @@
         const email = document.getElementById('email').value;
         const age = document.getElementById('age').value;
 
-        <!-- if (name && email && age) {
+        if (name && email && age) {
             try {
                 const accessToken = await getAccessToken();
                 if (!accessToken) {
@@ -199,7 +201,7 @@
             }
         } else {
             alert('Please fill out all fields.');
-        } -->
+        }
     });
 </script>
 
