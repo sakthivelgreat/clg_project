@@ -15,7 +15,6 @@
             align-items: center;
             height: 100vh;
         }
-
         .login-container {
             outline: 2px solid #ff79c6;
             background: radial-gradient(circle, #6d6e7b, #14151b);
@@ -27,7 +26,6 @@
             max-width: 400px;
             text-align: center;
         }
-
         h2 {
             margin-bottom: 20px;
             font-family: "Lora" ,serif;
@@ -35,7 +33,6 @@
             color: #43aef1;
             font-size: 24px;
         }
-
         input[type="text"], input[type="email"], input[type="number"] {
             width: 100%;
             padding: 12px;
@@ -45,7 +42,6 @@
             border-radius: 4px;
             box-sizing: border-box;
         }
-
         button {
             background-color: #4CAF50;
             color: white;
@@ -57,11 +53,9 @@
             margin-top: 10px;
             font-size: 16px;
         }
-
         button:hover {
             background-color: #45a049;
         }
-
         .form-footer {
             margin-top: 20px;
             color: #b5b1b1;
@@ -70,9 +64,6 @@
         a {
             color: #43aef1;
         }
-        
-       
-
         @media screen and (max-width: 600px) {
             .login-container {
                 width: 90%;
@@ -81,7 +72,6 @@
     </style>
 </head>
 <body>
-
     <div class="login-container">
         <h2>Login</h2>
         <form id="loginForm">
@@ -99,7 +89,6 @@
             <p>Already registered? <a href="Home.html">Login here</a>.</p>
         </div>
     </div>
-
     <script>
     // Function to get Salesforce Access Token
     async function getAccessToken() {
@@ -108,7 +97,6 @@
         const username = 'ksakthivel@merfantz6.com';
         const password = 'Sakthi2177';
         const tokenURL = 'https://login.salesforce.com/services/oauth2/token'; // Production login URL
-
         const params = new URLSearchParams({
             grant_type: 'api',
             client_id: consumerKey,
@@ -116,17 +104,14 @@
             username: username,
             password: password
         });
-
         try {
             const response = await fetch(tokenURL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: params
             });
-
             const data = await response.json();
             console.log('Access Token Response:', data); // Debug: Log the response
-
             if (data.access_token) {
                 return data.access_token; // Return the access token
             } else {
@@ -141,15 +126,13 @@
 
     // Function to create a record in Salesforce
     async function createSalesforceRecord(accessToken, name, email, age) {
-        const instanceUrl = 'https://merfantz6-dev-ed.develop.lightning.force.com'; // Your Salesforce instance URL
+        const instanceUrl = 'https://merfantz6-dev-ed.develop.lightning.force.com';
         const objectApiName = 'SakthiClgAppLogin__c';
-    
         const recordData = {
             Name: name,
             Email__c: email,
             Age__c: age
         };
-    
         try {
             const response = await fetch(`${instanceUrl}/services/data/v61.0/sobjects/${objectApiName}/`, {
                 method: 'POST',
@@ -159,10 +142,8 @@
                 },
                 body: JSON.stringify(recordData)
             });
-    
             const data = await response.json();
             console.log('Record Creation Response:', data); // Log response for debugging
-    
             if (response.ok) {
                 return true; // Record created successfully
             } else {
@@ -175,16 +156,12 @@
             return false;
         }
     }
-    
-
     // Handling form submission
     document.getElementById('loginForm').addEventListener('s', async function(event) {
         event.preventDefault();
-
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const age = document.getElementById('age').value;
-
         if (name && email && age) {
             try {
                 const accessToken = await getAccessToken();
@@ -192,9 +169,7 @@
                     alert('Failed to get access token.');
                     return;
                 }
-
                 const recordCreated = await createSalesforceRecord(accessToken, name, email, age);
-
                 if (recordCreated) {
                     alert('Record created successfully!');
                     window.location.href = "nextpage.html"; // Redirect to next page
@@ -210,6 +185,5 @@
         }
     });
 </script>
-
 </body>
 </html>
