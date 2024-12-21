@@ -1,21 +1,20 @@
 import { useState } from 'react';
-import './RegisterPage.css'; // Import the CSS file
+import '../RegisterPage.css'; // 
 import ClipLoader from "react-spinners/ClipLoader";
-import { RegisterApi } from './Sevices/Api';
-import { storeUserData } from './Sevices/Storage';
+import { RegisterApi } from '../Sevices/Api';
+import { storeUserData } from '../Sevices/Storage';
 import { Navigate } from "react-router-dom";
-import { isAuthenticated } from './Sevices/Auth';
+import { isAuthenticated } from '../Sevices/Auth';
 import { Link } from 'react-router-dom';
 
-function RegisterPage() {
+function LoginPage() {
   const initialStateErrors = {
     email: { required: false, invalid: false },
     password: { required: false, weak: false },
-    name: { required: false },
     custom_error: null,
   };
   const [errors, setErrors] = useState(initialStateErrors);
-  const [inputs, setInputs] = useState({ email: "", password: "", name: "" });
+  const [inputs, setInputs] = useState({ email: "", password: ""});
   const [loading, setLoading] = useState(false);
   
   const handleSubmit = (event) => {
@@ -25,10 +24,6 @@ function RegisterPage() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (inputs.name === "") {
-      updatedErrors.name.required = true;
-      hasError = true;
-    }
     if (inputs.email === "" || !emailRegex.test(inputs.email)) {
       updatedErrors.email.required = true;
       updatedErrors.email.invalid = true;
@@ -52,6 +47,8 @@ function RegisterPage() {
       }).catch((err)=>{
         if(err.response.data.error.message=="EMAIL_EXISTS"){
           setErrors({...errors,custom_error:"Already email register so login please!"})
+
+          
         }else{
           setErrors({...errors,custom_error:"Registration successful!"})
         }
@@ -72,15 +69,9 @@ function RegisterPage() {
   return (
     <div className="container">
       <div className="login-container">
-        <h2 className="heading">Register</h2>
+        <h2 className="heading">Login</h2>
         <form onSubmit={handleSubmit}>
   
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name='name'  onChange={handleInput}  placeholder="Enter your name" />
-          {errors.name?.required && (
-            <span className="text-danger">Name is required.</span>
-          )}
-          <br />
           <label htmlFor="email">Email:</label>
           <input type="email" id="email" name='email' onChange={handleInput}  placeholder="Enter your email" />
           {errors.email?.required && (
@@ -115,7 +106,7 @@ function RegisterPage() {
         </form>
         <div className="form-footer">
           <p>
-            Already registered? <Link to="/login">Login</Link>
+            Already registered? <Link to="/">Login</Link>
           </p>
         </div>
       </div>
@@ -123,4 +114,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default LoginPage;
