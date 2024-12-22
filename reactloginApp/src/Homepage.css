@@ -6,9 +6,7 @@ body
   text-shadow: 10px 10px 10px;
   color: rgb(103, 103, 249);
 }
-p {
-  font-size: large;
-}
+
 #APJ {
   color: rgb(18, 151, 204);
 }
@@ -35,9 +33,7 @@ h2:hover{
   text-shadow: 6px 6px 6px;
   color: blue;
 }
-p {
-  line-height: 20px;
-}
+
 
 .body{
   height: 1000px;
@@ -66,6 +62,7 @@ p {
   
   .name-container {
     margin-left: 10px;
+    height: 35px;
   }
   .profile-topnav .name {
     margin-right: auto; /* Pushes the name to the left */
@@ -89,6 +86,9 @@ p {
     margin-left: 1rem;
     color: rgb(173, 173, 173);
   }
+  .profile-topnav {
+    margin: 0;
+  }
   .profile-topnav ul {
     list-style-type: none;
     margin: 0;
@@ -102,7 +102,7 @@ p {
   .profile-topnav ul li a {
     text-decoration: none;
     color: #e2c9c9; /* White text */
-    font-size: 18px; /* Smaller font size for links */
+    font-size: 12px; /* Smaller font size for links */
     font-style: italic;
     font-weight: 700;
     font-family: Arial, sans-serif;
@@ -143,23 +143,18 @@ p {
   }
   .profile-img {
     border-radius: 50%;
-    border: solid 4px skyblue;
-    width: 200px; /* Adjusted size for profile images */
-    height: 200px; /* Adjusted size for profile images */
-    margin-bottom: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
+    border: solid 2px skyblue;
+    width: 130px;
+    height: 130px; 
   }
   .medium-profile-img {
     border-radius: 50%;
-    width: 150px; /* Adjusted size for medium profile images */
-    height: 150px; /* Adjusted size for medium profile images */
-    margin-bottom: 10px;
+    width: 100px; /* Adjusted size for medium profile images */
+    height: 100px; /* Adjusted size for medium profile images */
+    
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for depth */
   }
-  .profile-info {
-    font-size: 18px;
-    line-height: 0.5;
-  }
+  
   span h2 {
     color: skyblue;
   }
@@ -170,9 +165,9 @@ p {
   }
   .bio-data-container {
     height: auto;
-    margin: 20px;
+    margin: 10px;
     padding: 20px;
-    border: 2px solid #43a8a8; /* Dark text */
+    border: 1.5px solid #43a8a8; /* Dark text */
     border-radius: 10px;
     background-color: #2c3038; /* Light background */
     color: #43a8a8; /* Dark text */

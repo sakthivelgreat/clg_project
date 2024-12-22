@@ -4,8 +4,8 @@ const StatsCheckpoint = () => {
     return (
         <div style={{backgroundColor:'#2C3038'}}>
             <div className="profile-topnav">
-                <div className="name-container">
-                    <h3 className="name">DEPARTMENT OF STATISTICS</h3>
+                <div style={{  display:'flex',justifyContent:'center',alignItems:'center'}} className="name-container">
+                    <h3 style={{fontSize:'15px'}} className="name">DEPARTMENT OF STATISTICS</h3>
                 </div>
                 <ul id="menu">
                     <li><a href="Home.html">Home</a></li>
@@ -14,30 +14,31 @@ const StatsCheckpoint = () => {
                     <li><a href="myclgInformation.html">My Stat dept.</a></li>
                     <li><a href="rolesandRegulation1.html">Roles and Regulations</a></li>
                 </ul>
-            </div>
+                <div>
 
+                </div>
+            </div>
             <div className="bio-data-container">
                 <div className="profile2">
-                    <span><h1 id="dd">Government Arts college salem-7</h1></span>
-                    <h1 id="head">"Stats Checkpoint : Verify Your Answer"</h1>
-                    <br /><br />
-                    <div className="profile-container1">
-                        <img src="clg_photes/Data-Science-in-Stock-Trading.jpeg" id="main22" alt="College" />
-                        <div className="sakthi">
-                            <div className="profile-info">
-                                <img
-                                    src="clg_photes/sakthi.jpeg"
-                                    alt="Your Photo"
-                                    className="profile-img"
-                                />
-                                <br />
-                                <span>
-                                    Created <br /><br />
-                                    by <br /><br />
-                                    <h2>K.sakthivel</h2>
-                                    <p>Occupation: Front-End Developer</p>
-                                    <p>Description: Government Arts college salem-7 master's degree <span>Student</span></p>
-                                </span>
+                    <div style={{display:'flex'}}>
+                        <div style={{position:'relative',bottom:'10px'}}>
+                            <h1  style={{fontSize:'25px', color:'#f4e9e9',margin:'0',width:'700px'}}>Government Arts college salem-7</h1>
+                            <h1 style={{fontSize:'30px',width:'700px',margin:'0'}}>"Stats Checkpoint : Verify Your Answer"</h1>
+                        </div>
+                        <div className="profile-container1">
+                            <div className="sakthi">
+                                <div  style={{ display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}} className="profile-info">
+                                    <img src="clg_photes/sakthi.jpeg" alt="Your Photo" className="profile-img"
+                                    />
+                                    <span>
+                                        <p style={{display:'flex',flexDirection:'column',lineHeight:'15px'}}>
+                                            <span style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',fontSize:'12px'}}> <span>Created</span><span> by </span></span>
+                                            <span style={{fontSize:'20px',fontWeight:'600',color:'#87BAB7'}}>K.sakthivel</span>
+                                            <span><span style={{fontSize:'15px',fontWeight:'600'}}>Occupation:</span> <span style={{fontSize:'14px'}}>Front-End Developer</span></span> 
+                                            <span><span style={{fontSize:'15px',fontWeight:'600'}}>Description:</span><span style={{fontSize:'14px'}}>Government Arts college salem-7 master's degree <span>Student</span></span></span>
+                                        </p>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -51,11 +52,14 @@ const StatsCheckpoint = () => {
                                     className="medium-profile-img"
                                 />
                                 <br />
-                                <div className="profile-info">
-                                    <span><h2 className="name">P.Kayalvizhi</h2></span>
-                                    <p>Occupation: Code Performance Analyzer</p>
-                                    <p>Description: Government Arts college salem-7 master's degree <span>Student</span></p>
-                                </div>
+                                <span>
+                                        <p style={{display:'flex',flexDirection:'column',lineHeight:'15px'}}>
+                                            <span style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',fontSize:'12px'}}> <span>Created</span><span> by </span></span>
+                                            <span style={{fontSize:'20px',fontWeight:'600',color:'#87BAB7'}}>K.sakthivel</span>
+                                            <span><span style={{fontSize:'15px',fontWeight:'600'}}>Occupation:</span> <span style={{fontSize:'14px'}}>Front-End Developer</span></span> 
+                                            <span><span style={{fontSize:'15px',fontWeight:'600'}}>Description:</span><span style={{fontSize:'14px'}}>Government Arts college salem-7 master's degree <span>Student</span></span></span>
+                                        </p>
+                                    </span>
                             </div>
                             <br />
                             <div className="profile-container">
@@ -64,19 +68,21 @@ const StatsCheckpoint = () => {
                                     alt="Student's Photo"
                                     className="medium-profile-img"
                                 />
-                                <div className="profile-info">
-                                    <span><h2>V.Sowmiya</h2></span>
-                                    <p>Occupation: Material Content Creator</p>
-                                    <p>Description: Government Arts college salem-7 master's degree <span>Student</span></p>
-                                </div>
+                                <span>
+                                        <p style={{display:'flex',flexDirection:'column',lineHeight:'15px'}}>
+                                            <span style={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',fontSize:'12px'}}> <span>Created</span><span> by </span></span>
+                                            <span style={{fontSize:'20px',fontWeight:'600',color:'#87BAB7'}}>K.sakthivel</span>
+                                            <span><span style={{fontSize:'15px',fontWeight:'600'}}>Occupation:</span> <span style={{fontSize:'14px'}}>Front-End Developer</span></span> 
+                                            <span><span style={{fontSize:'15px',fontWeight:'600'}}>Description:</span><span style={{fontSize:'14px'}}>Government Arts college salem-7 master's degree <span>Student</span></span></span>
+                                        </p>
+                                    </span>
                             </div>
-                            <br />
-                            <h1 id="APJ">
+                            <span style={{ }} >
                                 "The <span>best brains of<br />the nation</span> may be <br />
                                 found on the last benches <br />
                                 of the classroom " <br />
                                 -- <span>A.P.J. Abdul Kalam</span>
-                            </h1>
+                            </span>
                         </div>
                     </div>
                 </div>
